@@ -3,30 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-  <title>Metro Atelier · MP4 预览</title>
-  <style>
-    :root{font-family:system-ui,"PingFang SC",sans-serif;letter-spacing:0;color:#edf1ef;background:#19221f}
-    *{box-sizing:border-box}
-    body{margin:0;min-height:100svh;display:grid;grid-template-rows:auto 1fr}
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;border-bottom:1px solid #405347;flex-wrap:wrap}
-    h1{font-size:16px;font-weight:500;margin:0}
-    nav{display:flex;gap:20px}
-    a{color:#c1d6c7;font-size:13px;text-decoration:none}
-    a:hover{text-decoration:underline}
-    a:focus-visible{outline:2px solid #aed6b9;outline-offset:4px}
-    main{min-width:0;display:flex;align-items:center;justify-content:center}
-    video{display:block;width:100%;max-height:calc(100svh - 90px);aspect-ratio:16/9;background:#000}
-    @media(max-width:600px){header{padding:14px 16px}h1{font-size:14px}nav{gap:16px}}
-  </style>
+  <title>Metro Atelier · 影片</title>
+  <script>
+    const target=new URL('./metro/watch.html',location.href);
+    target.search=location.search;target.hash=location.hash;
+    location.replace(target.href);
+  </script>
+  <noscript><meta http-equiv="refresh" content="0;url=./metro/watch.html"></noscript>
 </head>
-<body>
-  <header>
-    <h1>METRO ATELIER / M01</h1>
-    <nav aria-label="展示模式"><a href="./film.html">分镜预览</a><a href="./">3D 展示</a></nav>
-  </header>
-  <main>
-    <video controls playsinline preload="metadata" poster="./deliverables/station-platform.png" src="./deliverables/metro-storyboard-preview.mp4" aria-label="80 秒地铁视频预览"></video>
-  </main>
-</body>
+<body><a href="./metro/watch.html">地铁影片</a></body>
 </html>

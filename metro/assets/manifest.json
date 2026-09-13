@@ -1,0 +1,21 @@
+{
+  "name": "Metro Atelier / M01",
+  "concept": true,
+  "blender": "5.2.1 LTS",
+  "dimensions_m": {
+    "length": 19.35,
+    "width": 3.1,
+    "height": 3.9
+  },
+  "seats": 24,
+  "doors": 6,
+  "objects": 1127,
+  "coordinates": "Blender: X length, Y width, Z up. glTF: X length, Y up, Z = -Blender Y.",
+  "features": [
+    "full interior",
+    "driver controls",
+    "sliding door groups",
+    "roof collection",
+    "240-frame orbit"
+  ]
+}
