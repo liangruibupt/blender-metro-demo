@@ -4,11 +4,12 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
-import { createIcons, Camera, Maximize, Download, Rotate3d, DoorOpen, Layers2, Focus, TrainFront, Armchair, Gauge, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Plus, X, MapPin } from 'lucide';
+import { createIcons, Camera, Maximize, Download, Rotate3d, DoorOpen, Layers2, Focus, TrainFront, Armchair, Gauge, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Plus, X, MapPin, ArrowDownToLine } from 'lucide';
 import { resolveMove, inDoorway, visitorArea } from './navigation.js';
+import { ORBIT_LIMITS, inspectionView, inspectionLayers } from './inspection.js';
 
 const $ = (selector) => document.querySelector(selector);
-const icons = { Camera, Maximize, Download, Rotate3d, DoorOpen, Layers2, Focus, TrainFront, Armchair, Gauge, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Plus, X, MapPin };
+const icons = { Camera, Maximize, Download, Rotate3d, DoorOpen, Layers2, Focus, TrainFront, Armchair, Gauge, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Plus, X, MapPin, ArrowDownToLine };
 const refreshIcons = () => createIcons({ icons, attrs: { 'stroke-width': 1.6 } });
 refreshIcons();
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -54,6 +55,10 @@ scene.add(sun);
 const fill = new THREE.DirectionalLight(0xd9eeff, 1.7);
 fill.position.set(-7, 8, -12);
 scene.add(fill);
+const undersideLight = new THREE.DirectionalLight(0xe7f2f0,2.6);
+undersideLight.position.set(-8,-18,10);
+undersideLight.visible = false;
+scene.add(undersideLight);
 const ground = new THREE.Mesh(new THREE.PlaneGeometry(350, 350), new THREE.MeshStandardMaterial({ color: 0xe7ebe7, roughness: .95 }));
 ground.rotation.x = -Math.PI/2;
 ground.position.y = -.32;
@@ -69,7 +74,7 @@ grid.visible = false;
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = .065;
-controls.maxPolarAngle = Math.PI/2 - .025;
+Object.assign(controls,ORBIT_LIMITS);
 controls.minDistance = 3;
 controls.maxDistance = 100;
 controls.autoRotateSpeed = .35;
@@ -87,6 +92,9 @@ let pitch = -.03;
 let dragging = null;
 let pointerWalk = null;
 let activeDetail = null;
+let overviewScope = 'station';
+let bottomView = false;
+let lastLayerKey = '';
 const keys = new Set();
 const doors = [];
 const roof = new THREE.Group();
@@ -98,6 +106,15 @@ scene.add(station);
 const stationCover = new THREE.Group();
 stationCover.name = 'Station vault and near facade';
 scene.add(stationCover);
+const trainRoot = new THREE.Group();
+trainRoot.name = 'Train body';
+scene.add(trainRoot);
+const trainTrack = new THREE.Group();
+trainTrack.name = 'Train presentation track';
+scene.add(trainTrack);
+const stationFoundation = new THREE.Group();
+stationFoundation.name = 'Station presentation foundation';
+scene.add(stationFoundation);
 
 const viewpoints = {
   exterior: { number: '01 / 04', name: '站台全景', en: 'STATION OVERVIEW', position: [31, 29, 39], target: [0, 1.65, 4.8] },
@@ -153,6 +170,8 @@ function optimizeModel(root, defaultOutput = scene) {
     let parent = object.parent;
     let output = object.userData.zone === '04_Roof' ? roof : defaultOutput;
     if (object.userData.zone === '10_Station_Cover') output = stationCover;
+    if (object.userData.zone === '07_Track') output = trainTrack;
+    if (object.name === 'Station_foundation') output = stationFoundation;
     while (parent) {
       if (parent.userData.outputGroup) { output = parent.userData.outputGroup; break; }
       parent = parent.parent;
@@ -196,7 +215,7 @@ function optimizeModel(root, defaultOutput = scene) {
 
 const loader = new GLTFLoader();
 Promise.all([loader.loadAsync('./assets/metro.glb'),loader.loadAsync('./assets/station.glb')]).then(([train,environment]) => {
-  optimizeModel(train.scene);
+  optimizeModel(train.scene,trainRoot);
   optimizeModel(environment.scene,station);
   // Fill the interior independently of the exterior sun. Lights are intentionally
   // shadow-free so the first-person views remain responsive on mobile hardware.
@@ -222,13 +241,31 @@ Promise.all([loader.loadAsync('./assets/metro.glb'),loader.loadAsync('./assets/s
   showError('请确认本地服务正常运行，并且列车与站台模型均已生成。');
 });
 
-function exteriorPosition() {
-  if (window.innerWidth >= 600) return [31, 29, 39];
-  const aspect = $('#app').clientWidth / $('#app').clientHeight;
-  const halfFov = Math.atan(Math.tan(THREE.MathUtils.degToRad(23)) * aspect);
-  const distance = Math.max(60, 22 / Math.sin(halfFov));
-  controls.maxDistance = Math.max(100, distance * 1.4);
-  return new THREE.Vector3(31, 29, 34).normalize().multiplyScalar(distance).add(new THREE.Vector3(0,1.65,4.8)).toArray();
+function exteriorPreset(bottom = false) {
+  const view = inspectionView(overviewScope,bottom,$('#app').clientWidth,$('#app').clientHeight);
+  controls.maxDistance = view.maxDistance;
+  return view;
+}
+function updateInspectionLayers() {
+  const layers = inspectionLayers(mode,overviewScope,camera.position.y);
+  ground.visible = layers.ground;
+  station.visible = layers.station;
+  stationCover.visible = layers.stationCover;
+  stationFoundation.visible = layers.foundation;
+  trainTrack.visible = layers.trainTrack;
+  undersideLight.visible = layers.undersideLight;
+  bottomView = layers.below;
+  const key = `${mode}:${overviewScope}:${bottomView}`;
+  if (key !== lastLayerKey) {
+    lastLayerKey = key;
+    if (mode === 'exterior') {
+      const train = overviewScope === 'train';
+      $('#view-name').textContent = bottomView ? (train?'列车底盘':'站台底部') : (train?'列车全景':'站台全景');
+      $('#view-en').textContent = bottomView ? (train?'TRAIN UNDERCARRIAGE':'STATION UNDERSIDE') : (train?'TRAIN OVERVIEW':'STATION OVERVIEW');
+    }
+    syncButtons();
+    updateHotspotVisibility();
+  }
 }
 function moveCamera(position, target, animated = true) {
   const endPosition = new THREE.Vector3(...position);
@@ -261,17 +298,29 @@ function updateViewUI(next) {
   $('#walk-controls').hidden = next === 'exterior';
   $('#orbit').disabled = next !== 'exterior';
   $('#cutaway').disabled = next !== 'exterior';
+  $('#bottom-view').disabled = next !== 'exterior';
+  $('#inspection-scope').hidden = next !== 'exterior';
   camera.fov = next === 'exterior' ? (innerWidth < 600 ? 46 : 38) : (innerWidth < 600 ? 82 : 76);
   camera.updateProjectionMatrix();
   roof.visible = next !== 'exterior' || !cutaway;
-  stationCover.visible = next !== 'exterior';
   sun.intensity = next === 'exterior' ? 3.3 : 1.8;
+  const inspectingTrain = next === 'exterior' && overviewScope === 'train';
+  $('#scene-name').textContent = inspectingTrain ? 'M01' : 'CENTRAL';
+  $('#scene-subtitle').textContent = inspectingTrain ? '城市轨道概念列车' : '中央站 · M01 地铁展示';
+  const specs = inspectingTrain ? [['19.4','m','列车长度'],['24','席','含折叠座椅'],['06','组','侧门']] : [['36','m','站台长度'],['02','侧','轨道'],['01','号','Harbor Line']];
+  specs.forEach(([value,unit,label],index) => {
+    $(`#spec-value-${index}`).textContent=value;
+    $(`#spec-unit-${index}`).textContent=unit;
+    $(`#spec-label-${index}`).textContent=label;
+  });
+  document.querySelectorAll('[data-scope]').forEach(button=>button.setAttribute('aria-pressed',button.dataset.scope===overviewScope));
   document.querySelectorAll('[data-view]').forEach((button) => {
     const selected = button.dataset.view === next;
     button.classList.toggle('selected', selected);
     button.setAttribute('aria-pressed', selected);
   });
   updateHotspotVisibility();
+  lastLayerKey = '';
 }
 function setView(next, animated = true) {
   if (!ready) return;
@@ -283,7 +332,8 @@ function setView(next, animated = true) {
   controls.enableDamping = false;
   controls.update();
   controls.enableDamping = true;
-  moveCamera(next === 'exterior' ? exteriorPosition() : view.position, view.target, animated);
+  const preset = next === 'exterior' ? exteriorPreset() : view;
+  moveCamera(preset.position, preset.target, animated);
   updateHotspotVisibility();
 }
 function closeDetail() {
@@ -328,18 +378,37 @@ function buildHotspots() {
 }
 function updateHotspotVisibility() {
   for (const detail of details) {
-    if (detail.element) detail.element.hidden = !detail.modes.includes(mode);
+    if (detail.element) detail.element.hidden = !detailIsVisible(detail);
   }
 }
+function detailIsVisible(detail) {
+  if (!detail.modes.includes(mode)) return false;
+  if (mode !== 'exterior') return true;
+  if (bottomView) return overviewScope === 'train' && detail.id === 'bogie';
+  return overviewScope === 'station' || !['boarding','platform'].includes(detail.id);
+}
 function syncButtons() {
-  for (const [id,state] of [['orbit',autoRotate],['doors',doorOpen],['cutaway',cutaway]]) {
+  for (const [id,state] of [['orbit',autoRotate],['doors',doorOpen],['cutaway',cutaway],['bottom-view',bottomView]]) {
     $(`#${id}`).classList.toggle('active',state);
     $(`#${id}`).setAttribute('aria-pressed',state);
   }
 }
 syncButtons();
 document.querySelectorAll('[data-view]').forEach((button) => button.addEventListener('click', () => setView(button.dataset.view)));
+document.querySelectorAll('[data-scope]').forEach(button=>button.addEventListener('click',()=>{
+  if (!ready) return;
+  overviewScope=button.dataset.scope;
+  setView('exterior');
+}));
 $('#orbit').onclick = () => { autoRotate = !autoRotate; syncButtons(); };
+$('#bottom-view').onclick = () => {
+  if (!ready || mode !== 'exterior') return;
+  closeDetail();
+  autoRotate=false;
+  const preset=exteriorPreset(!bottomView);
+  moveCamera(preset.position,preset.target);
+  syncButtons();
+};
 $('#doors').onclick = () => {
   if (!ready) return;
   if (doorOpen && mode !== 'exterior' && inDoorway(camera.position)) {
@@ -363,7 +432,7 @@ $('#capture').onclick = () => {
   renderer.render(scene,camera);
   const link = document.createElement('a');
   link.href = renderer.domElement.toDataURL('image/png');
-  link.download = `M01-${mode}.png`;
+  link.download = mode==='exterior' ? `${overviewScope}-${bottomView?'bottom':'overview'}.png` : `M01-${mode}.png`;
   link.click();
   toast('当前视角已保存');
 };
@@ -436,11 +505,16 @@ function resize() {
   renderer.setSize(width,height);
   camera.aspect=width/height;
   camera.updateProjectionMatrix();
-  if (ready && mode==='exterior' && !activeDetail) setView('exterior',false);
+  if (ready && mode==='exterior' && !activeDetail) {
+    camera.fov=innerWidth<600?46:38;
+    camera.updateProjectionMatrix();
+    const preset=exteriorPreset(bottomView);
+    moveCamera(preset.position,preset.target,false);
+  }
 }
 window.addEventListener('resize',resize);
 resize();
-camera.position.set(...exteriorPosition());
+camera.position.set(...exteriorPreset().position);
 camera.lookAt(0,1.5,0);
 
 const projected=new THREE.Vector3();
@@ -471,9 +545,10 @@ function animate(now) {
     door.position.x=door.userData.slide*amount;
     door.position.z=-door.userData.side*.075*Math.min(amount*5,1);
   }
+  updateInspectionLayers();
   renderer.render(scene,camera);
   for (const detail of details) {
-    if (!detail.element || !detail.modes.includes(mode)) continue;
+    if (!detail.element || !detailIsVisible(detail)) continue;
     projected.set(...detail.anchor).project(camera);
     const x=(projected.x*.5+.5)*renderer.domElement.clientWidth;
     const y=(-projected.y*.5+.5)*renderer.domElement.clientHeight;
@@ -486,4 +561,4 @@ function animate(now) {
 }
 requestAnimationFrame(animate);
 // Read-only diagnostics support repeatable browser QA without driving UI internals.
-window.metroDiagnostics=() => ({ ready,mode,autoRotate,doorOpen,doorAmount,cutaway,roofVisible:roof.visible,stationCoverVisible:stationCover.visible,stationBatches:station.children.length,doors:doors.length,movingDoors:doors.filter(d=>d.userData.side===-1).length,frames,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:camera.position.toArray(),width:renderer.domElement.width,height:renderer.domElement.height,transitioning:!!transition });
+window.metroDiagnostics=() => ({ ready,mode,overviewScope,bottomView,autoRotate,doorOpen,doorAmount,cutaway,roofVisible:roof.visible,stationVisible:station.visible,stationCoverVisible:stationCover.visible,groundVisible:ground.visible,foundationVisible:stationFoundation.visible,trainTrackVisible:trainTrack.visible,stationBatches:station.children.length,trainBatches:trainRoot.children.length,doors:doors.length,movingDoors:doors.filter(d=>d.userData.side===-1).length,frames,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:camera.position.toArray(),polarAngle:controls.getPolarAngle(),maxPolarAngle:controls.maxPolarAngle,width:renderer.domElement.width,height:renderer.domElement.height,transitioning:!!transition });

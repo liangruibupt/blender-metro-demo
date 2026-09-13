@@ -22,12 +22,17 @@
       </header>
       <section class="identity" aria-label="列车信息">
         <div class="eyebrow">HARBOR LINE <span>/</span> STATION 01</div>
-        <h1>CENTRAL<span class="title-dot">.</span></h1>
-        <p>中央站 · M01 地铁展示</p>
-        <div class="spec-strip"><span><b>36</b> m<span>站台长度</span></span><span><b>02</b> 侧<span>轨道</span></span><span><b>01</b> 号<span>Harbor Line</span></span></div>
+        <h1><span id="scene-name">CENTRAL</span><span class="title-dot">.</span></h1>
+        <p id="scene-subtitle">中央站 · M01 地铁展示</p>
+        <div class="spec-strip"><span><b id="spec-value-0">36</b><span class="spec-unit" id="spec-unit-0">m</span><span id="spec-label-0">站台长度</span></span><span><b id="spec-value-1">02</b><span class="spec-unit" id="spec-unit-1">侧</span><span id="spec-label-1">轨道</span></span><span><b id="spec-value-2">01</b><span class="spec-unit" id="spec-unit-2">号</span><span id="spec-label-2">Harbor Line</span></span></div>
+        <div class="inspection-scope" id="inspection-scope" role="group" aria-label="检查对象" hidden>
+          <button data-scope="station" aria-label="站台全景" aria-pressed="true" title="站台全景"><i data-lucide="map-pin"></i><span>站台</span></button>
+          <button data-scope="train" aria-label="列车全景" aria-pressed="false" title="列车全景"><i data-lucide="train-front"></i><span>列车</span></button>
+        </div>
       </section>
       <aside class="scene-tools" aria-label="展示选项">
         <button id="orbit" class="tool-button active" aria-label="自动环绕" aria-pressed="true" title="自动环绕"><i data-lucide="rotate-3d"></i><span>自动环绕</span></button>
+        <button id="bottom-view" class="tool-button" aria-label="底部视图" aria-pressed="false" title="底部视图"><i data-lucide="arrow-down-to-line"></i><span>底部视图</span></button>
         <button id="doors" class="tool-button" aria-label="车门" aria-pressed="false" title="打开车门"><i data-lucide="door-open"></i><span>车门</span></button>
         <button id="cutaway" class="tool-button" aria-label="剖视" aria-pressed="false" title="移除列车车顶"><i data-lucide="layers-2"></i><span>剖视</span></button>
         <div class="tool-divider"></div>
@@ -44,7 +49,7 @@
       <footer class="footer">
         <div class="view-caption"><span id="view-number">02 / 04</span><strong id="view-name">中央站 · 1 号站台</strong><span id="view-en">CENTRAL / PLATFORM 01</span></div>
         <nav class="view-selector" aria-label="视角切换">
-          <button class="view-tab" data-view="exterior" aria-label="站台全景 360°" aria-pressed="false"><i data-lucide="rotate-3d"></i><span>全景 <small>360°</small></span></button>
+          <button class="view-tab" data-view="exterior" aria-label="全景 360°" aria-pressed="false"><i data-lucide="rotate-3d"></i><span>全景 <small>360°</small></span></button>
           <button class="view-tab selected" data-view="platform" aria-label="进入站台" aria-pressed="true"><i data-lucide="map-pin"></i><span>站台</span></button>
           <button class="view-tab" data-view="interior" aria-pressed="false"><i data-lucide="armchair"></i><span>进入车厢</span></button>
           <button class="view-tab" data-view="cab" aria-pressed="false"><i data-lucide="gauge"></i><span>进入驾驶室</span></button>

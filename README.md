@@ -43,6 +43,13 @@ navigation is continuous; track areas and furniture are not walkable. The exit
 stairs are modeled as scenery, not as an explorable upper concourse.
 This uses a level, constrained visitor route, not general-purpose physics.
 
+In the 360-degree overview, select station or train using the inspection selector.
+The bottom-view button moves below the selected subject. Orbit dragging can also
+cross below the horizon. Presentation ground is automatically hidden below the
+scene; standalone train inspection also hides the station and the display track
+to expose the wheels, bogies and underslung equipment. Returning to an upper
+view or a first-person view restores the appropriate environment.
+
 Arrival boards and instrument readouts are static concept graphics, not live
 service information or train telemetry.
 No external models or image assets are required. An optional Google Fonts CSS
@@ -121,6 +128,9 @@ in this repository.
 
 Repository: [liangruibupt/blender-metro-demo](https://github.com/liangruibupt/blender-metro-demo)
 (private). Development branch: `codex/metro-demo`.
+Pending PR work is on local branch `codex/metro-bottom-view`; `PR_DRAFT.md`
+records the intended `main` target and publication prerequisite. No PR has been
+created while the repository is awaiting Code Defender approval.
 
 The project is self-contained.
 `node_modules`, `dist`, logs, Blender backups and raw browser QA captures are
