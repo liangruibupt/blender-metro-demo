@@ -1,5 +1,8 @@
 # Task Layout and Deployment Verification
 
+Historical record of the directory migration at `9e0ad87`. Subsequent Optimus
+asset iterations have their own current verification in `optimus/QA.md`.
+
 Verified locally on 2026-09-13. This records validation of a deployable static
 build, not a deployment to a remote hosting account.
 

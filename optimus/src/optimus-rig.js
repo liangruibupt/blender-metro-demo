@@ -47,15 +47,76 @@ export function jointPose(joint, {transform=0, explosion=0, assembly=null}={}) {
     position.x+=joint.motion.side*.84*ramp(transform,.02,.12)*(1-ramp(transform,.38,.53));
   }
   if(joint.motion?.type==='shoulder'){
-    position.x+=joint.motion.side*.48*ramp(transform,.12,.25)*(1-ramp(transform,.50,.8));
+    const slide=ramp(transform,.66,.90);
+    position.x=joint.robot[0]*(1-slide)+joint.truck[0]*slide;
+    position.x+=joint.motion.side*.43*ramp(transform,.12,.24)*(1-ramp(transform,.66,.90));
+    const lower=ramp(transform,.46,.65);
+    position.y=joint.robot[1]*(1-lower)+joint.truck[1]*lower;
+  }
+  if(joint.motion?.type==='axle'){
+    position.x+=joint.motion.side*.55*ramp(transform,.66,.80)*(1-ramp(transform,.92,1));
   }
   if(joint.motion?.type==='lift'){
     position.y+=.30*ramp(transform,.02,.10)*(1-ramp(transform,.35,.50));
+  }
+  if(joint.motion?.type==='grounded'){
+    const curve=joint.motion.heightCurve;
+    const cursor=clamp(transform)*(curve.length-1);
+    const index=Math.min(curve.length-2,Math.floor(cursor));
+    const fraction=cursor-index;
+    position.y=curve[index]*(1-fraction)+curve[index+1]*fraction;
   }
   const amount=assembly===null?clamp(explosion):
     1-ramp(clamp(assembly),joint.order*.075,joint.order*.075+.36);
   position.addScaledVector(new Vector3(...joint.explode),amount);
   return {position,quaternion};
+}
+
+export function jointMatrices(joints,transform) {
+  const result=new Map();
+  for(const joint of joints){
+    const pose=jointPose(joint,{transform});
+    const matrix=new Matrix4().compose(pose.position,pose.quaternion,new Vector3(1,1,1));
+    if(joint.parent)matrix.premultiply(result.get(joint.parent));
+    result.set(joint.id,matrix);
+  }
+  return result;
+}
+
+export function guidePose(link,matrices) {
+  const start=new Vector3(...link.start);
+  const end=new Vector3(...link.end).applyMatrix4(matrices.get(link.target))
+    .applyMatrix4(matrices.get(link.base).clone().invert());
+  return {start,end,length:start.distanceTo(end),
+    quaternion:new Quaternion().setFromUnitVectors(new Vector3(0,1,0),end.clone().sub(start).normalize())};
+}
+
+export function bindGuides(scene,definition) {
+  const groups=new Map();
+  scene.traverse(object=>{if(object.userData.linkId)groups.set(object.userData.linkId,object);});
+  for(const link of definition.links||[]){
+    if(!groups.has(link.id))throw new Error(`缺少机械导向：${link.id}`);
+  }
+  let lastTransform=null;
+  return {
+    update(transform) {
+      if(transform===lastTransform)return;
+      lastTransform=transform;
+      const frame=jointMatrices(definition.joints,transform);
+      for(const link of definition.links||[]){
+        const group=groups.get(link.id);
+        const pose=guidePose(link,frame);
+        group.position.copy(pose.start);group.quaternion.copy(pose.quaternion);
+        group.traverse(part=>{
+          if(part.userData.linkStage!==undefined){
+            part.position.y=(pose.length-link.stageLength)*part.userData.linkStage/(link.stages-1)+link.stageLength/2;
+          }
+          if(part.userData.linkEnd)part.position.y=pose.length;
+        });
+      }
+    },
+    count:groups.size,
+  };
 }
 
 export function filmState(seconds) {

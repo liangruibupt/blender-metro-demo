@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "samples": 161,
+  "pairs": 21,
+  "method": "triangle surface intersection, 0.1 mm BVH epsilon",
+  "excluded": "same-assembly seams, guide tube nesting and intentional bearing couplings",
+  "result": "PASS",
+  "intersections": {},
+  "assetSha256": "cf8926fbe715f1827001f54a7905291812d64a52fbdc809539a024dd6084f999",
+  "rigSha256": "d5ff5fa482598d2dfb8bbc2d6ad4681cfe06f3faca723daf41b645095d8aabba"
+}

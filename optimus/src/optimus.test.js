@@ -1,8 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { Box3, Group, PerspectiveCamera, Quaternion, Euler, Vector3 } from 'three';
-import { bindRig, jointPose, filmState, modeState, CHAPTERS, fitCamera } from './optimus-rig.js';
+import { bindRig, bindGuides, guidePose, jointMatrices, jointPose, filmState, modeState, CHAPTERS, fitCamera } from './optimus-rig.js';
 
 const definition=JSON.parse(readFileSync(new URL('../assets/optimus-rig.json',import.meta.url)));
 const near=(a,b,epsilon=1e-7)=>assert.ok(Math.abs(a-b)<epsilon,`${a} != ${b}`);
@@ -66,9 +67,13 @@ test('the head retracts only while the roof hatch is open',()=>{
     assert.ok(jointPose(head,{transform:t}).position.y<head.robot[1]);
   }
 });
-test('the chassis clears the floor while the toes fold',()=>{
+test('the chassis follows a sampled ground-contact curve',()=>{
   const chassis=definition.joints.find(joint=>joint.id==='chassis');
-  assert.ok(jointPose(chassis,{transform:.18}).position.y>chassis.robot[1]+.29);
+  assert.equal(chassis.motion.type,'grounded');
+  assert.equal(chassis.motion.heightCurve.length,257);
+  assert.ok(chassis.motion.heightCurve.every(Number.isFinite));
+  near(chassis.motion.heightCurve[0],chassis.robot[1]);
+  near(chassis.motion.heightCurve.at(-1),chassis.truck[1]);
 });
 test('film covers the four requested presentations and closes on the robot',()=>{
   assert.equal(CHAPTERS[0].start,0);
@@ -116,4 +121,63 @@ test('intermediate transformation stays in frame on desktop and mobile',()=>{
       }
     }
   }
+});
+test('V2 uses embedded metal/roughness and normal textures with UV coordinates',()=>{
+  const buffer=readFileSync(new URL('../assets/optimus.glb',import.meta.url));
+  const gltf=JSON.parse(buffer.subarray(20,20+buffer.readUInt32LE(12)).toString());
+  assert.equal(definition.version,2);
+  assert.ok(gltf.images.length>=13);
+  const materials=new Set();
+  gltf.materials.forEach((material,index)=>{
+    if(material.pbrMetallicRoughness?.metallicRoughnessTexture){
+      assert.ok(material.normalTexture);
+      materials.add(index);
+    }
+  });
+  assert.ok(materials.size>=6);
+  for(const mesh of gltf.meshes){
+    for(const primitive of mesh.primitives){
+      if(materials.has(primitive.material))assert.ok(primitive.attributes.TEXCOORD_0!==undefined);
+    }
+  }
+});
+test('guide stages always overlap and their endpoints track the real joints',()=>{
+  const model=new Group(),nodes=new Map(),ends=new Map();
+  for(const joint of definition.joints){
+    const object=new Group();object.userData.rigId=joint.id;
+    (nodes.get(joint.parent)||model).add(object);nodes.set(joint.id,object);
+  }
+  for(const link of definition.links){
+    const group=new Group();group.userData.linkId=link.id;
+    nodes.get(link.base).add(group);
+    for(let index=0;index<link.stages;index++){
+      const stage=new Group();stage.userData.linkStage=index;group.add(stage);
+    }
+    const end=new Group();end.userData.linkEnd=true;group.add(end);ends.set(link.id,end);
+  }
+  const rig=bindRig(model,definition),guides=bindGuides(model,definition);
+  assert.equal(guides.count,7);
+  for(let index=0;index<=160;index++){
+    const transform=index/160;
+    rig.apply({transform});guides.update(transform);model.updateMatrixWorld(true);
+    const frame=jointMatrices(definition.joints,transform);
+    for(const link of definition.links){
+      const pose=guidePose(link,frame);
+      assert.ok(pose.length>=link.stageLength-1e-6,link.id);
+      assert.ok((pose.length-link.stageLength)/(link.stages-1)<link.stageLength,link.id);
+      const actual=ends.get(link.id).getWorldPosition(new Vector3());
+      const target=nodes.get(link.target).localToWorld(new Vector3(...link.end));
+      near(actual.distanceTo(target),0,1e-5);
+      assert.deepEqual(ends.get(link.id).scale.toArray(),[1,1,1]);
+    }
+  }
+});
+test('triangle collision audit is passing and matches the current assets',()=>{
+  const report=JSON.parse(readFileSync(new URL('../qa/motion-audit.json',import.meta.url)));
+  assert.equal(report.result,'PASS');
+  assert.equal(report.pairs,21);
+  assert.ok(report.samples>=161);
+  const hash=file=>createHash('sha256').update(readFileSync(new URL(file,import.meta.url))).digest('hex');
+  assert.equal(report.assetSha256,hash('../assets/optimus.glb'));
+  assert.equal(report.rigSha256,hash('../assets/optimus-rig.json'));
 });

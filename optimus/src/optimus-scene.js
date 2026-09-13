@@ -1,37 +1,46 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
-import { bindRig } from './optimus-rig.js';
+import { bindRig, bindGuides } from './optimus-rig.js';
 import modelUrl from '../assets/optimus.glb?url';
 import rigUrl from '../assets/optimus-rig.json?url';
 
 export async function createOptimusScene(renderer) {
   const scene=new THREE.Scene();
-  scene.background=new THREE.Color(0xe8eaec);
-  scene.fog=new THREE.Fog(0xe8eaec,40,120);
+  scene.background=new THREE.Color(0xb5bac2);
+  scene.fog=new THREE.Fog(0xb5bac2,40,120);
   const pmrem=new THREE.PMREMGenerator(renderer);
-  const room=new RoomEnvironment();
-  const environment=pmrem.fromScene(room,.04);
+  const room=new THREE.Scene();
+  room.background=new THREE.Color(.075,.085,.105);
+  for(const [position,size,color] of [
+    [[-5,5,5],[3,9],[5.2,5.8,6.4]],[[6,6,0],[2.3,10],[7.5,7.0,6.5]],
+    [[0,10,-1],[8,4],[4.0,4.4,5.4]],[[-4,3,-6],[2,8],[3.0,4.3,6.2]],
+  ]){
+    const panel=new THREE.Mesh(new THREE.PlaneGeometry(...size),
+      new THREE.MeshBasicMaterial({color:new THREE.Color(...color),side:THREE.DoubleSide}));
+    panel.position.fromArray(position);panel.lookAt(0,3,0);room.add(panel);
+  }
+  const environment=pmrem.fromScene(room,.025);
   scene.environment=environment.texture;
-  scene.environmentIntensity=.85;
-  pmrem.dispose();room.dispose();
-  scene.add(new THREE.HemisphereLight(0xffffff,0xa4a6ac,2.0));
+  scene.environmentIntensity=1.05;
+  pmrem.dispose();
+  room.traverse(object=>{if(object.isMesh){object.geometry.dispose();object.material.dispose();}});
+  scene.add(new THREE.HemisphereLight(0xe7efff,0x555963,.65));
   const key=new THREE.DirectionalLight(0xfff5e9,3.8);
   key.position.set(8,15,12);key.castShadow=true;
   key.shadow.mapSize.set(2048,2048);
   Object.assign(key.shadow.camera,{left:-12,right:12,top:15,bottom:-10,near:.1,far:60});
   key.shadow.normalBias=.035;key.shadow.bias=-.00012;
   scene.add(key);
-  const rim=new THREE.DirectionalLight(0xdae9ff,2.8);
+  const rim=new THREE.DirectionalLight(0xdae9ff,3.8);
   rim.position.set(-6,10,-8);scene.add(rim);
-  const fill=new THREE.DirectionalLight(0xffffff,1.3);
+  const fill=new THREE.DirectionalLight(0xffffff,.9);
   fill.position.set(-8,5,7);scene.add(fill);
   const ground=new THREE.Mesh(new THREE.PlaneGeometry(200,200),
-    new THREE.MeshStandardMaterial({color:0xe3e5e7,roughness:.8}));
+    new THREE.MeshStandardMaterial({color:0xa2a8b1,roughness:.78}));
   ground.rotation.x=-Math.PI/2;ground.position.y=-.065;ground.receiveShadow=true;scene.add(ground);
   const disk=new THREE.Mesh(new THREE.CylinderGeometry(4.45,4.45,.08,96),
-    new THREE.MeshStandardMaterial({color:0xd7dadd,metalness:.32,roughness:.52}));
+    new THREE.MeshStandardMaterial({color:0x555e6b,metalness:.6,roughness:.45}));
   disk.position.y=-.028;disk.receiveShadow=true;scene.add(disk);
   const tickGeometry=new THREE.BufferGeometry();
   const points=[];
@@ -42,7 +51,7 @@ export async function createOptimusScene(renderer) {
       Math.sin(a)*(4.25-length),.016,Math.cos(a)*(4.25-length));
   }
   tickGeometry.setAttribute('position',new THREE.Float32BufferAttribute(points,3));
-  const ticks=new THREE.LineSegments(tickGeometry,new THREE.LineBasicMaterial({color:0x969ca3}));
+  const ticks=new THREE.LineSegments(tickGeometry,new THREE.LineBasicMaterial({color:0x9fa9b6}));
   scene.add(ticks);
   const [gltf,response]=await Promise.all([
     new GLTFLoader().loadAsync(modelUrl),
@@ -53,6 +62,7 @@ export async function createOptimusScene(renderer) {
   const model=gltf.scene;
   scene.add(model);
   const rig=bindRig(model,definition);
+  const guides=bindGuides(model,definition);
   // Merge only static meshes inside each joint; all articulated pivots survive.
   for(const joint of definition.joints){
     const node=rig.bindings.get(joint.id);
@@ -60,7 +70,10 @@ export async function createOptimusScene(renderer) {
     node.traverse(object=>{
       if(!object.isMesh)return;
       let owner=object.parent;
-      while(owner&&!owner.userData.rigId)owner=owner.parent;
+      while(owner&&!owner.userData.rigId){
+        if(owner.userData.linkId)return;
+        owner=owner.parent;
+      }
       if(owner===node)meshes.push(object);
     });
     node.updateWorldMatrix(true,true);
@@ -73,8 +86,9 @@ export async function createOptimusScene(renderer) {
       geometry.applyMatrix4(new THREE.Matrix4().multiplyMatrices(inverse,mesh.matrixWorld));
       if(geometry.index){const next=geometry.toNonIndexed();geometry.dispose();geometry=next;}
       for(const attribute of Object.keys(geometry.attributes)){
-        if(!['position','normal'].includes(attribute))geometry.deleteAttribute(attribute);
+        if(!['position','normal','uv'].includes(attribute))geometry.deleteAttribute(attribute);
       }
+      if(!geometry.attributes.uv)geometry.setAttribute('uv',new THREE.Float32BufferAttribute(new Float32Array(geometry.attributes.position.count*2),2));
       geometry.clearGroups();
       batches.get(key).geometries.push(geometry);
       mesh.removeFromParent();mesh.geometry.dispose();
@@ -90,7 +104,14 @@ export async function createOptimusScene(renderer) {
     }
   }
   const meshes=[];
-  model.traverse(object=>{if(object.isMesh)meshes.push(object);});
+  model.traverse(object=>{
+    if(!object.isMesh)return;
+    if(!object.userData.assembly)object.material=object.material.clone();
+    object.castShadow=true;object.receiveShadow=true;
+    object.userData.baseEmission=object.material.emissive.clone();
+    object.userData.baseEmissionIntensity=object.material.emissiveIntensity;
+    meshes.push(object);
+  });
   let selected=null;
   function select(id) {
     selected=id;
@@ -98,21 +119,36 @@ export async function createOptimusScene(renderer) {
       let parent=mesh;
       let active=false;
       while(parent){if(parent.userData.rigId===id)active=true;parent=parent.parent;}
-      mesh.material.emissive.setHex(active?0x451614:0x000000);
-      mesh.material.emissiveIntensity=active?.30:0;
-      if(mesh.material.name==='Optic ice blue'){
-        mesh.material.emissive.setHex(0x3accff);mesh.material.emissiveIntensity=1.7;
-      }
+      mesh.material.emissive.copy(mesh.userData.baseEmission);
+      if(active)mesh.material.emissive.add(new THREE.Color(0x35100e));
+      mesh.material.emissiveIntensity=active?Math.max(.30,mesh.userData.baseEmissionIntensity):mesh.userData.baseEmissionIntensity;
     }
   }
   select(null);
-  return {scene,model,rig,definition,meshes,select,
+  function surfaceGroundClearance() {
+    model.updateWorldMatrix(true,true);
+    let minimum=Infinity;
+    for(const mesh of meshes){
+      const p=mesh.geometry.attributes.position;
+      const e=mesh.matrixWorld.elements;
+      for(let index=0;index<p.count;index++){
+        minimum=Math.min(minimum,e[1]*p.getX(index)+e[5]*p.getY(index)+e[9]*p.getZ(index)+e[13]);
+      }
+    }
+    return minimum;
+  }
+  return {scene,model,rig,definition,meshes,select,surfaceGroundClearance,
     update(state) {
       rig.apply(state);
+      guides.update(state.transform);
       const exploded=state.assembly===null?state.explosion:1-state.assembly;
       disk.visible=exploded<.03;ticks.visible=disk.visible;
     },
     setWireframe(value){for(const mesh of meshes)mesh.material.wireframe=value;},
-    diagnostics:()=>({joints:rig.bindings.size,meshes:meshes.length,selected}),
+    diagnostics:()=>({
+      joints:rig.bindings.size,meshes:meshes.length,selected,guides:guides.count,
+      texturedMeshes:meshes.filter(mesh=>mesh.material.map&&mesh.geometry.attributes.uv).length,
+      normalMappedMeshes:meshes.filter(mesh=>mesh.material.normalMap).length,
+    }),
   };
 }

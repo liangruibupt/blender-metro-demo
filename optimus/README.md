@@ -1,9 +1,30 @@
-# Optimus Prime / G1 Mechanical Study
+# Optimus Prime / V2 Cinematic Metal Study
 
 Original, unofficial G1-inspired fan study. The robot and cab-over truck share
 one articulated mesh set. No third-party model, texture, logo or audio asset is
 bundled. This is a stylized mechanical visualization, not an official product,
 an exact reproduction of a commercial toy, or a manufacturing-ready mechanism.
+
+## Version 2
+
+V2 keeps the large G1-inspired panels and 29 main articulated assemblies rather
+than introducing fragmented movie armor. It changes the finish to brushed steel,
+deep crimson/cobalt metal, restrained edge wear, packed roughness/metalness maps
+and micro-normal detail. The maps are embedded in GLB and packed into the Blender
+file. They do not require extra browser texture requests.
+
+Seven guided telescoping supports connect the head, shoulders, waist and front
+axle carriers to the chassis. Each support uses fixed-length, nested tube meshes;
+stages translate and rotate but do not scale or get exchanged for another model.
+The chassis height follows a 257-sample contact curve derived from evaluated mesh
+vertices, so transformation stays close to the stage instead of lifting the
+whole figure along the former presentation curve.
+
+The neck has a real roof notch; the fists fit inside the forearm sleeves; the
+shoulders fold, descend and then slide inward through open cab-side channels.
+Feet fold outward only after the legs rise, and front wheels move into position
+after the arms clear their path. Rear wheel spacing and the shoulder crossmember
+clearances have also been corrected.
 
 ## Deliverables
 
@@ -20,10 +41,16 @@ Paths in this list are relative to the `optimus/` task directory.
   assembly ordering and transformation intervals used by the web viewer.
 - `deliverables/optimus-robot.png`, `optimus-truck.png`: Blender Cycles renders.
 - `scripts/build_optimus.py`: reproducible model and asset generation.
+- `scripts/metal_surfaces.py`: deterministic PBR map generation.
+- `scripts/rig_motion.py`: shared Blender pose evaluator.
+- `scripts/audit_motion.py`: selected moving-surface BVH checks.
+- `qa/motion-audit.json`: current collision report, bound to model and rig hashes.
+- `assets/surfaces/`: editable source PNG maps, also embedded in the model.
 
-The Blender source has 503 mesh objects, including fasteners, tire tread blocks,
+The Blender source has 550 mesh objects, including fasteners, tire tread blocks,
 armor and glazing. For browser rendering, static meshes are batched inside each
-joint into 89 meshes. Moving parents, object identity and joint hierarchy remain
+joint; there are 127 browser meshes including the unbatched guide stages.
+Moving parents, object identity and joint hierarchy remain
 intact. The original metro assets and film are not replaced.
 
 ## Presentation
@@ -36,23 +63,27 @@ side, rear and top camera presets. Both desktop and mobile have robot/truck
 configuration switches and orbit dragging. Selecting a camera preset or dragging
 switches to manual camera control; the director preset restores the camera path.
 
-Explosion separates 29 articulated assemblies, not each of the 503 decorative
+Explosion separates 29 articulated assemblies, not each of the 550 decorative
 meshes. No parts are faded out or exchanged for another complete model during
-assembly or transformation.
+assembly or transformation. Guides stay with their chassis-side mount during
+the exploded presentation; they track the mating joints during transformation.
 
 ## Motion
 
 The head retracts while the roof panels slide apart. Fists retract into their
 forearm sleeves; shoulders temporarily spread while elbows fold. Hip joints
 rotate the thighs and lower legs into the rear frame, feet rotate into the deck,
-and the front axle carriers move into the truck position. A short chassis lift
-clears the toes before the body lowers. Reversing the timeline reverses the same
+and the front axle carriers move into the truck position. The contact-height
+curve keeps the lowest body surface above the stage. Reversing the timeline reverses the same
 joint operations.
 
 Some stages use telescoping translations and simplified hinge geometry.
-No rigid-body solver, self-collision certification or engineering tolerance
-analysis is claimed. The animation emphasizes readable component correspondence
-and continuous motion.
+The current triangle BVH audit checks 21 selected moving-part pairs at 161
+transformation states and reports no surface intersections in those checks.
+It is not a rigid-body solver, a swept-volume proof, or a manufacturing tolerance
+analysis. Unlisted contacts and intentionally nested guide tubes are outside its
+scope. The animation emphasizes readable component correspondence and continuous
+motion.
 
 | Time | Camera sequence |
 | --- | --- |
@@ -84,6 +115,9 @@ Run commands from the repository root.
 /Applications/Blender.app/Contents/MacOS/Blender \
   --background --factory-startup --python-exit-code 1 \
   --python optimus/scripts/build_optimus.py -- --render
+/Applications/Blender.app/Contents/MacOS/Blender \
+  --background --factory-startup --python-exit-code 1 \
+  --python optimus/scripts/audit_motion.py
 npm test
 npm run build
 npm run verify:deploy
@@ -102,7 +136,9 @@ while the browser uses the bounds-aware director camera.
 The optional Google Fonts request supplies Barlow and Barlow Condensed. Local
 system fonts are the fallback; no remote visual asset is required.
 
-See `QA.md` for verification results and the limits of the checks.
+See `QA.md` for verification results and the limits of the checks. Re-run the
+motion audit after generating assets: tests reject a stale audit whose hashes
+do not match the current GLB and rig JSON.
 
 If rebuilding the model, export the movie again to keep it synchronized.
 The generated movie is included by the production build; generating GLB alone

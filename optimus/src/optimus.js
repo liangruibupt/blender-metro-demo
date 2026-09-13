@@ -16,7 +16,7 @@ const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:tru
 renderer.setPixelRatio(Math.min(devicePixelRatio,1.8));
 renderer.outputColorSpace=THREE.SRGBColorSpace;
 renderer.toneMapping=THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure=1.05;
+renderer.toneMappingExposure=.95;
 renderer.shadowMap.enabled=true;
 renderer.shadowMap.type=THREE.PCFSoftShadowMap;
 viewport.append(renderer.domElement);
@@ -184,7 +184,7 @@ async function exportMP4() {
     const context=videoCanvas.getContext('2d',{alpha:false});
     const source=new CanvasSource(videoCanvas,{codec:'avc',quality:new Quality({bitrate:6_000_000,bitrateMode:'variable'}),keyFrameInterval:2});
     output.addVideoTrack(source,{frameRate:24});
-    output.setMetadataTags({title:'Optimus Prime / G1 mechanical study'});
+    output.setMetadataTags({title:'Optimus Prime / V2 cinematic metal study'});
     // Reserve the caption band outside the rendered scene, not over the feet.
     renderer.setPixelRatio(1);renderer.setSize(1920,990,false);
     camera.aspect=1920/990;camera.updateProjectionMatrix();
@@ -196,7 +196,7 @@ async function exportMP4() {
       context.drawImage(canvas,0,0);
       context.fillStyle='rgba(242,244,246,.92)';context.fillRect(0,990,1920,90);
       context.fillStyle='#292f38';context.font='600 23px "Barlow",sans-serif';context.textAlign='left';
-      context.fillText('OPTIMUS PRIME / G1',48,1043);
+      context.fillText('OPTIMUS PRIME / METAL V2',48,1043);
       context.font='400 21px "PingFang SC",sans-serif';context.textAlign='right';
       context.fillText(frame.chapter,1872,1043);
       await source.add(index/24,1/24,{keyFrame:index%48===0});
@@ -242,6 +242,7 @@ function diagnostics() {
     ...world.diagnostics(),mode,time,playing,director,truck,transform:state.transform,
     explosion:state.explosion,assembly:state.assembly,exporting,exportProgress,exportError,lastExport,
     camera:camera.position.toArray(),bounds,screenBounds:screen,
+    surfaceGroundClearance:world.surfaceGroundClearance(),
     drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,
   };
 }
