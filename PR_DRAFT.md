@@ -18,19 +18,24 @@ Status: local draft only. No GitHub pull request has been created.
 - Allow orbiting below the horizon and add an underside camera preset.
 - Hide presentation ground and foundation below the station; hide station and
   track geometry when inspecting the standalone train undercarriage.
+- Make station underside inspection an X-ray view: hide opaque decks and
+  trackbeds while preserving solid rails and train running gear, with a faint
+  platform reference outline.
 - Restore the station enclosure when returning to platform, saloon or cab views.
 - Add responsive framing and underside illumination without changing model assets.
 
 ## Verification
 
-- `npm test`: 15 camera, visibility and navigation tests.
+- `npm test`: 18 camera, visibility, mesh grouping and navigation tests.
 - `npm run build`.
 - Asset validation using the shared Python virtual environment.
 - Playwright desktop/mobile screenshots and canvas-pixel verification.
 
 ## Publication Prerequisite
 
-Code Defender blocked the station push to this external repository. Repository
-approval must be completed before uploading the pending commits. The remote
-currently contains only `codex/metro-demo` at `3b7942a`, with no `main` branch.
-Creating a PR is not an alternative route around that approval.
+Code Defender blocked prior assistant pushes to this external repository.
+A later read-only check found remote `codex/metro-bottom-view` at `0fb3288`,
+and local upstream tracking is now configured. The X-ray correction is a
+subsequent local change; no `main` branch was present at the latest check.
+Further publishing must pass the configured security checks. Creating a PR is
+not an alternative route around repository approval.

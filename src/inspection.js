@@ -1,5 +1,15 @@
 export const ORBIT_LIMITS = { minPolarAngle: .035, maxPolarAngle: Math.PI-.035 };
 
+export function inspectionMeshRole(name, zone) {
+  if (name === 'Station_foundation') return 'foundation';
+  if (zone === '04_Roof') return 'roof';
+  if (zone === '10_Station_Cover') return 'stationCover';
+  if (zone === '07_Track') return name.startsWith('Trackbed') ? 'trainBed' : 'trainTrack';
+  if (['Platform_structure','Platform_grout_bed','Platform_floor_tile','Station_ballast']
+    .some(prefix => name.startsWith(prefix))) return 'stationDeck';
+  return null;
+}
+
 export function inspectionView(scope, bottom, width, height) {
   const train = scope === 'train';
   const target = train ? [0,1.25,0] : [0,1.65,4.8];
@@ -31,6 +41,9 @@ export function inspectionLayers(mode, scope, cameraHeight) {
     stationCover: !orbit,
     foundation: fullStation && !below,
     trainTrack: fullStation || !below,
+    trainBed: !below,
+    stationDeck: fullStation && !below,
+    stationXray: fullStation && below,
     undersideLight: below,
   };
 }

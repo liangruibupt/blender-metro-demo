@@ -6,7 +6,7 @@ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { createIcons, Camera, Maximize, Download, Rotate3d, DoorOpen, Layers2, Focus, TrainFront, Armchair, Gauge, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Plus, X, MapPin, ArrowDownToLine } from 'lucide';
 import { resolveMove, inDoorway, visitorArea } from './navigation.js';
-import { ORBIT_LIMITS, inspectionView, inspectionLayers } from './inspection.js';
+import { ORBIT_LIMITS, inspectionView, inspectionLayers, inspectionMeshRole } from './inspection.js';
 
 const $ = (selector) => document.querySelector(selector);
 const icons = { Camera, Maximize, Download, Rotate3d, DoorOpen, Layers2, Focus, TrainFront, Armchair, Gauge, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Plus, X, MapPin, ArrowDownToLine };
@@ -115,6 +115,43 @@ scene.add(trainTrack);
 const stationFoundation = new THREE.Group();
 stationFoundation.name = 'Station presentation foundation';
 scene.add(stationFoundation);
+const stationDeck = new THREE.Group();
+stationDeck.name = 'Opaque station deck and ballast';
+scene.add(stationDeck);
+const trainBed = new THREE.Group();
+trainBed.name = 'Opaque train display trackbed';
+scene.add(trainBed);
+const stationXray = new THREE.Group();
+stationXray.name = 'Transparent platform reference';
+stationXray.visible = false;
+scene.add(stationXray);
+const inspectionGroups = {
+  roof, stationCover, trainTrack, foundation: stationFoundation,
+  stationDeck, trainBed,
+};
+
+function addPlatformReference(geometry) {
+  geometry.computeBoundingBox();
+  const size = geometry.boundingBox.getSize(new THREE.Vector3());
+  const center = geometry.boundingBox.getCenter(new THREE.Vector3());
+  const volume = new THREE.BoxGeometry(size.x,size.y,size.z);
+  const outline = new THREE.LineSegments(
+    new THREE.EdgesGeometry(volume),
+    new THREE.LineBasicMaterial({color:0x578678,transparent:true,opacity:.5,depthWrite:false}),
+  );
+  volume.dispose();
+  outline.position.copy(center);
+  stationXray.add(outline);
+  // One faint plane avoids stacking hundreds of translucent floor tiles, while
+  // keeping rail and train geometry visible through the platform footprint.
+  const plane = new THREE.Mesh(
+    new THREE.PlaneGeometry(size.x,size.z),
+    new THREE.MeshBasicMaterial({color:0x73a292,transparent:true,opacity:.045,depthWrite:false,side:THREE.DoubleSide}),
+  );
+  plane.rotation.x=-Math.PI/2;
+  plane.position.set(center.x,geometry.boundingBox.max.y,center.z);
+  stationXray.add(plane);
+}
 
 const viewpoints = {
   exterior: { number: '01 / 04', name: '站台全景', en: 'STATION OVERVIEW', position: [31, 29, 39], target: [0, 1.65, 4.8] },
@@ -168,15 +205,14 @@ function optimizeModel(root, defaultOutput = scene) {
   root.traverse((object) => {
     if (!object.isMesh) return;
     let parent = object.parent;
-    let output = object.userData.zone === '04_Roof' ? roof : defaultOutput;
-    if (object.userData.zone === '10_Station_Cover') output = stationCover;
-    if (object.userData.zone === '07_Track') output = trainTrack;
-    if (object.name === 'Station_foundation') output = stationFoundation;
+    const role = inspectionMeshRole(object.name,object.userData.zone);
+    let output = role ? inspectionGroups[role] : defaultOutput;
     while (parent) {
       if (parent.userData.outputGroup) { output = parent.userData.outputGroup; break; }
       parent = parent.parent;
     }
     const geometry = object.geometry.clone().applyMatrix4(object.matrixWorld);
+    if (object.name === 'Platform_structure') addPlatformReference(geometry);
     if (geometry.index) {
       const unindexed = geometry.toNonIndexed();
       geometry.dispose();
@@ -253,6 +289,9 @@ function updateInspectionLayers() {
   stationCover.visible = layers.stationCover;
   stationFoundation.visible = layers.foundation;
   trainTrack.visible = layers.trainTrack;
+  trainBed.visible = layers.trainBed;
+  stationDeck.visible = layers.stationDeck;
+  stationXray.visible = layers.stationXray;
   undersideLight.visible = layers.undersideLight;
   bottomView = layers.below;
   const key = `${mode}:${overviewScope}:${bottomView}`;
@@ -260,8 +299,8 @@ function updateInspectionLayers() {
     lastLayerKey = key;
     if (mode === 'exterior') {
       const train = overviewScope === 'train';
-      $('#view-name').textContent = bottomView ? (train?'列车底盘':'站台底部') : (train?'列车全景':'站台全景');
-      $('#view-en').textContent = bottomView ? (train?'TRAIN UNDERCARRIAGE':'STATION UNDERSIDE') : (train?'TRAIN OVERVIEW':'STATION OVERVIEW');
+      $('#view-name').textContent = bottomView ? (train?'列车底盘':'站台底部 · 透视') : (train?'列车全景':'站台全景');
+      $('#view-en').textContent = bottomView ? (train?'TRAIN UNDERCARRIAGE':'STATION UNDERSIDE / X-RAY') : (train?'TRAIN OVERVIEW':'STATION OVERVIEW');
     }
     syncButtons();
     updateHotspotVisibility();
@@ -561,4 +600,4 @@ function animate(now) {
 }
 requestAnimationFrame(animate);
 // Read-only diagnostics support repeatable browser QA without driving UI internals.
-window.metroDiagnostics=() => ({ ready,mode,overviewScope,bottomView,autoRotate,doorOpen,doorAmount,cutaway,roofVisible:roof.visible,stationVisible:station.visible,stationCoverVisible:stationCover.visible,groundVisible:ground.visible,foundationVisible:stationFoundation.visible,trainTrackVisible:trainTrack.visible,stationBatches:station.children.length,trainBatches:trainRoot.children.length,doors:doors.length,movingDoors:doors.filter(d=>d.userData.side===-1).length,frames,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:camera.position.toArray(),polarAngle:controls.getPolarAngle(),maxPolarAngle:controls.maxPolarAngle,width:renderer.domElement.width,height:renderer.domElement.height,transitioning:!!transition });
+window.metroDiagnostics=() => ({ ready,mode,overviewScope,bottomView,autoRotate,doorOpen,doorAmount,cutaway,roofVisible:roof.visible,stationVisible:station.visible,stationCoverVisible:stationCover.visible,groundVisible:ground.visible,foundationVisible:stationFoundation.visible,trainTrackVisible:trainTrack.visible,trainBedVisible:trainBed.visible,stationDeckVisible:stationDeck.visible,stationXrayVisible:stationXray.visible,stationXrayObjects:stationXray.children.length,stationDeckBatches:stationDeck.children.length,trainBedBatches:trainBed.children.length,stationBatches:station.children.length,trainBatches:trainRoot.children.length,doors:doors.length,movingDoors:doors.filter(d=>d.userData.side===-1).length,frames,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:camera.position.toArray(),polarAngle:controls.getPolarAngle(),maxPolarAngle:controls.maxPolarAngle,width:renderer.domElement.width,height:renderer.domElement.height,transitioning:!!transition });

@@ -45,10 +45,13 @@ This uses a level, constrained visitor route, not general-purpose physics.
 
 In the 360-degree overview, select station or train using the inspection selector.
 The bottom-view button moves below the selected subject. Orbit dragging can also
-cross below the horizon. Presentation ground is automatically hidden below the
-scene; standalone train inspection also hides the station and the display track
-to expose the wheels, bogies and underslung equipment. Returning to an upper
-view or a first-person view restores the appropriate environment.
+cross below the horizon. Station underside inspection uses an X-ray view: opaque
+platform structure, grout, floor tiles and both trackbeds are hidden, while a
+faint platform plane and outline retain its position. Rails, sleepers and the
+train remain solid, so the rail system and train undercarriage can be seen
+through the platform. Standalone train inspection also hides the station and
+display track. Returning to an upper or first-person view restores the original
+opaque deck and trackbeds. Blender and GLB source geometry is not altered.
 
 Arrival boards and instrument readouts are static concept graphics, not live
 service information or train telemetry.
@@ -128,9 +131,10 @@ in this repository.
 
 Repository: [liangruibupt/blender-metro-demo](https://github.com/liangruibupt/blender-metro-demo)
 (private). Development branch: `codex/metro-demo`.
-Pending PR work is on local branch `codex/metro-bottom-view`; `PR_DRAFT.md`
-records the intended `main` target and publication prerequisite. No PR has been
-created while the repository is awaiting Code Defender approval.
+Current work uses `codex/metro-bottom-view`, tracking the same branch on origin.
+`PR_DRAFT.md` records the intended `main` target and publication prerequisite.
+No PR has been created by this workflow; further pushes must pass the configured
+repository security checks.
 
 The project is self-contained.
 `node_modules`, `dist`, logs, Blender backups and raw browser QA captures are

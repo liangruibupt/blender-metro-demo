@@ -8,7 +8,7 @@ are not physical iOS or Android device tests.
 
 - `npm install`: dependency audit reports zero vulnerabilities.
 - `npm run build`: passes. Three.js produces a bundle-size advisory, not an error.
-- `npm test`: 15 tests pass, covering navigation, boarding, furniture and track
+- `npm test`: 18 tests pass, covering navigation, boarding, furniture and track
   boundaries, upper/lower camera presets, responsive framing and layer visibility.
 - `scripts/check_assets.py`: passes under
   `/Users/ruiliang/Documents/workspaces/venv/bin/python`.
@@ -59,10 +59,18 @@ Screenshots are in `output/playwright/` locally and excluded from Git.
 - Manual orbit dragging crosses the horizon; ground/track visibility updates
   from actual camera height rather than only from a preset-button state.
 - Train underside hides station, presentation floor and display track.
-- Station underside hides the presentation foundation and ground, retaining
-  platform and rail geometry.
+- Station underside is an X-ray view. Opaque platform structure, grout, floor
+  tiles and ballast are grouped separately and hidden along with the original
+  train display trackbed. Rails, sleepers and train geometry remain visible.
+- The platform reference is a depth-tested outline plus a plane at 4.5% opacity;
+  it does not write depth and cannot act as an opaque blocker.
+- Actual asset grouping verified: 6 station deck batches, 1 train trackbed
+  batch, and 2 platform reference objects.
+- X-ray pixel variances: desktop 1114, mobile 489; automatic orbit moves the
+  camera and the deck/trackbeds restore when leaving underside inspection.
 - Bottom auto-orbit changes camera position while keeping it below the subject.
-- Mobile pixel variances: train 742, station 273; no horizontal overflow.
+- The earlier non-X-ray station screenshot is superseded by
+  `output/playwright/station-xray-desktop.png` and `station-xray-mobile.png`.
 - Bottom PNG capture downloads `station-bottom.png`.
 - Returning to the passenger saloon restores ground, foundation and station roof.
 - No browser console errors in the inspection test session.
