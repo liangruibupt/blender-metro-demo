@@ -6,10 +6,12 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
+    "test": "node --test src/*.test.js",
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {
     "lucide": "^0.468.0",
+    "mediabunny": "^1.56.2",
     "three": "^0.180.0"
   },
   "devDependencies": {
