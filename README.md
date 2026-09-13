@@ -7,6 +7,10 @@ or certified accessibility layout.
 
 ## Deliverables
 
+- `deliverables/metro-storyboard-preview.mp4`: silent 80-second, 1080p / 24 fps
+  storyboard preview. See `VIDEO.md` for shot timings and reproduction.
+- `watch.html`: ordinary MP4 playback without WebGL or JavaScript dependencies.
+- `film.html`: live storyboard playback, seeking and deterministic MP4 export.
 - `deliverables/central-station.blend`: complete station and editable M01 train.
 - `deliverables/station-platform.png`, `station-overview.png`: station renders.
 - `public/assets/station.glb`: original station environment, composed with the
@@ -114,7 +118,8 @@ Blender materials can be more detailed than glTF materials. The procedural floor
 bump is retained in `.blend` but is not baked into the web export.
 The viewer batches static geometry by material; editable source objects are
 preserved in Blender. All three cameras and the 360-degree orbit live in the
-standalone train file; an MP4 is not pre-rendered.
+standalone train file. The separate 80-second MP4 uses a film-only scene variant
+assembled from the Blender exports; it does not change the original Blender files.
 The station vault and near facade are hidden in the architectural overview to
 avoid blocking the train. First-person views restore the enclosure; the roof
 button removes the train roof only.

@@ -8,8 +8,9 @@ are not physical iOS or Android device tests.
 
 - `npm install`: dependency audit reports zero vulnerabilities.
 - `npm run build`: passes. Three.js produces a bundle-size advisory, not an error.
-- `npm test`: 18 tests pass, covering navigation, boarding, furniture and track
-  boundaries, upper/lower camera presets, responsive framing and layer visibility.
+- `npm test`: 25 tests pass, covering navigation, boarding, furniture and track
+  boundaries, upper/lower camera presets, responsive framing, layer visibility
+  and the 80-second film timeline.
 - `scripts/check_assets.py`: passes under
   `/Users/ruiliang/Documents/workspaces/venv/bin/python`.
 - GLB: 1,127 nodes, 1,115 meshes, 12 door leaves, 166 roof-related objects.
@@ -84,9 +85,42 @@ Screenshots are in `output/playwright/` locally and excluded from Git.
 - Roof removal is an exterior inspection preference; the ceiling is restored
   while viewing the interior.
 - A 240-frame camera orbit is included in the standalone train Blender file.
-  No MP4 is pre-rendered.
+  A separate 80-second MP4 is rendered from the film-only Three.js scene.
 - No external model downloads, paid assets or authentication are needed.
 - Arrival boards and instrument readouts are static concept artwork.
 - The exit stair is visual scenery; the upper concourse is not explorable.
 - The Sketchfab listing is visual inspiration only; no assets from it are bundled.
 - The GitHub repository is private; no public web deployment is configured.
+
+## Video Recovery and Verification
+
+Verified on 2026-09-13 after the previous task stopped with `Input is too long`.
+Its unfinished film sources were recovered from `/private/tmp/blender-metro-demo`;
+the original project previously had no film source or MP4 deliverable.
+
+- Earlier development logs reported `504 (Outdated Optimize Dep)` for
+  `mediabunny` and a missing `mp4-muxer` entry during dependency optimization.
+  A top-level encoder import prevented scene startup, leaving the static
+  loading label on screen. Export now lazy-loads its encoder.
+- A dependency-free bootstrap catches scene/module startup failures, shows
+  retry, and warns after 45 seconds. Controls remain disabled until ready.
+- `watch.html` uses a native video element and does not require WebGL,
+  JavaScript or WebCodecs to play the generated MP4.
+- Chrome playback and seeking verified at 1440 x 1000 and 390 x 844;
+  no horizontal overflow. Live storyboard playback advances, pauses and seeks.
+- Nine live keyframes inspected across arrival, station orbit, train orbit,
+  rear entry, saloon, cab, cab exit, alighting and departure. Pixel variance
+  exceeded 2800 for every sampled keyframe.
+- A sampled six-axis ray check at 0.125-second intervals from 42 to 67 seconds
+  found no opaque train mesh within 0.055 m of the camera. This is a sampled
+  visual-clearance check, not a general collision or passenger safety proof.
+- Simulated encoder-module failure: preview still starts, export shows an
+  error, and playback controls are re-enabled.
+- Simulated scene-module failure: startup error and retry are shown.
+- Export: H.264, yuv420p, 1920 x 1080, exactly 24 fps / 1920 frames /
+  80.000 seconds, 56,218,572 bytes, no audio stream (verified with ffprobe).
+- Entire MP4 decoded by ffmpeg with no errors; contact sheet inspected.
+- The original `.blend` and `.glb` files are unchanged. Rear-door animation
+  and updated cab door-status graphics are confined to the film scene.
+- Browser QA uses local Chrome. ChatGPT's embedded browser and physical
+  mobile devices were not tested.
