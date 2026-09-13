@@ -43,6 +43,17 @@ export function jointPose(joint, {transform=0, explosion=0, assembly=null}={}) {
   const position=new Vector3(...joint.robot).lerp(new Vector3(...joint.truck),phase);
   const quaternion=new Quaternion().setFromEuler(new Euler(...joint.angles));
   quaternion.slerp(new Quaternion().setFromEuler(new Euler(...joint.truckAngles)),phase);
+  if(joint.motion?.type==='weapon_fold'){
+    quaternion.setFromEuler(new Euler(0,0,joint.motion.side*Math.PI*phase));
+  }
+  if(joint.motion?.type==='weapon_carrier'){
+    position.z=.38+.48*ramp(transform,0,.08)-2.46*ramp(transform,.30,.55);
+    position.x+=joint.motion.side*1.20*ramp(transform,.38,.50)*(1-ramp(transform,.92,1));
+  }
+  if(joint.motion?.type==='bogie'){
+    position.x=joint.motion.side*(ramp(transform,.04,.14)-.42*ramp(transform,.28,.40));
+    position.z=2*ramp(transform,.14,.28);
+  }
   if(joint.motion?.type==='roof'){
     position.x+=joint.motion.side*.84*ramp(transform,.02,.12)*(1-ramp(transform,.38,.53));
   }
@@ -126,7 +137,7 @@ export function filmState(seconds) {
   const assembly=time>=28&&time<40?(time-28)/12:null;
   const explosion=time>=12&&time<28?ramp(time,12,20):0;
   const extent=assembly===null?explosion:1-ramp(assembly,.58,1);
-  const angle=.6+2*Math.PI*ramp(time,0,12)+.35*ramp(time,12,20)+
+  const angle=.3+2*Math.PI*ramp(time,0,12)+.35*ramp(time,12,20)+
     2*Math.PI*ramp(time,20,28)+.45*ramp(time,28,40)+.25*ramp(time,40,44)+
     1.65*ramp(time,44,58)+2*Math.PI*ramp(time,58,66)+1.3*ramp(time,66,80);
   const radius=15+7*extent-5*transform;
@@ -144,7 +155,7 @@ export function modeState(mode, seconds, truck=false) {
   const explosion=mode==='exploded'?smooth(time/8):0;
   const assembly=mode==='assembly'?time/12:null;
   const extent=assembly===null?explosion:1-ramp(assembly,.58,1);
-  const angle=.6+(mode==='orbit'?2*Math.PI*time/12:
+  const angle=.3+(mode==='orbit'?2*Math.PI*time/12:
     mode==='assembly'?.55*smooth(time/12):mode==='transform'?1.65*smooth(time/14):.3*explosion);
   const radius=15+7*extent-5*transform;
   return {time,transform,explosion,assembly,

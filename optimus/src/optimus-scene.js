@@ -7,8 +7,8 @@ import rigUrl from '../assets/optimus-rig.json?url';
 
 export async function createOptimusScene(renderer) {
   const scene=new THREE.Scene();
-  scene.background=new THREE.Color(0xb5bac2);
-  scene.fog=new THREE.Fog(0xb5bac2,40,120);
+  scene.background=new THREE.Color(0x858a91);
+  scene.fog=new THREE.Fog(0x858a91,40,120);
   const pmrem=new THREE.PMREMGenerator(renderer);
   const room=new THREE.Scene();
   room.background=new THREE.Color(.075,.085,.105);
@@ -37,7 +37,7 @@ export async function createOptimusScene(renderer) {
   const fill=new THREE.DirectionalLight(0xffffff,.9);
   fill.position.set(-8,5,7);scene.add(fill);
   const ground=new THREE.Mesh(new THREE.PlaneGeometry(200,200),
-    new THREE.MeshStandardMaterial({color:0xa2a8b1,roughness:.78}));
+    new THREE.MeshStandardMaterial({color:0x7b8088,roughness:.78}));
   ground.rotation.x=-Math.PI/2;ground.position.y=-.065;ground.receiveShadow=true;scene.add(ground);
   const disk=new THREE.Mesh(new THREE.CylinderGeometry(4.45,4.45,.08,96),
     new THREE.MeshStandardMaterial({color:0x555e6b,metalness:.6,roughness:.45}));
@@ -149,6 +149,15 @@ export async function createOptimusScene(renderer) {
       joints:rig.bindings.size,meshes:meshes.length,selected,guides:guides.count,
       texturedMeshes:meshes.filter(mesh=>mesh.material.map&&mesh.geometry.attributes.uv).length,
       normalMappedMeshes:meshes.filter(mesh=>mesh.material.normalMap).length,
+      weapons:definition.weapons.map(weapon=>{
+        const node=rig.bindings.get(weapon.joint);
+        const bounds=new THREE.Box3().setFromObject(node);
+        let visible=true;
+        for(let parent=node;parent;parent=parent.parent)visible&&=parent.visible;
+        return {kind:weapon.kind,joint:weapon.joint,visible,
+          meshes:meshes.filter(mesh=>mesh.userData.assembly===weapon.joint).length,
+          bounds};
+      }),
     }),
   };
 }

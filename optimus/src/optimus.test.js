@@ -122,10 +122,10 @@ test('intermediate transformation stays in frame on desktop and mobile',()=>{
     }
   }
 });
-test('V2 uses embedded metal/roughness and normal textures with UV coordinates',()=>{
+test('V3 uses embedded metal/roughness and normal textures with UV coordinates',()=>{
   const buffer=readFileSync(new URL('../assets/optimus.glb',import.meta.url));
   const gltf=JSON.parse(buffer.subarray(20,20+buffer.readUInt32LE(12)).toString());
-  assert.equal(definition.version,2);
+  assert.equal(definition.version,3);
   assert.ok(gltf.images.length>=13);
   const materials=new Set();
   gltf.materials.forEach((material,index)=>{
@@ -156,7 +156,7 @@ test('guide stages always overlap and their endpoints track the real joints',()=
     const end=new Group();end.userData.linkEnd=true;group.add(end);ends.set(link.id,end);
   }
   const rig=bindRig(model,definition),guides=bindGuides(model,definition);
-  assert.equal(guides.count,7);
+  assert.equal(guides.count,11);
   for(let index=0;index<=160;index++){
     const transform=index/160;
     rig.apply({transform});guides.update(transform);model.updateMatrixWorld(true);
@@ -175,9 +175,86 @@ test('guide stages always overlap and their endpoints track the real joints',()=
 test('triangle collision audit is passing and matches the current assets',()=>{
   const report=JSON.parse(readFileSync(new URL('../qa/motion-audit.json',import.meta.url)));
   assert.equal(report.result,'PASS');
-  assert.equal(report.pairs,21);
+  assert.deepEqual(report.grounding.failures,[]);
+  assert.ok(report.grounding.bodyMax<.065,'weapons must not lift the body off the floor');
+  assert.ok(report.grounding.surfaceMin>=.02,'no weapon may cross the floor');
+  assert.equal(Object.keys(report.grounding.truckWheels).length,6);
+  for(const clearance of Object.values(report.grounding.truckWheels)){
+    assert.ok(clearance>=.02&&clearance<=.07,'all six truck tires must reach the floor');
+  }
+  assert.ok(report.pairs>=67);
+  assert.equal(report.pairs,report.checkedPairs.length);
   assert.ok(report.samples>=161);
   const hash=file=>createHash('sha256').update(readFileSync(new URL(file,import.meta.url))).digest('hex');
   assert.equal(report.assetSha256,hash('../assets/optimus.glb'));
   assert.equal(report.rigSha256,hash('../assets/optimus-rig.json'));
+  assert.equal(report.blendSha256,hash('../deliverables/optimus-prime.blend'));
+  assert.equal(report.poseEvaluatorSha256,hash('../scripts/rig_motion.py'));
+  assert.equal(report.generatorSha256,hash('../scripts/build_optimus.py'));
+  assert.equal(report.weaponGeneratorSha256,hash('../scripts/weapons.py'));
+});
+test('browser poses match the independently evaluated Blender audit poses',()=>{
+  const report=JSON.parse(readFileSync(new URL('../qa/motion-audit.json',import.meta.url)));
+  assert.equal(report.poseSamples.length,17);
+  for(const sample of report.poseSamples){
+    for(const joint of definition.joints){
+      const actual=jointPose(joint,{transform:sample.transform});
+      const expected=sample.joints[joint.id];
+      near(actual.position.distanceTo(new Vector3(...expected.position)),0,2e-6);
+      near(actual.quaternion.angleTo(new Quaternion(...expected.quaternion).normalize()),0,2e-6);
+    }
+  }
+});
+test('rear carriages clear calf sides before crossing depth',()=>{
+  for(const side of ['left','right']){
+    const joint=definition.joints.find(j=>j.id===`${side}_rear_bogie`);
+    assert.ok(joint.robot[2]===0);
+    for(let i=1;i<100;i++){
+      const p=jointPose(joint,{transform:.14+.14*i/100}).position;
+      assert.ok(Math.abs(p.x)>.99);
+    }
+    near(jointPose(joint,{transform:1}).position.z,2);
+    assert.equal(definition.joints.find(j=>j.id===`${side}_rear_wheel_32`).parent,joint.id);
+    assert.ok(definition.links.some(link=>link.target===joint.id));
+  }
+});
+test('both reference weapons belong to connected arm mounts and stay present in every mode',()=>{
+  assert.deepEqual(definition.weapons.map(weapon=>weapon.kind).sort(),['energon_axe','rifle']);
+  for(const weapon of definition.weapons){
+    const pivot=definition.joints.find(joint=>joint.id===weapon.joint);
+    const mount=definition.joints.find(joint=>joint.id===pivot.parent);
+    const hand=definition.joints.find(joint=>joint.id===weapon.hand);
+    assert.equal(mount.parent,hand.parent);
+    assert.ok(definition.links.some(link=>link.target===mount.id&&link.base===hand.parent));
+    for(const time of [0,3,6,9,12]){
+      near(jointPose(pivot,modeState('orbit',time)).quaternion.angleTo(jointPose(pivot).quaternion),0);
+    }
+    assert.ok(mount.interval[1]<=pivot.interval[0]);
+    const arc=new Vector3(0,-1,0).applyQuaternion(jointPose(pivot,{transform:.22}).quaternion);
+    near(arc.x,pivot.motion.side);
+    near(Math.abs(jointPose(mount,{transform:.08}).position.x),weapon.kind==='rifle'?1.36:1.70);
+    assert.ok(jointPose(mount,{transform:.08}).position.z>.8);
+    assert.ok(jointPose(mount,{transform:1}).position.z<-.7);
+    for(const transform of [.5,.7,.85,.9]){
+      assert.ok(Math.abs(jointPose(mount,{transform}).position.x)>2.3,'clear the moving front axle');
+    }
+    near(jointPose(pivot,{transform:1}).quaternion.angleTo(jointPose(pivot).quaternion),Math.PI);
+  }
+});
+test('weapon geometry and the amber blade material are embedded in the downloadable model',()=>{
+  const buffer=readFileSync(new URL('../assets/optimus.glb',import.meta.url));
+  const gltf=JSON.parse(buffer.subarray(20,20+buffer.readUInt32LE(12)).toString());
+  const descendantMeshes=index=>{
+    const node=gltf.nodes[index];
+    return (node.mesh===undefined?0:1)+(node.children||[]).reduce((sum,child)=>sum+descendantMeshes(child),0);
+  };
+  for(const weapon of definition.weapons){
+    const index=gltf.nodes.findIndex(node=>node.extras?.rigId===weapon.joint);
+    assert.ok(index>=0);
+    assert.ok(descendantMeshes(index)>=8,`${weapon.kind} must include real geometry`);
+  }
+  const amber=gltf.materials.find(material=>material.name==='Amber energon');
+  assert.ok(amber);
+  assert.ok(amber.pbrMetallicRoughness.baseColorFactor[0]>.9);
+  assert.ok(amber.pbrMetallicRoughness.baseColorFactor[2]<.05);
 });

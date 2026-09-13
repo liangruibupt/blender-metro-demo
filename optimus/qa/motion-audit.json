@@ -1,11 +1,8121 @@
 {
-  "version": 2,
-  "samples": 161,
-  "pairs": 21,
+  "version": 3,
+  "samples": 321,
+  "pairs": 67,
   "method": "triangle surface intersection, 0.1 mm BVH epsilon",
   "excluded": "same-assembly seams, guide tube nesting and intentional bearing couplings",
   "result": "PASS",
+  "grounding": {
+    "bodyMin": 0.03966867923736572,
+    "bodyMax": 0.05078625679016113,
+    "surfaceMin": 0.03966867923736572,
+    "failures": [],
+    "truckWheels": {
+      "left_front_wheel": 0.042500197887420654,
+      "left_rear_wheel_32": 0.04250013828277588,
+      "left_rear_wheel_168": 0.042500078678131104,
+      "right_front_wheel": 0.042500197887420654,
+      "right_rear_wheel_32": 0.04250013828277588,
+      "right_rear_wheel_168": 0.042500078678131104
+    }
+  },
   "intersections": {},
-  "assetSha256": "cf8926fbe715f1827001f54a7905291812d64a52fbdc809539a024dd6084f999",
-  "rigSha256": "d5ff5fa482598d2dfb8bbc2d6ad4681cfe06f3faca723daf41b645095d8aabba"
+  "assetSha256": "65ea137e8b0298b5e944aca7e09943ac946ecee993eac1fc2295d9a306d0402e",
+  "rigSha256": "ce977e0ecd9294afd3ac53f8a94e0c52d842b1409dc03d6a5feaec279c6e87b9",
+  "blendSha256": "df469e2c0c1946829e23da053184b41e4ae0c289e5ad52ec6eb2e63c84fdbfd2",
+  "poseEvaluatorSha256": "4e26598a59227b577af0be4e28b536b9c9821f1aa4bc9a7fb7db99fba5c52c84",
+  "generatorSha256": "22fa7e5602af27104fe36007f5173c8c75fdeed707f9d7af116e5667048af21e",
+  "weaponGeneratorSha256": "a60d3e841bf690712eddafb7294dc7a6c112481d37aae52b516e375712c7713f",
+  "checkedPairs": [
+    [
+      "head",
+      "left_roof"
+    ],
+    [
+      "head",
+      "right_roof"
+    ],
+    [
+      "head",
+      "cab_shell"
+    ],
+    [
+      "head",
+      "left_windscreen"
+    ],
+    [
+      "head",
+      "right_windscreen"
+    ],
+    [
+      "head",
+      "grille"
+    ],
+    [
+      "left_fist",
+      "left_forearm"
+    ],
+    [
+      "left_shoulder",
+      "cab_shell"
+    ],
+    [
+      "left_forearm",
+      "cab_shell"
+    ],
+    [
+      "left_front_wheel",
+      "left_forearm"
+    ],
+    [
+      "left_front_wheel",
+      "left_shoulder"
+    ],
+    [
+      "left_front_wheel",
+      "cab_shell"
+    ],
+    [
+      "left_front_axle",
+      "left_forearm"
+    ],
+    [
+      "left_rear_wheel_32",
+      "left_rear_wheel_168"
+    ],
+    [
+      "left_foot",
+      "left_shin"
+    ],
+    [
+      "left_rear_bogie",
+      "left_shin"
+    ],
+    [
+      "left_rear_wheel_32",
+      "left_shin"
+    ],
+    [
+      "left_rear_wheel_168",
+      "left_shin"
+    ],
+    [
+      "left_rear_wheel_32",
+      "left_foot"
+    ],
+    [
+      "left_rear_wheel_168",
+      "left_foot"
+    ],
+    [
+      "left_shoulder",
+      "grille"
+    ],
+    [
+      "left_forearm",
+      "grille"
+    ],
+    [
+      "left_front_wheel",
+      "left_roof"
+    ],
+    [
+      "left_hip",
+      "grille"
+    ],
+    [
+      "left_foot",
+      "left_hip"
+    ],
+    [
+      "right_fist",
+      "right_forearm"
+    ],
+    [
+      "right_shoulder",
+      "cab_shell"
+    ],
+    [
+      "right_forearm",
+      "cab_shell"
+    ],
+    [
+      "right_front_wheel",
+      "right_forearm"
+    ],
+    [
+      "right_front_wheel",
+      "right_shoulder"
+    ],
+    [
+      "right_front_wheel",
+      "cab_shell"
+    ],
+    [
+      "right_front_axle",
+      "right_forearm"
+    ],
+    [
+      "right_rear_wheel_32",
+      "right_rear_wheel_168"
+    ],
+    [
+      "right_foot",
+      "right_shin"
+    ],
+    [
+      "right_rear_bogie",
+      "right_shin"
+    ],
+    [
+      "right_rear_wheel_32",
+      "right_shin"
+    ],
+    [
+      "right_rear_wheel_168",
+      "right_shin"
+    ],
+    [
+      "right_rear_wheel_32",
+      "right_foot"
+    ],
+    [
+      "right_rear_wheel_168",
+      "right_foot"
+    ],
+    [
+      "right_shoulder",
+      "grille"
+    ],
+    [
+      "right_forearm",
+      "grille"
+    ],
+    [
+      "right_front_wheel",
+      "right_roof"
+    ],
+    [
+      "right_hip",
+      "grille"
+    ],
+    [
+      "right_foot",
+      "right_hip"
+    ],
+    [
+      "left_shin",
+      "right_shin"
+    ],
+    [
+      "left_axe",
+      "left_forearm"
+    ],
+    [
+      "left_axe",
+      "left_shoulder"
+    ],
+    [
+      "left_axe",
+      "left_front_wheel"
+    ],
+    [
+      "left_axe",
+      "left_hip"
+    ],
+    [
+      "left_axe",
+      "left_shin"
+    ],
+    [
+      "left_axe",
+      "left_foot"
+    ],
+    [
+      "left_axe",
+      "left_rear_wheel_32"
+    ],
+    [
+      "left_axe",
+      "left_rear_wheel_168"
+    ],
+    [
+      "left_axe",
+      "cab_shell"
+    ],
+    [
+      "left_axe",
+      "grille"
+    ],
+    [
+      "left_axe",
+      "head"
+    ],
+    [
+      "right_rifle",
+      "right_forearm"
+    ],
+    [
+      "right_rifle",
+      "right_shoulder"
+    ],
+    [
+      "right_rifle",
+      "right_front_wheel"
+    ],
+    [
+      "right_rifle",
+      "right_hip"
+    ],
+    [
+      "right_rifle",
+      "right_shin"
+    ],
+    [
+      "right_rifle",
+      "right_foot"
+    ],
+    [
+      "right_rifle",
+      "right_rear_wheel_32"
+    ],
+    [
+      "right_rifle",
+      "right_rear_wheel_168"
+    ],
+    [
+      "right_rifle",
+      "cab_shell"
+    ],
+    [
+      "right_rifle",
+      "grille"
+    ],
+    [
+      "right_rifle",
+      "head"
+    ]
+  ],
+  "poseSamples": [
+    {
+      "transform": 0.0,
+      "joints": {
+        "chassis": {
+          "position": [
+            0.0,
+            6.7039337158203125,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "cab_shell": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_windscreen": {
+          "position": [
+            -0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_roof": {
+          "position": [
+            -0.7900000214576721,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_windscreen": {
+          "position": [
+            0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_roof": {
+          "position": [
+            0.7900000214576721,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "head": {
+          "position": [
+            0.0,
+            1.3600000143051147,
+            -0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "grille": {
+          "position": [
+            0.0,
+            -0.5299999713897705,
+            0.75
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "pelvis": {
+          "position": [
+            0.0,
+            -1.6799999475479126,
+            -0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_shoulder": {
+          "position": [
+            -2.1600000858306885,
+            0.6800000071525574,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.03499285504221916,
+            0.9993875622749329
+          ]
+        },
+        "left_forearm": {
+          "position": [
+            0.0,
+            -1.2000000476837158,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_fist": {
+          "position": [
+            0.0,
+            -1.7200000286102295,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_axle": {
+          "position": [
+            -1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_hip": {
+          "position": [
+            -0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "left_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_bogie": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_32": {
+          "position": [
+            -0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_168": {
+          "position": [
+            -0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "right_shoulder": {
+          "position": [
+            2.1600000858306885,
+            0.6800000071525574,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.03499285504221916,
+            0.9993875622749329
+          ]
+        },
+        "right_forearm": {
+          "position": [
+            0.0,
+            -1.2000000476837158,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_fist": {
+          "position": [
+            0.0,
+            -1.7200000286102295,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_axle": {
+          "position": [
+            1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_hip": {
+          "position": [
+            0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "right_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_bogie": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_32": {
+          "position": [
+            0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_168": {
+          "position": [
+            0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "left_weapon_carrier": {
+          "position": [
+            0.0,
+            -1.8799999952316284,
+            0.3799999952316284
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_axe": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_weapon_carrier": {
+          "position": [
+            0.0,
+            -1.8799999952316284,
+            0.3799999952316284
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rifle": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "transform": 0.0625,
+      "joints": {
+        "chassis": {
+          "position": [
+            0.0,
+            6.7039337158203125,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "cab_shell": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_windscreen": {
+          "position": [
+            -0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_roof": {
+          "position": [
+            -1.116208791732788,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_windscreen": {
+          "position": [
+            0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_roof": {
+          "position": [
+            1.116208791732788,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "head": {
+          "position": [
+            0.0,
+            1.3600000143051147,
+            -0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "grille": {
+          "position": [
+            0.0,
+            -0.5299999713897705,
+            0.75
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "pelvis": {
+          "position": [
+            0.0,
+            -1.6799999475479126,
+            -0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_shoulder": {
+          "position": [
+            -2.1600000858306885,
+            0.6800000071525574,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.03499285504221916,
+            0.9993875622749329
+          ]
+        },
+        "left_forearm": {
+          "position": [
+            0.0,
+            -1.2000000476837158,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_fist": {
+          "position": [
+            0.0,
+            -1.5606250762939453,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_axle": {
+          "position": [
+            -1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_hip": {
+          "position": [
+            -0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "left_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_bogie": {
+          "position": [
+            -0.12909375131130219,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_32": {
+          "position": [
+            -0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_168": {
+          "position": [
+            -0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "right_shoulder": {
+          "position": [
+            2.1600000858306885,
+            0.6800000071525574,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.03499285504221916,
+            0.9993875622749329
+          ]
+        },
+        "right_forearm": {
+          "position": [
+            0.0,
+            -1.2000000476837158,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_fist": {
+          "position": [
+            0.0,
+            -1.5606250762939453,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_axle": {
+          "position": [
+            1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_hip": {
+          "position": [
+            0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "right_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_bogie": {
+          "position": [
+            0.12909375131130219,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_32": {
+          "position": [
+            0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_168": {
+          "position": [
+            0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "left_weapon_carrier": {
+          "position": [
+            -1.491546630859375,
+            -1.8799999952316284,
+            0.8011425733566284
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_axe": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_weapon_carrier": {
+          "position": [
+            1.1932373046875,
+            -1.8799999952316284,
+            0.8011425733566284
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rifle": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "transform": 0.125,
+      "joints": {
+        "chassis": {
+          "position": [
+            0.0,
+            6.7039337158203125,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "cab_shell": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_windscreen": {
+          "position": [
+            -0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_roof": {
+          "position": [
+            -1.6299999952316284,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_windscreen": {
+          "position": [
+            0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_roof": {
+          "position": [
+            1.6299999952316284,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "head": {
+          "position": [
+            0.0,
+            1.3600000143051147,
+            -0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "grille": {
+          "position": [
+            0.0,
+            -0.5299999713897705,
+            0.75
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "pelvis": {
+          "position": [
+            0.0,
+            -1.6799999475479126,
+            -0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_shoulder": {
+          "position": [
+            -2.162177562713623,
+            0.6800000071525574,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.03499285504221916,
+            0.9993875622749329
+          ]
+        },
+        "left_forearm": {
+          "position": [
+            0.0,
+            -1.2000000476837158,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_fist": {
+          "position": [
+            0.0,
+            -1.0333218574523926,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_axle": {
+          "position": [
+            -1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_hip": {
+          "position": [
+            -0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "left_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_bogie": {
+          "position": [
+            -0.9392499923706055,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_32": {
+          "position": [
+            -0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_168": {
+          "position": [
+            -0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "right_shoulder": {
+          "position": [
+            2.162177562713623,
+            0.6800000071525574,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.03499285504221916,
+            0.9993875622749329
+          ]
+        },
+        "right_forearm": {
+          "position": [
+            0.0,
+            -1.2000000476837158,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_fist": {
+          "position": [
+            0.0,
+            -1.0333218574523926,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_axle": {
+          "position": [
+            1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_hip": {
+          "position": [
+            0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "right_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_bogie": {
+          "position": [
+            0.9392499923706055,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_32": {
+          "position": [
+            0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_168": {
+          "position": [
+            0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "left_weapon_carrier": {
+          "position": [
+            -1.7000000476837158,
+            -1.8799999952316284,
+            0.8600000143051147
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_axe": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.10846181958913803,
+            0.9941006302833557
+          ]
+        },
+        "right_weapon_carrier": {
+          "position": [
+            1.3600000143051147,
+            -1.8799999952316284,
+            0.8600000143051147
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rifle": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.10846181958913803,
+            0.9941006302833557
+          ]
+        }
+      }
+    },
+    {
+      "transform": 0.1875,
+      "joints": {
+        "chassis": {
+          "position": [
+            0.0,
+            6.7039337158203125,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "cab_shell": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_windscreen": {
+          "position": [
+            -0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_roof": {
+          "position": [
+            -1.6299999952316284,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_windscreen": {
+          "position": [
+            0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_roof": {
+          "position": [
+            1.6299999952316284,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "head": {
+          "position": [
+            0.0,
+            1.1209375858306885,
+            -0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "grille": {
+          "position": [
+            0.0,
+            -0.5299999713897705,
+            0.75
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "pelvis": {
+          "position": [
+            0.0,
+            -1.6799999475479126,
+            -0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_shoulder": {
+          "position": [
+            -2.41510272026062,
+            0.6800000071525574,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.03499285504221916,
+            0.9993875622749329
+          ]
+        },
+        "left_forearm": {
+          "position": [
+            0.0,
+            -1.2000000476837158,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_fist": {
+          "position": [
+            0.0,
+            -0.7006552219390869,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_axle": {
+          "position": [
+            -1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_hip": {
+          "position": [
+            -0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "left_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_bogie": {
+          "position": [
+            -1.0,
+            0.0,
+            0.5344615578651428
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_32": {
+          "position": [
+            -0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_168": {
+          "position": [
+            -0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "right_shoulder": {
+          "position": [
+            2.41510272026062,
+            0.6800000071525574,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.03499285504221916,
+            0.9993875622749329
+          ]
+        },
+        "right_forearm": {
+          "position": [
+            0.0,
+            -1.2000000476837158,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_fist": {
+          "position": [
+            0.0,
+            -0.7006552219390869,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_axle": {
+          "position": [
+            1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_hip": {
+          "position": [
+            0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "right_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_bogie": {
+          "position": [
+            1.0,
+            0.0,
+            0.5344615578651428
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_32": {
+          "position": [
+            0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_168": {
+          "position": [
+            0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "left_weapon_carrier": {
+          "position": [
+            -1.7000000476837158,
+            -1.8799999952316284,
+            0.8600000143051147
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_axe": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.49412161111831665,
+            0.8693928122520447
+          ]
+        },
+        "right_weapon_carrier": {
+          "position": [
+            1.3600000143051147,
+            -1.8799999952316284,
+            0.8600000143051147
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rifle": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.49412161111831665,
+            0.8693928122520447
+          ]
+        }
+      }
+    },
+    {
+      "transform": 0.25,
+      "joints": {
+        "chassis": {
+          "position": [
+            0.0,
+            6.7039337158203125,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "cab_shell": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_windscreen": {
+          "position": [
+            -0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_roof": {
+          "position": [
+            -1.6299999952316284,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_windscreen": {
+          "position": [
+            0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_roof": {
+          "position": [
+            1.6299999952316284,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "head": {
+          "position": [
+            0.0,
+            0.5451401472091675,
+            -0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "grille": {
+          "position": [
+            0.0,
+            -0.5299999713897705,
+            0.75
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "pelvis": {
+          "position": [
+            0.0,
+            -1.6799999475479126,
+            -0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_shoulder": {
+          "position": [
+            -2.5900001525878906,
+            0.6800000071525574,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.03499285504221916,
+            0.9993875622749329
+          ]
+        },
+        "left_forearm": {
+          "position": [
+            0.0,
+            -1.2000000476837158,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_axle": {
+          "position": [
+            -1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_hip": {
+          "position": [
+            -0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "left_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_bogie": {
+          "position": [
+            -1.0,
+            0.0,
+            1.7638484239578247
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_32": {
+          "position": [
+            -0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_168": {
+          "position": [
+            -0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "right_shoulder": {
+          "position": [
+            2.5900001525878906,
+            0.6800000071525574,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.03499285504221916,
+            0.9993875622749329
+          ]
+        },
+        "right_forearm": {
+          "position": [
+            0.0,
+            -1.2000000476837158,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_axle": {
+          "position": [
+            1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_hip": {
+          "position": [
+            0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "right_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_bogie": {
+          "position": [
+            1.0,
+            0.0,
+            1.7638484239578247
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_32": {
+          "position": [
+            0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_168": {
+          "position": [
+            0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "left_weapon_carrier": {
+          "position": [
+            -1.7000000476837158,
+            -1.8799999952316284,
+            0.8600000143051147
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_axe": {
+          "position": [
+            0.0,
+            0.0,
+            0.12000000476837158
+          ],
+          "quaternion": [
+            -0.0,
+            -0.0,
+            -0.8593430519104004,
+            0.5113995671272278
+          ]
+        },
+        "right_weapon_carrier": {
+          "position": [
+            1.3600000143051147,
+            -1.8799999952316284,
+            0.8600000143051147
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rifle": {
+          "position": [
+            0.0,
+            0.0,
+            0.12000000476837158
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.8593430519104004,
+            0.5113995671272278
+          ]
+        }
+      }
+    },
+    {
+      "transform": 0.3125,
+      "joints": {
+        "chassis": {
+          "position": [
+            0.0,
+            6.70415735244751,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "cab_shell": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_windscreen": {
+          "position": [
+            -0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_roof": {
+          "position": [
+            -1.6299999952316284,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_windscreen": {
+          "position": [
+            0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_roof": {
+          "position": [
+            1.6299999952316284,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "head": {
+          "position": [
+            0.0,
+            -0.0011845529079437256,
+            -0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "grille": {
+          "position": [
+            0.0,
+            -0.5299999713897705,
+            0.75
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "pelvis": {
+          "position": [
+            0.0,
+            -1.6799999475479126,
+            -0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_shoulder": {
+          "position": [
+            -2.5900001525878906,
+            0.6800000071525574,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.03499285504221916,
+            0.9993875622749329
+          ]
+        },
+        "left_forearm": {
+          "position": [
+            0.0,
+            -1.1564979553222656,
+            0.0
+          ],
+          "quaternion": [
+            0.10656730830669403,
+            0.0,
+            0.0,
+            0.9943054914474487
+          ]
+        },
+        "left_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_axle": {
+          "position": [
+            -1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_hip": {
+          "position": [
+            -0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            8.31711950013414e-05,
+            0.0,
+            -0.042483679950237274,
+            0.9990971684455872
+          ]
+        },
+        "left_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_bogie": {
+          "position": [
+            -0.9242653846740723,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_32": {
+          "position": [
+            -0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_168": {
+          "position": [
+            -0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "right_shoulder": {
+          "position": [
+            2.5900001525878906,
+            0.6800000071525574,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.03499285504221916,
+            0.9993875622749329
+          ]
+        },
+        "right_forearm": {
+          "position": [
+            0.0,
+            -1.1564979553222656,
+            0.0
+          ],
+          "quaternion": [
+            0.10656730830669403,
+            0.0,
+            0.0,
+            0.9943054914474487
+          ]
+        },
+        "right_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_axle": {
+          "position": [
+            1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_hip": {
+          "position": [
+            0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            8.31711950013414e-05,
+            0.0,
+            0.042483679950237274,
+            0.9990971684455872
+          ]
+        },
+        "right_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_bogie": {
+          "position": [
+            0.9242653846740723,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_32": {
+          "position": [
+            0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_168": {
+          "position": [
+            0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "left_weapon_carrier": {
+          "position": [
+            -1.7000000476837158,
+            -1.8799999952316284,
+            0.8421649932861328
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_axe": {
+          "position": [
+            0.0,
+            0.0,
+            0.12000000476837158
+          ],
+          "quaternion": [
+            -0.0,
+            -0.0,
+            -0.9927752017974854,
+            0.11998913437128067
+          ]
+        },
+        "right_weapon_carrier": {
+          "position": [
+            1.3600000143051147,
+            -1.8799999952316284,
+            0.8421649932861328
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rifle": {
+          "position": [
+            0.0,
+            0.0,
+            0.12000000476837158
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.9927752017974854,
+            0.11998913437128067
+          ]
+        }
+      }
+    },
+    {
+      "transform": 0.375,
+      "joints": {
+        "chassis": {
+          "position": [
+            0.0,
+            6.815304279327393,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "cab_shell": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_windscreen": {
+          "position": [
+            -0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_roof": {
+          "position": [
+            -1.6299999952316284,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_windscreen": {
+          "position": [
+            0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_roof": {
+          "position": [
+            1.6299999952316284,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "head": {
+          "position": [
+            0.0,
+            -0.17000000178813934,
+            -0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "grille": {
+          "position": [
+            0.0,
+            -0.5299999713897705,
+            0.75
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "pelvis": {
+          "position": [
+            0.0,
+            -1.6799999475479126,
+            -0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_shoulder": {
+          "position": [
+            -2.5900001525878906,
+            0.6800000071525574,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.03499285504221916,
+            0.9993875622749329
+          ]
+        },
+        "left_forearm": {
+          "position": [
+            0.0,
+            -1.057745337486267,
+            0.0
+          ],
+          "quaternion": [
+            0.34209519624710083,
+            0.0,
+            0.0,
+            0.9396653175354004
+          ]
+        },
+        "left_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_axle": {
+          "position": [
+            -1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_hip": {
+          "position": [
+            -0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.05060211196541786,
+            -2.333191695402803e-10,
+            -0.04028467833995819,
+            0.9979061484336853
+          ]
+        },
+        "left_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_bogie": {
+          "position": [
+            -0.6270920038223267,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_32": {
+          "position": [
+            -0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_168": {
+          "position": [
+            -0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "right_shoulder": {
+          "position": [
+            2.5900001525878906,
+            0.6800000071525574,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.03499285504221916,
+            0.9993875622749329
+          ]
+        },
+        "right_forearm": {
+          "position": [
+            0.0,
+            -1.057745337486267,
+            0.0
+          ],
+          "quaternion": [
+            0.34209519624710083,
+            0.0,
+            0.0,
+            0.9396653175354004
+          ]
+        },
+        "right_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_axle": {
+          "position": [
+            1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_hip": {
+          "position": [
+            0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.05060211196541786,
+            2.333191695402803e-10,
+            0.04028467833995819,
+            0.9979061484336853
+          ]
+        },
+        "right_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_bogie": {
+          "position": [
+            0.6270920038223267,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_32": {
+          "position": [
+            0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_168": {
+          "position": [
+            0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "left_weapon_carrier": {
+          "position": [
+            -1.7000000476837158,
+            -1.8799999952316284,
+            0.32864001393318176
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_axe": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            1.0,
+            4.371138828673793e-08
+          ]
+        },
+        "right_weapon_carrier": {
+          "position": [
+            1.3600000143051147,
+            -1.8799999952316284,
+            0.32864001393318176
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rifle": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            -0.0,
+            -0.0,
+            -1.0,
+            4.371138828673793e-08
+          ]
+        }
+      }
+    },
+    {
+      "transform": 0.4375,
+      "joints": {
+        "chassis": {
+          "position": [
+            0.0,
+            6.8468708992004395,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "cab_shell": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_windscreen": {
+          "position": [
+            -0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_roof": {
+          "position": [
+            -1.3543323278427124,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_windscreen": {
+          "position": [
+            0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_roof": {
+          "position": [
+            1.3543323278427124,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "head": {
+          "position": [
+            0.0,
+            -0.17000000178813934,
+            -0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "grille": {
+          "position": [
+            0.0,
+            -0.5299999713897705,
+            0.75
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "pelvis": {
+          "position": [
+            0.0,
+            -1.652334451675415,
+            -0.11754393577575684
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_shoulder": {
+          "position": [
+            -2.5900001525878906,
+            0.6800000071525574,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.03499285504221916,
+            0.9993875622749329
+          ]
+        },
+        "left_forearm": {
+          "position": [
+            0.0,
+            -0.9513717293739319,
+            0.0
+          ],
+          "quaternion": [
+            0.5730522871017456,
+            0.0,
+            0.0,
+            0.8195188045501709
+          ]
+        },
+        "left_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_axle": {
+          "position": [
+            -1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_hip": {
+          "position": [
+            -0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.17236827313899994,
+            -9.460554561968593e-10,
+            -0.0345333032310009,
+            0.9844270944595337
+          ]
+        },
+        "left_shin": {
+          "position": [
+            0.0,
+            -1.6500000953674316,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_bogie": {
+          "position": [
+            -0.5799999833106995,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_32": {
+          "position": [
+            -0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_168": {
+          "position": [
+            -0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "right_shoulder": {
+          "position": [
+            2.5900001525878906,
+            0.6800000071525574,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.03499285504221916,
+            0.9993875622749329
+          ]
+        },
+        "right_forearm": {
+          "position": [
+            0.0,
+            -0.9513717293739319,
+            0.0
+          ],
+          "quaternion": [
+            0.5730522871017456,
+            0.0,
+            0.0,
+            0.8195188045501709
+          ]
+        },
+        "right_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_axle": {
+          "position": [
+            1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_hip": {
+          "position": [
+            0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.17236827313899994,
+            9.460554561968593e-10,
+            0.0345333032310009,
+            0.9844270944595337
+          ]
+        },
+        "right_shin": {
+          "position": [
+            0.0,
+            -1.6500000953674316,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_bogie": {
+          "position": [
+            0.5799999833106995,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_32": {
+          "position": [
+            0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_168": {
+          "position": [
+            0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "left_weapon_carrier": {
+          "position": [
+            -2.262521743774414,
+            -1.8799999952316284,
+            -0.5538849830627441
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_axe": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            1.0,
+            4.371138828673793e-08
+          ]
+        },
+        "right_weapon_carrier": {
+          "position": [
+            1.922521710395813,
+            -1.8799999952316284,
+            -0.5538849830627441
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rifle": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            -0.0,
+            -0.0,
+            -1.0,
+            4.371138828673793e-08
+          ]
+        }
+      }
+    },
+    {
+      "transform": 0.5,
+      "joints": {
+        "chassis": {
+          "position": [
+            0.0,
+            6.3191375732421875,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "cab_shell": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_windscreen": {
+          "position": [
+            -0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_roof": {
+          "position": [
+            -0.8773600459098816,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_windscreen": {
+          "position": [
+            0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_roof": {
+          "position": [
+            0.8773600459098816,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "head": {
+          "position": [
+            0.0,
+            -0.17000000178813934,
+            -0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "grille": {
+          "position": [
+            0.0,
+            -0.5299999713897705,
+            0.75
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "pelvis": {
+          "position": [
+            0.0,
+            -1.504020094871521,
+            -0.2115969955921173
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_shoulder": {
+          "position": [
+            -2.5900001525878906,
+            0.5622685551643372,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.03499285504221916,
+            0.9993875622749329
+          ]
+        },
+        "left_forearm": {
+          "position": [
+            0.0,
+            -0.885007381439209,
+            0.0
+          ],
+          "quaternion": [
+            0.6983633041381836,
+            0.0,
+            0.0,
+            0.7157434821128845
+          ]
+        },
+        "left_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_axle": {
+          "position": [
+            -1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_hip": {
+          "position": [
+            -0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.33050626516342163,
+            0.0,
+            -0.02606554701924324,
+            0.943443775177002
+          ]
+        },
+        "left_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_bogie": {
+          "position": [
+            -0.5799999833106995,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_32": {
+          "position": [
+            -0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_168": {
+          "position": [
+            -0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "right_shoulder": {
+          "position": [
+            2.5900001525878906,
+            0.5622685551643372,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.03499285504221916,
+            0.9993875622749329
+          ]
+        },
+        "right_forearm": {
+          "position": [
+            0.0,
+            -0.885007381439209,
+            0.0
+          ],
+          "quaternion": [
+            0.6983633041381836,
+            0.0,
+            0.0,
+            0.7157434821128845
+          ]
+        },
+        "right_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_axle": {
+          "position": [
+            1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_hip": {
+          "position": [
+            0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.33050626516342163,
+            0.0,
+            0.02606554701924324,
+            0.943443775177002
+          ]
+        },
+        "right_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_bogie": {
+          "position": [
+            0.5799999833106995,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_32": {
+          "position": [
+            0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_168": {
+          "position": [
+            0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.04248720780014992,
+            0.9990969896316528
+          ]
+        },
+        "left_weapon_carrier": {
+          "position": [
+            -2.9000000953674316,
+            -1.8799999952316284,
+            -1.3441599607467651
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_axe": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            1.0,
+            4.371138828673793e-08
+          ]
+        },
+        "right_weapon_carrier": {
+          "position": [
+            2.559999942779541,
+            -1.8799999952316284,
+            -1.3441599607467651
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rifle": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            -0.0,
+            -0.0,
+            -1.0,
+            4.371138828673793e-08
+          ]
+        }
+      }
+    },
+    {
+      "transform": 0.5625,
+      "joints": {
+        "chassis": {
+          "position": [
+            0.0,
+            5.231520175933838,
+            0.06799295544624329
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "cab_shell": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_windscreen": {
+          "position": [
+            -0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_roof": {
+          "position": [
+            -0.7900000810623169,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_windscreen": {
+          "position": [
+            0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_roof": {
+          "position": [
+            0.7900000810623169,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "head": {
+          "position": [
+            0.0,
+            -0.17000000178813934,
+            -0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "grille": {
+          "position": [
+            0.0,
+            -0.5299999713897705,
+            0.75
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "pelvis": {
+          "position": [
+            0.0,
+            -1.2701021432876587,
+            -0.3599352240562439
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_shoulder": {
+          "position": [
+            -2.5900001525878906,
+            0.10413986444473267,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.03385024145245552,
+            0.9994269013404846
+          ]
+        },
+        "left_forearm": {
+          "position": [
+            0.0,
+            -0.8799999952316284,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "left_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_axle": {
+          "position": [
+            -1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_hip": {
+          "position": [
+            -0.75,
+            -0.20000001788139343,
+            0.0
+          ],
+          "quaternion": [
+            0.4884958267211914,
+            0.0,
+            -0.016326336190104485,
+            0.8724135160446167
+          ]
+        },
+        "left_shin": {
+          "position": [
+            0.0,
+            -1.6500000953674316,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_bogie": {
+          "position": [
+            -0.5799999833106995,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_32": {
+          "position": [
+            -0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_168": {
+          "position": [
+            -0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.006708909757435322,
+            0.0,
+            0.042201459407806396,
+            0.9990866184234619
+          ]
+        },
+        "right_shoulder": {
+          "position": [
+            2.5900001525878906,
+            0.10413986444473267,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.03385024145245552,
+            0.9994269013404846
+          ]
+        },
+        "right_forearm": {
+          "position": [
+            0.0,
+            -0.8799999952316284,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "right_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_axle": {
+          "position": [
+            1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_hip": {
+          "position": [
+            0.75,
+            -0.20000001788139343,
+            0.0
+          ],
+          "quaternion": [
+            0.4884958267211914,
+            0.0,
+            0.016326336190104485,
+            0.8724135160446167
+          ]
+        },
+        "right_shin": {
+          "position": [
+            0.0,
+            -1.6500000953674316,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_bogie": {
+          "position": [
+            0.5799999833106995,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_32": {
+          "position": [
+            0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_168": {
+          "position": [
+            0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.006708909757435322,
+            0.0,
+            -0.042201459407806396,
+            0.9990866184234619
+          ]
+        },
+        "left_weapon_carrier": {
+          "position": [
+            -2.9000000953674316,
+            -1.8799999952316284,
+            -1.600000023841858
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_axe": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            1.0,
+            4.371138828673793e-08
+          ]
+        },
+        "right_weapon_carrier": {
+          "position": [
+            2.559999942779541,
+            -1.8799999952316284,
+            -1.600000023841858
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rifle": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            -0.0,
+            -0.0,
+            -1.0,
+            4.371138828673793e-08
+          ]
+        }
+      }
+    },
+    {
+      "transform": 0.625,
+      "joints": {
+        "chassis": {
+          "position": [
+            0.0,
+            3.8023910522460938,
+            0.24488309025764465
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "cab_shell": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_windscreen": {
+          "position": [
+            -0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_roof": {
+          "position": [
+            -0.7900000214576721,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_windscreen": {
+          "position": [
+            0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_roof": {
+          "position": [
+            0.7900000214576721,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "head": {
+          "position": [
+            0.0,
+            -0.17000000178813934,
+            -0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "grille": {
+          "position": [
+            0.0,
+            -0.5299999713897705,
+            0.75
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "pelvis": {
+          "position": [
+            0.0,
+            -0.9992191791534424,
+            -0.531714677810669
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_shoulder": {
+          "position": [
+            -2.5900001525878906,
+            -0.30119550228118896,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.026690499857068062,
+            0.9996437430381775
+          ]
+        },
+        "left_forearm": {
+          "position": [
+            0.0,
+            -0.8799999952316284,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "left_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_axle": {
+          "position": [
+            -1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_hip": {
+          "position": [
+            -0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.6152766942977905,
+            0.0,
+            -0.007356939371675253,
+            0.7882769107818604
+          ]
+        },
+        "left_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_bogie": {
+          "position": [
+            -0.5799999833106995,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_32": {
+          "position": [
+            -0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_168": {
+          "position": [
+            -0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.19486643373966217,
+            0.0,
+            0.03339938074350357,
+            0.980260968208313
+          ]
+        },
+        "right_shoulder": {
+          "position": [
+            2.5900001525878906,
+            -0.30119550228118896,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.026690499857068062,
+            0.9996437430381775
+          ]
+        },
+        "right_forearm": {
+          "position": [
+            0.0,
+            -0.8799999952316284,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "right_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_axle": {
+          "position": [
+            1.940000057220459,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_hip": {
+          "position": [
+            0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.6152766942977905,
+            0.0,
+            0.007356939371675253,
+            0.7882769107818604
+          ]
+        },
+        "right_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_bogie": {
+          "position": [
+            0.5799999833106995,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_32": {
+          "position": [
+            0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_168": {
+          "position": [
+            0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.19486643373966217,
+            0.0,
+            -0.03339938074350357,
+            0.980260968208313
+          ]
+        },
+        "left_weapon_carrier": {
+          "position": [
+            -2.9000000953674316,
+            -1.8799999952316284,
+            -1.600000023841858
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_axe": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            1.0,
+            4.371138828673793e-08
+          ]
+        },
+        "right_weapon_carrier": {
+          "position": [
+            2.559999942779541,
+            -1.8799999952316284,
+            -1.600000023841858
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rifle": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            -0.0,
+            -0.0,
+            -1.0,
+            4.371138828673793e-08
+          ]
+        }
+      }
+    },
+    {
+      "transform": 0.6875,
+      "joints": {
+        "chassis": {
+          "position": [
+            0.0,
+            2.2826056480407715,
+            0.4900370240211487
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "cab_shell": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_windscreen": {
+          "position": [
+            -0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_roof": {
+          "position": [
+            -0.7899999618530273,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_windscreen": {
+          "position": [
+            0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_roof": {
+          "position": [
+            0.7899999618530273,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "head": {
+          "position": [
+            0.0,
+            -0.17000000178813934,
+            -0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "grille": {
+          "position": [
+            0.0,
+            -0.5299999713897705,
+            0.75
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "pelvis": {
+          "position": [
+            0.0,
+            -0.7400093674659729,
+            -0.6960915923118591
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_shoulder": {
+          "position": [
+            -2.5416157245635986,
+            -0.3499999940395355,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.0161878801882267,
+            0.9998689889907837
+          ]
+        },
+        "left_forearm": {
+          "position": [
+            0.0,
+            -0.8799999952316284,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "left_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_axle": {
+          "position": [
+            -1.9953269958496094,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_hip": {
+          "position": [
+            -0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.6910302042961121,
+            -8.052805644531702e-11,
+            -0.001352075720205903,
+            0.7228246331214905
+          ]
+        },
+        "left_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_bogie": {
+          "position": [
+            -0.5799999833106995,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_32": {
+          "position": [
+            -0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_168": {
+          "position": [
+            -0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.09999999403953552
+          ],
+          "quaternion": [
+            0.4851709008216858,
+            -1.0652660975551953e-09,
+            0.016546370461583138,
+            0.874262809753418
+          ]
+        },
+        "right_shoulder": {
+          "position": [
+            2.5416157245635986,
+            -0.3499999940395355,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0161878801882267,
+            0.9998689889907837
+          ]
+        },
+        "right_forearm": {
+          "position": [
+            0.0,
+            -0.8799999952316284,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "right_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_axle": {
+          "position": [
+            1.9953269958496094,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_hip": {
+          "position": [
+            0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.6910302042961121,
+            8.052805644531702e-11,
+            0.001352075720205903,
+            0.7228246331214905
+          ]
+        },
+        "right_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_bogie": {
+          "position": [
+            0.5799999833106995,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_32": {
+          "position": [
+            0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_168": {
+          "position": [
+            0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.09999999403953552
+          ],
+          "quaternion": [
+            0.4851709008216858,
+            1.0652660975551953e-09,
+            -0.016546370461583138,
+            0.874262809753418
+          ]
+        },
+        "left_weapon_carrier": {
+          "position": [
+            -2.9000000953674316,
+            -1.8799999952316284,
+            -1.600000023841858
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_axe": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            1.0,
+            4.371138828673793e-08
+          ]
+        },
+        "right_weapon_carrier": {
+          "position": [
+            2.559999942779541,
+            -1.8799999952316284,
+            -1.600000023841858
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rifle": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            -0.0,
+            -0.0,
+            -1.0,
+            4.371138828673793e-08
+          ]
+        }
+      }
+    },
+    {
+      "transform": 0.75,
+      "joints": {
+        "chassis": {
+          "position": [
+            0.0,
+            1.9186112880706787,
+            0.7628215551376343
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "cab_shell": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_windscreen": {
+          "position": [
+            -0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_roof": {
+          "position": [
+            -0.7900000214576721,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_windscreen": {
+          "position": [
+            0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_roof": {
+          "position": [
+            0.7900000214576721,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "head": {
+          "position": [
+            0.0,
+            -0.17000000178813934,
+            -0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "grille": {
+          "position": [
+            0.0,
+            -0.5299999713897705,
+            0.75
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "pelvis": {
+          "position": [
+            0.0,
+            -0.5411111116409302,
+            -0.8222222328186035
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_shoulder": {
+          "position": [
+            -2.169179677963257,
+            -0.3499999940395355,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.006139222998172045,
+            0.999981164932251
+          ]
+        },
+        "left_forearm": {
+          "position": [
+            0.0,
+            -0.8799999952316284,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "left_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_axle": {
+          "position": [
+            -2.3296501636505127,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_hip": {
+          "position": [
+            -0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "left_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_bogie": {
+          "position": [
+            -0.5799999833106995,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_32": {
+          "position": [
+            -0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_168": {
+          "position": [
+            -0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.6807743310928345,
+            1.5893095173247218e-10,
+            0.0021992407273501158,
+            0.7324899435043335
+          ]
+        },
+        "right_shoulder": {
+          "position": [
+            2.169179677963257,
+            -0.3499999940395355,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.006139222998172045,
+            0.999981164932251
+          ]
+        },
+        "right_forearm": {
+          "position": [
+            0.0,
+            -0.8799999952316284,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "right_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_axle": {
+          "position": [
+            2.3296501636505127,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_hip": {
+          "position": [
+            0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "right_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_bogie": {
+          "position": [
+            0.5799999833106995,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_32": {
+          "position": [
+            0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_168": {
+          "position": [
+            0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.6807743310928345,
+            -1.5893095173247218e-10,
+            -0.0021992407273501158,
+            0.7324899435043335
+          ]
+        },
+        "left_weapon_carrier": {
+          "position": [
+            -2.9000000953674316,
+            -1.8799999952316284,
+            -1.600000023841858
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_axe": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            1.0,
+            4.371138828673793e-08
+          ]
+        },
+        "right_weapon_carrier": {
+          "position": [
+            2.559999942779541,
+            -1.8799999952316284,
+            -1.600000023841858
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rifle": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            -0.0,
+            -0.0,
+            -1.0,
+            4.371138828673793e-08
+          ]
+        }
+      }
+    },
+    {
+      "transform": 0.8125,
+      "joints": {
+        "chassis": {
+          "position": [
+            0.0,
+            1.8300740718841553,
+            1.0226035118103027
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "cab_shell": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_windscreen": {
+          "position": [
+            -0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_roof": {
+          "position": [
+            -0.7900000214576721,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_windscreen": {
+          "position": [
+            0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_roof": {
+          "position": [
+            0.7900000214576721,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "head": {
+          "position": [
+            0.0,
+            -0.17000000178813934,
+            -0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "grille": {
+          "position": [
+            0.0,
+            -0.5299999713897705,
+            0.75
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "pelvis": {
+          "position": [
+            0.0,
+            -0.4511626660823822,
+            -0.8792626857757568
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_shoulder": {
+          "position": [
+            -1.6614491939544678,
+            -0.3499999940395355,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            -0.00034339696867391467,
+            0.9999999403953552
+          ]
+        },
+        "left_forearm": {
+          "position": [
+            0.0,
+            -0.8799999952316284,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "left_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_axle": {
+          "position": [
+            -2.490000009536743,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_hip": {
+          "position": [
+            -0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "left_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_bogie": {
+          "position": [
+            -0.5799999833106995,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_32": {
+          "position": [
+            -0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_168": {
+          "position": [
+            -0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "right_shoulder": {
+          "position": [
+            1.6614491939544678,
+            -0.3499999940395355,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.00034339696867391467,
+            0.9999999403953552
+          ]
+        },
+        "right_forearm": {
+          "position": [
+            0.0,
+            -0.8799999952316284,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "right_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_axle": {
+          "position": [
+            2.490000009536743,
+            -0.05000000074505806,
+            -1.25
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_hip": {
+          "position": [
+            0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "right_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_bogie": {
+          "position": [
+            0.5799999833106995,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_32": {
+          "position": [
+            0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_168": {
+          "position": [
+            0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "left_weapon_carrier": {
+          "position": [
+            -2.9000000953674316,
+            -1.8799999952316284,
+            -1.600000023841858
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_axe": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            1.0,
+            4.371138828673793e-08
+          ]
+        },
+        "right_weapon_carrier": {
+          "position": [
+            2.559999942779541,
+            -1.8799999952316284,
+            -1.600000023841858
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rifle": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            -0.0,
+            -0.0,
+            -1.0,
+            4.371138828673793e-08
+          ]
+        }
+      }
+    },
+    {
+      "transform": 0.875,
+      "joints": {
+        "chassis": {
+          "position": [
+            0.0,
+            1.8300000429153442,
+            1.2287495136260986
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "cab_shell": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_windscreen": {
+          "position": [
+            -0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_roof": {
+          "position": [
+            -0.7900000214576721,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_windscreen": {
+          "position": [
+            0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_roof": {
+          "position": [
+            0.7900000214576721,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "head": {
+          "position": [
+            0.0,
+            -0.17000000178813934,
+            -0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "grille": {
+          "position": [
+            0.0,
+            -0.5299999713897705,
+            0.75
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "pelvis": {
+          "position": [
+            0.0,
+            -0.44999998807907104,
+            -0.8799999952316284
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_shoulder": {
+          "position": [
+            -1.3002877235412598,
+            -0.3499999940395355,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_forearm": {
+          "position": [
+            0.0,
+            -0.8799999952316284,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "left_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_axle": {
+          "position": [
+            -2.490000009536743,
+            -0.3505798280239105,
+            -0.8483160138130188
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_hip": {
+          "position": [
+            -0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "left_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_bogie": {
+          "position": [
+            -0.5799999833106995,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_32": {
+          "position": [
+            -0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_168": {
+          "position": [
+            -0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "right_shoulder": {
+          "position": [
+            1.3002877235412598,
+            -0.3499999940395355,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_forearm": {
+          "position": [
+            0.0,
+            -0.8799999952316284,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "right_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_axle": {
+          "position": [
+            2.490000009536743,
+            -0.3505798280239105,
+            -0.8483160138130188
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_hip": {
+          "position": [
+            0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "right_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_bogie": {
+          "position": [
+            0.5799999833106995,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_32": {
+          "position": [
+            0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_168": {
+          "position": [
+            0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "left_weapon_carrier": {
+          "position": [
+            -2.9000000953674316,
+            -1.8799999952316284,
+            -1.600000023841858
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_axe": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            1.0,
+            4.371138828673793e-08
+          ]
+        },
+        "right_weapon_carrier": {
+          "position": [
+            2.559999942779541,
+            -1.8799999952316284,
+            -1.600000023841858
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rifle": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            -0.0,
+            -0.0,
+            -1.0,
+            4.371138828673793e-08
+          ]
+        }
+      }
+    },
+    {
+      "transform": 0.9375,
+      "joints": {
+        "chassis": {
+          "position": [
+            0.0,
+            1.8300000429153442,
+            1.3406264781951904
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "cab_shell": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_windscreen": {
+          "position": [
+            -0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_roof": {
+          "position": [
+            -0.7900000214576721,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_windscreen": {
+          "position": [
+            0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_roof": {
+          "position": [
+            0.7900000214576721,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "head": {
+          "position": [
+            0.0,
+            -0.17000000178813934,
+            -0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "grille": {
+          "position": [
+            0.0,
+            -0.5299999713897705,
+            0.75
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "pelvis": {
+          "position": [
+            0.0,
+            -0.44999998807907104,
+            -0.8799999952316284
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_shoulder": {
+          "position": [
+            -1.2599999904632568,
+            -0.3499999940395355,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_forearm": {
+          "position": [
+            0.0,
+            -0.8799999952316284,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "left_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_axle": {
+          "position": [
+            -2.4225592613220215,
+            -0.9583945870399475,
+            -0.03605446219444275
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_hip": {
+          "position": [
+            -0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "left_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_bogie": {
+          "position": [
+            -0.5799999833106995,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_32": {
+          "position": [
+            -0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_168": {
+          "position": [
+            -0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "right_shoulder": {
+          "position": [
+            1.2599999904632568,
+            -0.3499999940395355,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_forearm": {
+          "position": [
+            0.0,
+            -0.8799999952316284,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "right_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_axle": {
+          "position": [
+            2.4225592613220215,
+            -0.9583945870399475,
+            -0.03605446219444275
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_hip": {
+          "position": [
+            0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "right_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_bogie": {
+          "position": [
+            0.5799999833106995,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_32": {
+          "position": [
+            0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_168": {
+          "position": [
+            0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "left_weapon_carrier": {
+          "position": [
+            -2.752856492996216,
+            -1.8799999952316284,
+            -1.600000023841858
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_axe": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            1.0,
+            4.371138828673793e-08
+          ]
+        },
+        "right_weapon_carrier": {
+          "position": [
+            2.4128565788269043,
+            -1.8799999952316284,
+            -1.600000023841858
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rifle": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            -0.0,
+            -0.0,
+            -1.0,
+            4.371138828673793e-08
+          ]
+        }
+      }
+    },
+    {
+      "transform": 1.0,
+      "joints": {
+        "chassis": {
+          "position": [
+            0.0,
+            1.8300000429153442,
+            1.350000023841858
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "cab_shell": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_windscreen": {
+          "position": [
+            -0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_roof": {
+          "position": [
+            -0.7900000214576721,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_windscreen": {
+          "position": [
+            0.75,
+            0.6499999761581421,
+            0.7200000286102295
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_roof": {
+          "position": [
+            0.7900000214576721,
+            1.2599999904632568,
+            -0.009999999776482582
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "head": {
+          "position": [
+            0.0,
+            -0.17000000178813934,
+            -0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "grille": {
+          "position": [
+            0.0,
+            -0.5299999713897705,
+            0.75
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "pelvis": {
+          "position": [
+            0.0,
+            -0.44999998807907104,
+            -0.8799999952316284
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_shoulder": {
+          "position": [
+            -1.2599999904632568,
+            -0.3499999940395355,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_forearm": {
+          "position": [
+            0.0,
+            -0.8799999952316284,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "left_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_axle": {
+          "position": [
+            -1.940000057220459,
+            -1.149999976158142,
+            0.2199999988079071
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_hip": {
+          "position": [
+            -0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "left_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_bogie": {
+          "position": [
+            -0.5799999833106995,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_32": {
+          "position": [
+            -0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_rear_wheel_168": {
+          "position": [
+            -0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "right_shoulder": {
+          "position": [
+            1.2599999904632568,
+            -0.3499999940395355,
+            0.019999999552965164
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_forearm": {
+          "position": [
+            0.0,
+            -0.8799999952316284,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "right_fist": {
+          "position": [
+            0.0,
+            -0.699999988079071,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_axle": {
+          "position": [
+            1.940000057220459,
+            -1.149999976158142,
+            0.2199999988079071
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_front_wheel": {
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_hip": {
+          "position": [
+            0.75,
+            -0.20000000298023224,
+            0.0
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "right_shin": {
+          "position": [
+            0.0,
+            -1.649999976158142,
+            0.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_bogie": {
+          "position": [
+            0.5799999833106995,
+            0.0,
+            2.0
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_32": {
+          "position": [
+            0.30000001192092896,
+            -0.6499999761581421,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rear_wheel_168": {
+          "position": [
+            0.30000001192092896,
+            -2.049999952316284,
+            -1.5
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_foot": {
+          "position": [
+            0.0,
+            -2.799999952316284,
+            0.10000000149011612
+          ],
+          "quaternion": [
+            0.7071067690849304,
+            0.0,
+            0.0,
+            0.7071067690849304
+          ]
+        },
+        "left_weapon_carrier": {
+          "position": [
+            -1.7000000476837158,
+            -1.8799999952316284,
+            -1.600000023841858
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "left_axe": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            1.0,
+            4.371138828673793e-08
+          ]
+        },
+        "right_weapon_carrier": {
+          "position": [
+            1.3600000143051147,
+            -1.8799999952316284,
+            -1.600000023841858
+          ],
+          "quaternion": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "right_rifle": {
+          "position": [
+            0.0,
+            0.0,
+            0.11999999731779099
+          ],
+          "quaternion": [
+            -0.0,
+            -0.0,
+            -1.0,
+            4.371138828673793e-08
+          ]
+        }
+      }
+    }
+  ]
 }

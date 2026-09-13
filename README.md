@@ -9,7 +9,7 @@ documentation. Dependencies and deployment remain shared at the repository root.
 | Task | Interactive entry | Video | Documentation |
 | --- | --- | --- | --- |
 | Metro / Central & M01 | [metro/index.html](metro/index.html) | [metro/watch.html](metro/watch.html) | [Metro README](metro/README.md) |
-| Optimus Prime / Metal V2 | [optimus/index.html](optimus/index.html) | [optimus/watch.html](optimus/watch.html) | [Optimus README](optimus/README.md) |
+| Optimus Prime / Metal V3 | [optimus/index.html](optimus/index.html) | [optimus/watch.html](optimus/watch.html) | [Optimus README](optimus/README.md) |
 
 ```text
 metro/

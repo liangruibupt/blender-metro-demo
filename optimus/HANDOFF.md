@@ -1,5 +1,10 @@
 # Optimus Checkpoint / 2026-09-13
 
+> Historical V2 checkpoint, committed as `fd53385`. The current working version
+> is V3 with both reference weapons; read `RECOVERY.md` first, then `REFERENCE.md`,
+> `README.md` and `QA.md`. The archived WIP patch below
+> was used as a starting point and then revised. Do not reapply it to V3.
+
 ## Scope
 
 This checkpoint preserves the work recovered after the previous conversation

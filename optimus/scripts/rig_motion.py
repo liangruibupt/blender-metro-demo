@@ -1,5 +1,7 @@
 """Shared Blender-side pose evaluation for asset creation and collision audits."""
 
+import math
+
 from mathutils import Euler, Matrix, Vector
 
 C = Matrix(((1, 0, 0), (0, 0, -1), (0, 1, 0)))
@@ -21,6 +23,16 @@ def pose(entry, transform=0, explosion=0, assembly=None):
     b = Euler(entry["truckAngles"], "XYZ").to_quaternion()
     orient = a.slerp(b, t)
     motion = entry.get("motion", {})
+    if motion.get("type") == "weapon_fold":
+        # Half turns have two equally short quaternion paths; choose the outward arc.
+        orient = Euler((0, 0, motion["side"]*math.pi*t), "XYZ").to_quaternion()
+    if motion.get("type") == "weapon_carrier":
+        position.z = .38+.48*ramp(transform, 0, .08)-2.46*ramp(transform, .30, .55)
+        position.x += motion["side"]*1.20*ramp(transform, .38, .50)*(1-ramp(transform, .92, 1))
+    if motion.get("type") == "bogie":
+        # Extend outside the calf before crossing its depth, then close the carriage.
+        position.x = motion["side"]*(ramp(transform, .04, .14)-.42*ramp(transform, .28, .40))
+        position.z = 2*ramp(transform, .14, .28)
     if motion.get("type") == "roof":
         position.x += motion["side"]*.84*ramp(transform, .02, .12)*(1-ramp(transform, .38, .53))
     if motion.get("type") == "shoulder":

@@ -27,12 +27,12 @@ def build_maps(directory, palette):
     y, x = np.mgrid[0:size, 0:size].astype(np.float32)
     u, v = x/(size-1), y/(size-1)
     grain = rng.random((size, size), dtype=np.float32)
-    brushing = rng.random((size, 1), dtype=np.float32)*.65+grain*.35
+    brushing = rng.random((size, 1), dtype=np.float32)*.30+grain*.70
     distance = np.minimum.reduce([u, 1-u, v, 1-v])
     broken_edge = np.clip(1-distance/.021, 0, 1)
     broken_edge *= np.clip(.35+grain*.8+np.sin(x*.23)*np.cos(y*.19)*.3, 0, 1)
     scratches = np.zeros((size, size), dtype=np.float32)
-    for _ in range(130):
+    for _ in range(80):
         yy, xx = rng.integers(2, size-30, size=2)
         length = int(rng.integers(5, 42))
         scratches[yy, xx:min(size, xx+length)] = rng.uniform(.1, .8)
@@ -49,7 +49,7 @@ def build_maps(directory, palette):
         steel = np.array((.34, .37, .41), dtype=np.float32)[None, None, :]
         rgb = base*shade*(1-wear[:, :, None])+steel*wear[:, :, None]
         packed = np.ones((size, size, 3), dtype=np.float32)
-        packed[:, :, 1] = np.clip(roughness+(brushing-.5)*.12+wear*.08, .12, .65)
+        packed[:, :, 1] = np.clip(roughness+(brushing-.5)*.08+wear*.10, .12, .65)
         packed[:, :, 2] = metallic+(1-metallic)*wear
         maps[key] = (
             image(f"{key}-base", rgb, directory, color=True),
