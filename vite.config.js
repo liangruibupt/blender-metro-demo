@@ -3,7 +3,10 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   base: './',
   build: {
-    rollupOptions: { input: { main: 'index.html', film: 'film.html', watch: 'watch.html' } },
+    rollupOptions: { input: {
+      main: 'index.html', film: 'film.html', watch: 'watch.html',
+      optimus: 'optimus.html', optimusWatch: 'optimus-watch.html',
+    } },
   },
   server: { strictPort: true },
   preview: { strictPort: true },

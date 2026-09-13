@@ -1,0 +1,1044 @@
+{
+  "name": "G1-inspired Optimus Prime",
+  "version": 1,
+  "units": "meters",
+  "coordinateSystem": "right-handed Y-up, front +Z",
+  "joints": [
+    {
+      "id": "chassis",
+      "parent": null,
+      "robot": [
+        0,
+        5.3,
+        0
+      ],
+      "truck": [
+        0,
+        1.8,
+        1.35
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        0,
+        2.2,
+        0
+      ],
+      "interval": [
+        0.5,
+        0.96
+      ],
+      "order": 8,
+      "label": "Primary chassis",
+      "motion": {
+        "type": "lift"
+      }
+    },
+    {
+      "id": "cab_shell",
+      "parent": "chassis",
+      "robot": [
+        0,
+        0,
+        0
+      ],
+      "truck": [
+        0,
+        0,
+        0
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        0,
+        0.55,
+        -0.95
+      ],
+      "interval": [
+        0.2,
+        0.8
+      ],
+      "order": 4,
+      "label": "Cab shell"
+    },
+    {
+      "id": "left_windscreen",
+      "parent": "chassis",
+      "robot": [
+        -0.65,
+        0.65,
+        0.72
+      ],
+      "truck": [
+        -0.65,
+        0.65,
+        0.72
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        -0.4,
+        0.45,
+        1.0
+      ],
+      "interval": [
+        0.2,
+        0.8
+      ],
+      "order": 6,
+      "label": "Windscreen / chest armor"
+    },
+    {
+      "id": "left_roof",
+      "parent": "chassis",
+      "robot": [
+        -0.67,
+        1.26,
+        -0.01
+      ],
+      "truck": [
+        -0.67,
+        1.26,
+        -0.01
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        -0.35,
+        1.2,
+        -0.2
+      ],
+      "interval": [
+        0.2,
+        0.8
+      ],
+      "order": 7,
+      "label": "Sliding roof hatch",
+      "motion": {
+        "type": "roof",
+        "side": -1
+      }
+    },
+    {
+      "id": "right_windscreen",
+      "parent": "chassis",
+      "robot": [
+        0.65,
+        0.65,
+        0.72
+      ],
+      "truck": [
+        0.65,
+        0.65,
+        0.72
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        0.4,
+        0.45,
+        1.0
+      ],
+      "interval": [
+        0.2,
+        0.8
+      ],
+      "order": 6,
+      "label": "Windscreen / chest armor"
+    },
+    {
+      "id": "right_roof",
+      "parent": "chassis",
+      "robot": [
+        0.67,
+        1.26,
+        -0.01
+      ],
+      "truck": [
+        0.67,
+        1.26,
+        -0.01
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        0.35,
+        1.2,
+        -0.2
+      ],
+      "interval": [
+        0.2,
+        0.8
+      ],
+      "order": 7,
+      "label": "Sliding roof hatch",
+      "motion": {
+        "type": "roof",
+        "side": 1
+      }
+    },
+    {
+      "id": "head",
+      "parent": "chassis",
+      "robot": [
+        0,
+        1.57,
+        -0.02
+      ],
+      "truck": [
+        0,
+        -0.17,
+        -0.02
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        0,
+        1.7,
+        0.1
+      ],
+      "interval": [
+        0.13,
+        0.36
+      ],
+      "order": 8,
+      "label": "Helmet / optics"
+    },
+    {
+      "id": "grille",
+      "parent": "chassis",
+      "robot": [
+        0,
+        -0.53,
+        0.75
+      ],
+      "truck": [
+        0,
+        -0.53,
+        0.75
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        0,
+        -0.15,
+        1.28
+      ],
+      "interval": [
+        0.2,
+        0.8
+      ],
+      "order": 5,
+      "label": "Grille / abdominal armor"
+    },
+    {
+      "id": "pelvis",
+      "parent": "chassis",
+      "robot": [
+        0,
+        -1.4,
+        -0.1
+      ],
+      "truck": [
+        0,
+        -0.45,
+        -0.88
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        0,
+        -0.35,
+        -0.9
+      ],
+      "interval": [
+        0.4,
+        0.82
+      ],
+      "order": 0,
+      "label": "Hip / fifth-wheel carrier"
+    },
+    {
+      "id": "left_shoulder",
+      "parent": "chassis",
+      "robot": [
+        -1.87,
+        0.68,
+        -0.04
+      ],
+      "truck": [
+        -1.26,
+        0.3,
+        -0.3
+      ],
+      "angles": [
+        0,
+        0,
+        -0.07
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        -1.28,
+        0.26,
+        0.15
+      ],
+      "interval": [
+        0.53,
+        0.83
+      ],
+      "order": 3,
+      "label": "Shoulder / cab flank",
+      "motion": {
+        "type": "shoulder",
+        "side": -1
+      }
+    },
+    {
+      "id": "left_forearm",
+      "parent": "left_shoulder",
+      "robot": [
+        0,
+        -1.03,
+        0
+      ],
+      "truck": [
+        0,
+        -1.03,
+        0
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "explode": [
+        -0.32,
+        -0.6,
+        0.3
+      ],
+      "interval": [
+        0.25,
+        0.52
+      ],
+      "order": 4,
+      "label": "Forearm / folding fairing"
+    },
+    {
+      "id": "left_fist",
+      "parent": "left_forearm",
+      "robot": [
+        0,
+        -1.28,
+        0
+      ],
+      "truck": [
+        0,
+        -0.54,
+        0
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        -0.24,
+        -0.52,
+        0.25
+      ],
+      "interval": [
+        0.02,
+        0.19
+      ],
+      "order": 7,
+      "label": "Retractable fist"
+    },
+    {
+      "id": "left_front_axle",
+      "parent": "chassis",
+      "robot": [
+        -1.44,
+        -0.05,
+        -0.91
+      ],
+      "truck": [
+        -1.48,
+        -1.15,
+        0.22
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        -0.8,
+        0.1,
+        -0.7
+      ],
+      "interval": [
+        0.56,
+        0.91
+      ],
+      "order": 5,
+      "label": "Front axle carrier"
+    },
+    {
+      "id": "left_front_wheel",
+      "parent": "left_front_axle",
+      "robot": [
+        0,
+        0,
+        0
+      ],
+      "truck": [
+        0,
+        0,
+        0
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        -0.45,
+        0,
+        0
+      ],
+      "interval": [
+        0.2,
+        0.8
+      ],
+      "order": 6,
+      "label": "Wheel / hub"
+    },
+    {
+      "id": "left_hip",
+      "parent": "pelvis",
+      "robot": [
+        -0.69,
+        -0.2,
+        0
+      ],
+      "truck": [
+        -0.69,
+        -0.2,
+        0
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "explode": [
+        -0.65,
+        -0.35,
+        0.12
+      ],
+      "interval": [
+        0.31,
+        0.73
+      ],
+      "order": 1,
+      "label": "Hip hinge / frame rail"
+    },
+    {
+      "id": "left_shin",
+      "parent": "left_hip",
+      "robot": [
+        0,
+        -1.24,
+        0
+      ],
+      "truck": [
+        0,
+        -1.24,
+        0
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        -0.23,
+        -0.88,
+        -0.25
+      ],
+      "interval": [
+        0.2,
+        0.8
+      ],
+      "order": 2,
+      "label": "Lower leg / rear chassis"
+    },
+    {
+      "id": "left_rear_wheel_46",
+      "parent": "left_shin",
+      "robot": [
+        -0.7,
+        -0.46,
+        0.5
+      ],
+      "truck": [
+        -0.7,
+        -0.46,
+        0.5
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        -0.66,
+        0,
+        -0.12
+      ],
+      "interval": [
+        0.2,
+        0.8
+      ],
+      "order": 6,
+      "label": "Wheel / hub"
+    },
+    {
+      "id": "left_rear_wheel_152",
+      "parent": "left_shin",
+      "robot": [
+        -0.7,
+        -1.52,
+        0.5
+      ],
+      "truck": [
+        -0.7,
+        -1.52,
+        0.5
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        -0.66,
+        0,
+        -0.12
+      ],
+      "interval": [
+        0.2,
+        0.8
+      ],
+      "order": 6,
+      "label": "Wheel / hub"
+    },
+    {
+      "id": "left_foot",
+      "parent": "left_shin",
+      "robot": [
+        0,
+        -1.92,
+        0.1
+      ],
+      "truck": [
+        0,
+        -1.92,
+        0.1
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        -1.5707963267948966,
+        0,
+        0
+      ],
+      "explode": [
+        -0.12,
+        -0.55,
+        0.6
+      ],
+      "interval": [
+        0.08,
+        0.27
+      ],
+      "order": 3,
+      "label": "Foot / rear deck lock"
+    },
+    {
+      "id": "right_shoulder",
+      "parent": "chassis",
+      "robot": [
+        1.87,
+        0.68,
+        -0.04
+      ],
+      "truck": [
+        1.26,
+        0.3,
+        -0.3
+      ],
+      "angles": [
+        0,
+        0,
+        0.07
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        1.28,
+        0.26,
+        0.15
+      ],
+      "interval": [
+        0.53,
+        0.83
+      ],
+      "order": 3,
+      "label": "Shoulder / cab flank",
+      "motion": {
+        "type": "shoulder",
+        "side": 1
+      }
+    },
+    {
+      "id": "right_forearm",
+      "parent": "right_shoulder",
+      "robot": [
+        0,
+        -1.03,
+        0
+      ],
+      "truck": [
+        0,
+        -1.03,
+        0
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "explode": [
+        0.32,
+        -0.6,
+        0.3
+      ],
+      "interval": [
+        0.25,
+        0.52
+      ],
+      "order": 4,
+      "label": "Forearm / folding fairing"
+    },
+    {
+      "id": "right_fist",
+      "parent": "right_forearm",
+      "robot": [
+        0,
+        -1.28,
+        0
+      ],
+      "truck": [
+        0,
+        -0.54,
+        0
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        0.24,
+        -0.52,
+        0.25
+      ],
+      "interval": [
+        0.02,
+        0.19
+      ],
+      "order": 7,
+      "label": "Retractable fist"
+    },
+    {
+      "id": "right_front_axle",
+      "parent": "chassis",
+      "robot": [
+        1.44,
+        -0.05,
+        -0.91
+      ],
+      "truck": [
+        1.48,
+        -1.15,
+        0.22
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        0.8,
+        0.1,
+        -0.7
+      ],
+      "interval": [
+        0.56,
+        0.91
+      ],
+      "order": 5,
+      "label": "Front axle carrier"
+    },
+    {
+      "id": "right_front_wheel",
+      "parent": "right_front_axle",
+      "robot": [
+        0,
+        0,
+        0
+      ],
+      "truck": [
+        0,
+        0,
+        0
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        0.45,
+        0,
+        0
+      ],
+      "interval": [
+        0.2,
+        0.8
+      ],
+      "order": 6,
+      "label": "Wheel / hub"
+    },
+    {
+      "id": "right_hip",
+      "parent": "pelvis",
+      "robot": [
+        0.69,
+        -0.2,
+        0
+      ],
+      "truck": [
+        0.69,
+        -0.2,
+        0
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "explode": [
+        0.65,
+        -0.35,
+        0.12
+      ],
+      "interval": [
+        0.31,
+        0.73
+      ],
+      "order": 1,
+      "label": "Hip hinge / frame rail"
+    },
+    {
+      "id": "right_shin",
+      "parent": "right_hip",
+      "robot": [
+        0,
+        -1.24,
+        0
+      ],
+      "truck": [
+        0,
+        -1.24,
+        0
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        0.23,
+        -0.88,
+        -0.25
+      ],
+      "interval": [
+        0.2,
+        0.8
+      ],
+      "order": 2,
+      "label": "Lower leg / rear chassis"
+    },
+    {
+      "id": "right_rear_wheel_46",
+      "parent": "right_shin",
+      "robot": [
+        0.7,
+        -0.46,
+        0.5
+      ],
+      "truck": [
+        0.7,
+        -0.46,
+        0.5
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        0.66,
+        0,
+        -0.12
+      ],
+      "interval": [
+        0.2,
+        0.8
+      ],
+      "order": 6,
+      "label": "Wheel / hub"
+    },
+    {
+      "id": "right_rear_wheel_152",
+      "parent": "right_shin",
+      "robot": [
+        0.7,
+        -1.52,
+        0.5
+      ],
+      "truck": [
+        0.7,
+        -1.52,
+        0.5
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        0,
+        0,
+        0
+      ],
+      "explode": [
+        0.66,
+        0,
+        -0.12
+      ],
+      "interval": [
+        0.2,
+        0.8
+      ],
+      "order": 6,
+      "label": "Wheel / hub"
+    },
+    {
+      "id": "right_foot",
+      "parent": "right_shin",
+      "robot": [
+        0,
+        -1.92,
+        0.1
+      ],
+      "truck": [
+        0,
+        -1.92,
+        0.1
+      ],
+      "angles": [
+        0,
+        0,
+        0
+      ],
+      "truckAngles": [
+        -1.5707963267948966,
+        0,
+        0
+      ],
+      "explode": [
+        0.12,
+        -0.55,
+        0.6
+      ],
+      "interval": [
+        0.08,
+        0.27
+      ],
+      "order": 3,
+      "label": "Foot / rear deck lock"
+    }
+  ],
+  "meshCount": 503,
+  "note": "Original fan study; simplified mechanical motion, not a production toy mechanism."
+}

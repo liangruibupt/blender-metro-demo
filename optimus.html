@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#eceeef">
+  <link rel="icon" href="./favicon.svg">
+  <title>Optimus Prime · Mechanical Atelier</title>
+</head>
+<body>
+  <header class="op-header">
+    <a class="op-brand" href="./" title="返回地铁展示"><span class="op-mark">A</span><span>MECHANICAL<br><b>ATELIER</b></span></a>
+    <div class="op-heading"><h1>OPTIMUS PRIME</h1><span>G1 / ARTICULATED STUDY</span></div>
+    <div class="op-header-tools">
+      <a href="./optimus-watch.html" class="op-icon" title="播放展示影片" aria-label="播放展示影片"><i data-lucide="clapperboard"></i></a>
+      <a href="./" class="op-icon" title="地铁展示" aria-label="地铁展示"><i data-lucide="train-front"></i></a>
+      <button id="op-capture" class="op-icon" title="保存当前画面" aria-label="保存当前画面" disabled><i data-lucide="camera"></i></button>
+      <button id="op-fullscreen" class="op-icon" title="全屏" aria-label="全屏"><i data-lucide="maximize"></i></button>
+      <a class="op-icon" href="./assets/optimus.glb" download title="下载 GLB 模型" aria-label="下载 GLB 模型"><i data-lucide="box"></i></a>
+    </div>
+  </header>
+  <div class="op-workspace">
+    <main class="op-stage" id="op-stage">
+      <div id="op-viewport" aria-label="擎天柱三维展示"></div>
+      <div class="op-stage-top"><span class="op-index">02 <span>/</span> PRIME</span><span id="op-form-label">ROBOT CONFIGURATION</span></div>
+      <div class="op-stage-bottom"><span><i class="op-status-dot"></i><span id="op-scene-caption">机器人形态</span></span><span id="op-joint-count"></span></div>
+      <div class="op-loading" id="op-loading" role="status">正在构建展示场景</div>
+      <button id="op-retry" class="op-retry" hidden>重新载入</button>
+    </main>
+    <aside class="op-sidebar" aria-label="展示设置">
+      <div class="op-section-label">PRESENTATION <span>01—05</span></div>
+      <nav class="op-modes" aria-label="展示模式">
+        <button data-mode="orbit" aria-pressed="true" disabled><i data-lucide="rotate-3d"></i><span>360° 展示</span><small>01</small></button>
+        <button data-mode="exploded" aria-pressed="false" disabled><i data-lucide="boxes"></i><span>拆解爆炸图</span><small>02</small></button>
+        <button data-mode="assembly" aria-pressed="false" disabled><i data-lucide="wrench"></i><span>组装过程</span><small>03</small></button>
+        <button data-mode="transform" aria-pressed="false" disabled><i data-lucide="repeat-2"></i><span>变形过程</span><small>04</small></button>
+        <button data-mode="film" aria-pressed="false" disabled><i data-lucide="clapperboard"></i><span>完整运镜</span><small>05</small></button>
+      </nav>
+      <div class="op-section-label">CONFIGURATION</div>
+      <div class="op-form-switch" role="group" aria-label="模型形态">
+        <button data-form="robot" aria-pressed="true" disabled>机器人</button>
+        <button data-form="truck" aria-pressed="false" disabled>卡车</button>
+      </div>
+      <label class="op-setting"><span>镜头</span><select id="op-view" aria-label="镜头预设" disabled><option value="director">导演运镜</option><option value="front">正面</option><option value="side">侧面</option><option value="rear">背面</option><option value="top">俯视</option></select></label>
+      <label class="op-setting"><span>线框</span><input type="checkbox" id="op-wireframe" disabled></label>
+      <div class="op-section-label op-assembly-heading">ASSEMBLIES <button id="op-clear-selection" title="取消高亮" aria-label="取消高亮" class="op-icon"><i data-lucide="x"></i></button></div>
+      <div class="op-parts" id="op-parts"></div>
+      <div class="op-materials"><span><i style="background:#b92732"></i> SIGNAL RED</span><span><i style="background:#244a94"></i> COBALT</span><span><i style="background:#b7bec5"></i> ALUMINIUM</span></div>
+      <div class="op-fan-label">G1-INSPIRED / ORIGINAL FAN STUDY</div>
+    </aside>
+  </div>
+  <footer class="op-transport">
+    <div class="op-transport-top"><span id="op-chapter">01 / 360° 展示</span><output id="op-time">00:00 / 00:12</output></div>
+    <div class="op-transport-row">
+      <button id="op-restart" class="op-icon" title="回到起点" aria-label="回到起点" disabled><i data-lucide="skip-back"></i></button>
+      <button id="op-play" class="op-play" title="播放" aria-label="播放" disabled><i data-lucide="play"></i></button>
+      <input id="op-timeline" type="range" min="0" max="12" step=".01" value="0" aria-label="动画时间" disabled>
+      <select id="op-speed" aria-label="播放速度"><option value=".5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option></select>
+      <button id="op-export" class="op-icon" title="导出 80 秒 MP4" aria-label="导出完整 MP4" disabled><i data-lucide="download"></i></button>
+    </div>
+    <div id="op-export-status" role="status"></div>
+  </footer>
+  <script>
+    if(location.protocol==='file:')document.querySelector('#op-loading').textContent='三维展示需要通过本地 HTTP 服务打开。';
+  </script>
+  <script type="module" src="/src/optimus-bootstrap.js"></script>
+</body>
+</html>

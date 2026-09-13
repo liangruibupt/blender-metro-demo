@@ -4,12 +4,12 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
-import { createIcons, Camera, Maximize, Download, Rotate3d, DoorOpen, Layers2, Focus, TrainFront, Armchair, Gauge, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Plus, X, MapPin, ArrowDownToLine, Film } from 'lucide';
+import { createIcons, Camera, Maximize, Download, Rotate3d, DoorOpen, Layers2, Focus, TrainFront, Armchair, Gauge, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Plus, X, MapPin, ArrowDownToLine, Film, Box } from 'lucide';
 import { resolveMove, inDoorway, visitorArea } from './navigation.js';
 import { ORBIT_LIMITS, inspectionView, inspectionLayers, inspectionMeshRole } from './inspection.js';
 
 const $ = (selector) => document.querySelector(selector);
-const icons = { Camera, Maximize, Download, Rotate3d, DoorOpen, Layers2, Focus, TrainFront, Armchair, Gauge, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Plus, X, MapPin, ArrowDownToLine, Film };
+const icons = { Camera, Maximize, Download, Rotate3d, DoorOpen, Layers2, Focus, TrainFront, Armchair, Gauge, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Plus, X, MapPin, ArrowDownToLine, Film, Box };
 const refreshIcons = () => createIcons({ icons, attrs: { 'stroke-width': 1.6 } });
 refreshIcons();
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;

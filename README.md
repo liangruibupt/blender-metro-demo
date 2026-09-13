@@ -5,6 +5,14 @@ with a Three.js viewer and a continuous platform-to-train visitor route.
 This is a visual design study, not a replica, engineering model, vehicle simulator,
 or certified accessibility layout.
 
+## Optimus Prime Study
+
+An independent G1-inspired mechanical study is available at `optimus.html`.
+It includes robot/truck 360-degree inspection, exploded assemblies, ordered
+assembly, continuous transformation, directed camera motion and MP4 export.
+The metro remains at `index.html`. See `OPTIMUS.md` for the model, Blender
+reproduction command, animation stages and intentional limits.
+
 ## Deliverables
 
 - `deliverables/metro-storyboard-preview.mp4`: silent 80-second, 1080p / 24 fps
