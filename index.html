@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#edf0ef" />
-    <meta name="description" content="Metro Atelier M01: an original metro concept with an explorable passenger saloon and driver cab, created in Blender." />
+    <meta name="description" content="Central station: an original island platform with a vaulted ceiling, M01 metro train and continuous platform-to-train walkthrough, created in Blender." />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <title>M01 · Metro Atelier</title>
+    <title>Central · Metro Atelier</title>
   </head>
   <body>
     <main id="app">
@@ -21,15 +21,15 @@
         </div>
       </header>
       <section class="identity" aria-label="列车信息">
-        <div class="eyebrow">URBAN RAIL <span>/</span> HARBOR LINE</div>
-        <h1>M01<span class="title-dot">.</span></h1>
-        <p>城市轨道概念列车</p>
-        <div class="spec-strip"><span><b>19.4</b> m<span>车长</span></span><span><b>24</b> 席<span>含折叠座椅</span></span><span><b>06</b> 组<span>侧门</span></span></div>
+        <div class="eyebrow">HARBOR LINE <span>/</span> STATION 01</div>
+        <h1>CENTRAL<span class="title-dot">.</span></h1>
+        <p>中央站 · M01 地铁展示</p>
+        <div class="spec-strip"><span><b>36</b> m<span>站台长度</span></span><span><b>02</b> 侧<span>轨道</span></span><span><b>01</b> 号<span>Harbor Line</span></span></div>
       </section>
       <aside class="scene-tools" aria-label="展示选项">
         <button id="orbit" class="tool-button active" aria-label="自动环绕" aria-pressed="true" title="自动环绕"><i data-lucide="rotate-3d"></i><span>自动环绕</span></button>
         <button id="doors" class="tool-button" aria-label="车门" aria-pressed="false" title="打开车门"><i data-lucide="door-open"></i><span>车门</span></button>
-        <button id="cutaway" class="tool-button" aria-label="剖视" aria-pressed="false" title="移除车顶"><i data-lucide="layers-2"></i><span>剖视</span></button>
+        <button id="cutaway" class="tool-button" aria-label="剖视" aria-pressed="false" title="移除列车车顶"><i data-lucide="layers-2"></i><span>剖视</span></button>
         <div class="tool-divider"></div>
         <button id="reset" class="tool-button" aria-label="复位" title="重置当前视角"><i data-lucide="focus"></i><span>复位</span></button>
       </aside>
@@ -39,12 +39,13 @@
         <h2 id="detail-title"></h2><p id="detail-copy"></p>
         <dl id="detail-specs"></dl>
       </aside>
-      <div class="loading" id="loading" role="status"><div class="loading-line"><span></span></div><span id="loading-label">正在载入 M01</span></div>
+      <div class="loading" id="loading" role="status"><div class="loading-line"><span></span></div><span id="loading-label">正在载入中央站与 M01</span></div>
       <div class="error-state" id="error" role="alert" hidden><h2>模型暂时无法载入</h2><p id="error-copy"></p><button id="retry">重新载入</button></div>
       <footer class="footer">
-        <div class="view-caption"><span id="view-number">01 / 03</span><strong id="view-name">外观全景</strong><span id="view-en">EXTERIOR</span></div>
+        <div class="view-caption"><span id="view-number">02 / 04</span><strong id="view-name">中央站 · 1 号站台</strong><span id="view-en">CENTRAL / PLATFORM 01</span></div>
         <nav class="view-selector" aria-label="视角切换">
-          <button class="view-tab selected" data-view="exterior" aria-label="外观 360°" aria-pressed="true"><i data-lucide="train-front"></i><span>外观 <small>360°</small></span></button>
+          <button class="view-tab" data-view="exterior" aria-label="站台全景 360°" aria-pressed="false"><i data-lucide="rotate-3d"></i><span>全景 <small>360°</small></span></button>
+          <button class="view-tab selected" data-view="platform" aria-label="进入站台" aria-pressed="true"><i data-lucide="map-pin"></i><span>站台</span></button>
           <button class="view-tab" data-view="interior" aria-pressed="false"><i data-lucide="armchair"></i><span>进入车厢</span></button>
           <button class="view-tab" data-view="cab" aria-pressed="false"><i data-lucide="gauge"></i><span>进入驾驶室</span></button>
         </nav>

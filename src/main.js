@@ -4,10 +4,11 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
-import { createIcons, Camera, Maximize, Download, Rotate3d, DoorOpen, Layers2, Focus, TrainFront, Armchair, Gauge, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Plus, X } from 'lucide';
+import { createIcons, Camera, Maximize, Download, Rotate3d, DoorOpen, Layers2, Focus, TrainFront, Armchair, Gauge, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Plus, X, MapPin } from 'lucide';
+import { resolveMove, inDoorway, visitorArea } from './navigation.js';
 
 const $ = (selector) => document.querySelector(selector);
-const icons = { Camera, Maximize, Download, Rotate3d, DoorOpen, Layers2, Focus, TrainFront, Armchair, Gauge, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Plus, X };
+const icons = { Camera, Maximize, Download, Rotate3d, DoorOpen, Layers2, Focus, TrainFront, Armchair, Gauge, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Plus, X, MapPin };
 const refreshIcons = () => createIcons({ icons, attrs: { 'stroke-width': 1.6 } });
 refreshIcons();
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -31,8 +32,8 @@ renderer.domElement.tabIndex = 0;
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xedf0ef);
-scene.fog = new THREE.Fog(0xedf0ef, 55, 160);
-const camera = new THREE.PerspectiveCamera(38, 1, .035, 200);
+scene.fog = new THREE.Fog(0xedf0ef, 140, 350);
+const camera = new THREE.PerspectiveCamera(38, 1, .035, 400);
 const pmrem = new THREE.PMREMGenerator(renderer);
 const room = new RoomEnvironment();
 const environment = pmrem.fromScene(room, .04);
@@ -40,12 +41,12 @@ scene.environment = environment.texture;
 scene.environmentIntensity = .62;
 room.dispose();
 pmrem.dispose();
-scene.add(new THREE.HemisphereLight(0xf4faf9, 0x82948b, 1.6));
+scene.add(new THREE.HemisphereLight(0xf4faf9, 0x82948b, 1.15));
 const sun = new THREE.DirectionalLight(0xfffcf0, 3.3);
 sun.position.set(8, 17, 11);
 sun.castShadow = true;
 sun.shadow.mapSize.set(2048, 2048);
-Object.assign(sun.shadow.camera, { left: -17, right: 17, top: 17, bottom: -17, near: .5, far: 55 });
+Object.assign(sun.shadow.camera, { left: -29, right: 29, top: 29, bottom: -29, near: .5, far: 80 });
 sun.shadow.normalBias = .026;
 sun.shadow.bias = -.0001;
 sun.shadow.radius = 3;
@@ -63,20 +64,21 @@ grid.position.y = -.317;
 grid.material.transparent = true;
 grid.material.opacity = .23;
 scene.add(grid);
+grid.visible = false;
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = .065;
 controls.maxPolarAngle = Math.PI/2 - .025;
 controls.minDistance = 3;
-controls.maxDistance = 62;
+controls.maxDistance = 100;
 controls.autoRotateSpeed = .35;
 controls.enablePan = true;
 controls.target.set(0, 1.6, 0);
-let mode = 'exterior';
+let mode = 'platform';
 let ready = false;
-let autoRotate = !reducedMotion;
-let doorOpen = false;
+let autoRotate = false;
+let doorOpen = true;
 let cutaway = false;
 let doorAmount = 0;
 let transition = null;
@@ -90,13 +92,24 @@ const doors = [];
 const roof = new THREE.Group();
 roof.name = 'Removable roof';
 scene.add(roof);
+const station = new THREE.Group();
+station.name = 'Central station';
+scene.add(station);
+const stationCover = new THREE.Group();
+stationCover.name = 'Station vault and near facade';
+scene.add(stationCover);
 
 const viewpoints = {
-  exterior: { number: '01 / 03', name: '外观全景', en: 'EXTERIOR', position: [22, 11.5, 24], target: [0, 1.5, 0] },
-  interior: { number: '02 / 03', name: '乘客车厢', en: 'PASSENGER SALOON', position: [-7.70, 2.70, 0], target: [6.7, 2.42, 0] },
-  cab: { number: '03 / 03', name: '驾驶室', en: 'DRIVER CAB', position: [7.75, 2.72, .18], target: [9.12, 2.05, 0] },
+  exterior: { number: '01 / 04', name: '站台全景', en: 'STATION OVERVIEW', position: [31, 29, 39], target: [0, 1.65, 4.8] },
+  platform: { number: '02 / 04', name: '中央站 · 1 号站台', en: 'CENTRAL / PLATFORM 01', position: [12.4, 2.90, 3.75], target: [-5, 2.45, 1.05] },
+  interior: { number: '03 / 04', name: '乘客车厢', en: 'PASSENGER SALOON', position: [-7.70, 2.70, 0], target: [6.7, 2.42, 0] },
+  cab: { number: '04 / 04', name: '驾驶室', en: 'DRIVER CAB', position: [7.75, 2.72, .18], target: [9.12, 2.05, 0] },
 };
 const details = [
+  { id:'boarding',modes:['platform','exterior'],label:'登车口',anchor:[-.5,2.30,1.58],view:'platform',index:'01 / BOARDING',title:'站台与车厢',copy:'列车停靠中央站 1 号站台，站台侧车门打开。黄色触觉警示带与深色安全线标识候车边界。',specs:[['列车','M01'],['站台','01 / Harbor Line']],position:[-.5,2.80,2.7],target:[-.5,2.55,0]},
+  { id:'departures',modes:['platform'],label:'到站信息',anchor:[6.0,4.28,3.27],view:'platform',index:'02 / DEPARTURES',title:'Harbor Line 到站信息',copy:'悬挂式双面屏区分线路、目的地和预计到站时间，配合出口指示覆盖站台两个来向。屏幕内容为概念静态信息。',specs:[['本站','Central'],['后续列车','Airport / 04 min']],position:[8.9,2.90,3.3],target:[6.0,4.25,3.27]},
+  { id:'network',modes:['platform'],label:'线路图',anchor:[3.25,3.12,5.5],view:'platform',index:'03 / NETWORK',title:'中央站换乘线路图',copy:'独立灯箱展示原创三线换乘图；中央站作为换乘节点。背面为城市主题图形，旁边布置候车座椅。',specs:[['线路','Harbor / Park / Airport'],['站台长度','36 m']],position:[3.25,2.80,3.7],target:[3.25,3.16,5.50]},
+  { id:'platform',modes:['exterior'],label:'进入站台',anchor:[-10,1.35,3.75],view:'platform',index:'04 / CENTRAL',title:'中央站岛式站台',copy:'双侧轨道围绕连续岛式站台，拱形顶棚、立柱与灯带形成清晰的空间节奏。',specs:[['站台','36 x 6.22 m'],['轨道','双侧布置']],position:[12.4,2.90,3.75],target:[-5,2.45,1.05]},
   { id: 'cab', modes: ['exterior'], label: '驾驶室', anchor: [8.5, 3.18, 0], view: 'cab', index: '01 / DRIVER CAB', title: '面向城市的驾驶视野', copy: '宽幅前风挡、双侧主控制器与三联仪表屏。操纵台下方保留脚踏控制及设备空间。', specs: [['布局', '单人驾驶'], ['仪表', '速度 / 车门 / ATP']], position: [7.75,2.72,.18], target:[9.12,2.05,0] },
   { id: 'saloon', modes: ['exterior'], label: '乘客车厢', anchor: [-1.8, 2.8, 1.5], view: 'interior', index: '02 / SALOON', title: '连续开放的乘客空间', copy: '纵向座椅释放中央通道。立柱、连续扶手与吊环形成不同高度的抓握点。', specs: [['固定座椅', '20 席'], ['折叠座椅', '4 席']], position: [-7.70,2.70,0], target: [6.7,2.42,0] },
   { id: 'bogie', modes: ['exterior'], label: '转向架', anchor: [6.35,.53,1.2], view:'exterior', index:'03 / RUNNING GEAR',title:'双轴转向架',copy:'轮对、轴箱、空气弹簧与构架分层建模。车底布置独立设备箱与散热构件。',specs:[['转向架','2 组'],['轮对','4 组']],position:[9.5,2.2,6.3],target:[6.35,.6,0] },
@@ -121,7 +134,7 @@ $('#retry').onclick = () => location.reload();
 
 // Combine static geometry by material, retaining separate door and roof groups.
 // This keeps the editable Blender asset detailed without hundreds of draw calls.
-function optimizeModel(root) {
+function optimizeModel(root, defaultOutput = scene) {
   root.updateMatrixWorld(true);
   const batches = new Map();
   root.traverse((object) => {
@@ -138,7 +151,8 @@ function optimizeModel(root) {
   root.traverse((object) => {
     if (!object.isMesh) return;
     let parent = object.parent;
-    let output = object.userData.zone === '04_Roof' ? roof : scene;
+    let output = object.userData.zone === '04_Roof' ? roof : defaultOutput;
+    if (object.userData.zone === '10_Station_Cover') output = stationCover;
     while (parent) {
       if (parent.userData.outputGroup) { output = parent.userData.outputGroup; break; }
       parent = parent.parent;
@@ -181,8 +195,9 @@ function optimizeModel(root) {
 }
 
 const loader = new GLTFLoader();
-loader.load('./assets/metro.glb', (gltf) => {
-  optimizeModel(gltf.scene);
+Promise.all([loader.loadAsync('./assets/metro.glb'),loader.loadAsync('./assets/station.glb')]).then(([train,environment]) => {
+  optimizeModel(train.scene);
+  optimizeModel(environment.scene,station);
   // Fill the interior independently of the exterior sun. Lights are intentionally
   // shadow-free so the first-person views remain responsive on mobile hardware.
   for (const x of [-7,-3,1,5,8.1]) {
@@ -190,25 +205,30 @@ loader.load('./assets/metro.glb', (gltf) => {
     light.position.set(x,3.12,0);
     scene.add(light);
   }
+  for (const x of [-14,-7,0,7,14]) {
+    for (const z of [2.8,6.8]) {
+      const light = new THREE.PointLight(0xfff4de, 22, 10, 2);
+      light.position.set(x,5.72,z);
+      scene.add(light);
+    }
+  }
   ready = true;
   $('#loading').hidden = true;
   $('#capture').disabled = false;
-  setView('exterior', false);
+  setView('platform', false);
   buildHotspots();
-}, (event) => {
-  if (event.total) $('#loading-label').textContent = `正在载入 M01 · ${Math.round(event.loaded/event.total*100)}%`;
-}, (error) => {
+}).catch((error) => {
   console.error(error);
-  showError('请确认本地服务正常运行，并且 assets/metro.glb 已生成。');
+  showError('请确认本地服务正常运行，并且列车与站台模型均已生成。');
 });
 
 function exteriorPosition() {
-  if (window.innerWidth >= 600) return [22, 11.5, 24];
+  if (window.innerWidth >= 600) return [31, 29, 39];
   const aspect = $('#app').clientWidth / $('#app').clientHeight;
   const halfFov = Math.atan(Math.tan(THREE.MathUtils.degToRad(23)) * aspect);
-  const distance = Math.max(34, 10.7 / Math.sin(halfFov));
-  controls.maxDistance = Math.max(62, distance * 1.4);
-  return new THREE.Vector3(22, 11.5, 24).normalize().multiplyScalar(distance).toArray();
+  const distance = Math.max(60, 22 / Math.sin(halfFov));
+  controls.maxDistance = Math.max(100, distance * 1.4);
+  return new THREE.Vector3(31, 29, 34).normalize().multiplyScalar(distance).add(new THREE.Vector3(0,1.65,4.8)).toArray();
 }
 function moveCamera(position, target, animated = true) {
   const endPosition = new THREE.Vector3(...position);
@@ -231,8 +251,7 @@ function syncLook(target) {
   yaw = Math.atan2(dir.x,dir.z);
   pitch = Math.asin(THREE.MathUtils.clamp(dir.y,-1,1));
 }
-function setView(next, animated = true) {
-  if (!ready) return;
+function updateViewUI(next) {
   mode = next;
   const view = viewpoints[next];
   $('#view-number').textContent = view.number;
@@ -245,12 +264,19 @@ function setView(next, animated = true) {
   camera.fov = next === 'exterior' ? (innerWidth < 600 ? 46 : 38) : (innerWidth < 600 ? 82 : 76);
   camera.updateProjectionMatrix();
   roof.visible = next !== 'exterior' || !cutaway;
+  stationCover.visible = next !== 'exterior';
   sun.intensity = next === 'exterior' ? 3.3 : 1.8;
   document.querySelectorAll('[data-view]').forEach((button) => {
     const selected = button.dataset.view === next;
     button.classList.toggle('selected', selected);
     button.setAttribute('aria-pressed', selected);
   });
+  updateHotspotVisibility();
+}
+function setView(next, animated = true) {
+  if (!ready) return;
+  updateViewUI(next);
+  const view = viewpoints[next];
   closeDetail();
   // Clear damped orbit deltas before switching to first-person navigation.
   controls.autoRotate = false;
@@ -266,6 +292,7 @@ function closeDetail() {
 }
 function openDetail(detail) {
   setView(detail.view);
+  if (detail.id === 'boarding') doorOpen = true;
   activeDetail = detail.id;
   autoRotate = false;
   syncButtons();
@@ -315,6 +342,10 @@ document.querySelectorAll('[data-view]').forEach((button) => button.addEventList
 $('#orbit').onclick = () => { autoRotate = !autoRotate; syncButtons(); };
 $('#doors').onclick = () => {
   if (!ready) return;
+  if (doorOpen && mode !== 'exterior' && inDoorway(camera.position)) {
+    toast('请先离开车门区域');
+    return;
+  }
   doorOpen = !doorOpen;
   syncButtons();
 };
@@ -344,8 +375,7 @@ controls.addEventListener('start', () => {
   }
 });
 
-// First-person drag-look and bounded walking. The center aisle and cab doorway
-// are traversable; the shell, seats and desk cannot be crossed.
+// First-person drag-look and a continuous station-to-train visitor route.
 renderer.domElement.addEventListener('pointerdown', (event) => {
   if (mode === 'exterior' || !ready || transition) return;
   dragging = { id: event.pointerId, x: event.clientX, y: event.clientY };
@@ -385,15 +415,18 @@ function walk(dt) {
   if (forward || side) {
     const length=Math.hypot(forward,side);
     forward/=length; side/=length;
-    const next=camera.position.clone();
-    next.x+=(Math.sin(yaw)*forward-Math.cos(yaw)*side)*dt*1.8;
-    next.z+=(Math.cos(yaw)*forward+Math.sin(yaw)*side)*dt*1.8;
-    // A conservative visitor corridor avoids both seat banks and driver furniture.
-    next.x=THREE.MathUtils.clamp(next.x,-8.45,8.21);
-    const halfWidth=next.x>7.35?.85:(next.x>6.7?.29:.44);
-    next.z=THREE.MathUtils.clamp(next.z,-halfWidth,halfWidth);
-    if (next.x>7.35) next.z=Math.max(.10,next.z);
-    camera.position.copy(next);
+    const delta={
+      x:(Math.sin(yaw)*forward-Math.cos(yaw)*side)*dt*1.8,
+      z:(Math.cos(yaw)*forward+Math.sin(yaw)*side)*dt*1.8,
+    };
+    const next=resolveMove(camera.position,delta,doorOpen&&doorAmount>.96);
+    camera.position.x=next.x;
+    camera.position.z=next.z;
+    const nextMode=visitorArea(next);
+    if (nextMode!==mode) {
+      updateViewUI(nextMode);
+      closeDetail();
+    }
   }
   camera.lookAt(camera.position.x+Math.sin(yaw)*Math.cos(pitch),camera.position.y+Math.sin(pitch),camera.position.z+Math.cos(yaw)*Math.cos(pitch));
 }
@@ -434,8 +467,9 @@ function animate(now) {
   } else walk(dt);
   doorAmount=THREE.MathUtils.damp(doorAmount,doorOpen?1:0,4.5,dt);
   for (const door of doors) {
-    door.position.x=door.userData.slide*doorAmount;
-    door.position.z=-door.userData.side*.075*Math.min(doorAmount*5,1);
+    const amount=door.userData.side===-1?doorAmount:0;
+    door.position.x=door.userData.slide*amount;
+    door.position.z=-door.userData.side*.075*Math.min(amount*5,1);
   }
   renderer.render(scene,camera);
   for (const detail of details) {
@@ -452,4 +486,4 @@ function animate(now) {
 }
 requestAnimationFrame(animate);
 // Read-only diagnostics support repeatable browser QA without driving UI internals.
-window.metroDiagnostics=() => ({ ready,mode,autoRotate,doorOpen,doorAmount,cutaway,roofVisible:roof.visible,doors:doors.length,frames,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:camera.position.toArray(),width:renderer.domElement.width,height:renderer.domElement.height,transitioning:!!transition });
+window.metroDiagnostics=() => ({ ready,mode,autoRotate,doorOpen,doorAmount,cutaway,roofVisible:roof.visible,stationCoverVisible:stationCover.visible,stationBatches:station.children.length,doors:doors.length,movingDoors:doors.filter(d=>d.userData.side===-1).length,frames,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:camera.position.toArray(),width:renderer.domElement.width,height:renderer.domElement.height,transitioning:!!transition });

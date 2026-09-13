@@ -25,6 +25,21 @@ assert blend.is_file() and blend.stat().st_size > 10000, "Missing Blender origin
 for name in ["exterior", "interior", "cab"]:
     image = root / f"deliverables/{name}.png"
     assert image.read_bytes().startswith(b"\x89PNG\r\n\x1a\n"), f"Missing {name} render"
+station_data = (root / "public/assets/station.glb").read_bytes()
+station_magic, station_version, station_length = struct.unpack_from("<4sII", station_data)
+assert station_magic == b"glTF" and station_version == 2
+assert station_length == len(station_data), "Truncated station GLB"
+station_json_length = struct.unpack_from("<I", station_data, 12)[0]
+station = json.loads(station_data[20:20+station_json_length])
+station_nodes = station["nodes"]
+station_cover = [n for n in station_nodes if n.get("extras", {}).get("zone") == "10_Station_Cover"]
+assert len(station_cover) > 700, "Missing vaulted ceiling or removable facade"
+assert sum(n.get("name", "").split(".")[0] == "Station_column" for n in station_nodes) == 5
+for name in ["Platform_structure", "Departure_board", "Information_monolith", "Exit_stair"]:
+    assert any(n.get("name") == name for n in station_nodes), f"Missing station object: {name}"
+assert (root / "deliverables/central-station.blend").stat().st_size > 10000
+for name in ["station-platform", "station-overview"]:
+    assert (root / f"deliverables/{name}.png").read_bytes().startswith(b"\x89PNG\r\n\x1a\n")
 print(json.dumps({
     "result": "PASS",
     "nodes": len(nodes),
@@ -33,4 +48,7 @@ print(json.dumps({
     "roof_objects": len(roof),
     "glb_bytes": len(data),
     "blend_bytes": blend.stat().st_size,
+    "station_nodes": len(station_nodes),
+    "station_cover_objects": len(station_cover),
+    "station_glb_bytes": len(station_data),
 }, indent=2))
