@@ -3,6 +3,8 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { bindRig } from './optimus-rig.js';
+import modelUrl from '../assets/optimus.glb?url';
+import rigUrl from '../assets/optimus-rig.json?url';
 
 export async function createOptimusScene(renderer) {
   const scene=new THREE.Scene();
@@ -43,8 +45,8 @@ export async function createOptimusScene(renderer) {
   const ticks=new THREE.LineSegments(tickGeometry,new THREE.LineBasicMaterial({color:0x969ca3}));
   scene.add(ticks);
   const [gltf,response]=await Promise.all([
-    new GLTFLoader().loadAsync('./assets/optimus.glb'),
-    fetch('./assets/optimus-rig.json'),
+    new GLTFLoader().loadAsync(modelUrl),
+    fetch(rigUrl),
   ]);
   if(!response.ok)throw new Error(`关节数据加载失败：HTTP ${response.status}`);
   const definition=await response.json();

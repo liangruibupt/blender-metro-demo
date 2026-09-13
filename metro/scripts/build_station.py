@@ -369,7 +369,7 @@ for name in ["09_Station","10_Station_Cover"]:
 for name in ["09_Station","10_Station_Cover"]:
     for obj in cols[name].objects:
         obj.select_set(True)
-bpy.ops.export_scene.gltf(filepath=str(ROOT/"public/assets/station.glb"),
+bpy.ops.export_scene.gltf(filepath=str(ROOT/"assets/station.glb"),
     export_format="GLB",use_selection=True,export_apply=True,export_extras=True,
     export_animations=False,export_cameras=False,export_lights=False,export_yup=True)
 manifest={
@@ -384,7 +384,7 @@ manifest={
     "door_x":[-6.1,-.8,4.5],
     "static_arrival_display":True,
 }
-(ROOT/"public/assets/station-manifest.json").write_text(json.dumps(manifest,indent=2)+"\n")
+(ROOT/"assets/station-manifest.json").write_text(json.dumps(manifest,indent=2)+"\n")
 if args.render:
     scene.camera=platform
     scene.render.filepath=str(ROOT/"deliverables/station-platform.png")

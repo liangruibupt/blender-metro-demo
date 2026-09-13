@@ -44,12 +44,14 @@ after the camera has descended into the station.
 
 ## Reproduce
 
+Run these commands from the repository root.
+
 ```sh
 npm ci
 npm run dev -- --port 5187
 ```
 
-Open `http://127.0.0.1:5187/film.html`. Use the timeline to inspect a frame, or
+Open `http://127.0.0.1:5187/metro/film.html`. Use the timeline to inspect a frame, or
 the export button to produce the MP4. Export requires a browser with WebCodecs
 H.264 encoding, such as a supported version of Chrome on this Mac.
 

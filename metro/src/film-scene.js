@@ -2,6 +2,8 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import metroUrl from '../assets/metro.glb?url';
+import stationUrl from '../assets/station.glb?url';
 
 export async function createFilmScene(renderer) {
   const scene=new THREE.Scene();
@@ -44,8 +46,8 @@ export async function createFilmScene(renderer) {
   ];
   const loader=new GLTFLoader();
   const [train,station]=await Promise.all([
-    loader.loadAsync('./assets/metro.glb'),
-    loader.loadAsync('./assets/station.glb'),
+    loader.loadAsync(metroUrl),
+    loader.loadAsync(stationUrl),
   ]);
   function materialFor(source,isTrain,isStation) {
     const key=source.uuid+(isTrain?'train':isStation?'station':'rail');

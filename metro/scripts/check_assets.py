@@ -5,7 +5,7 @@ import struct
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
-asset = root / "public/assets/metro.glb"
+asset = root / "assets/metro.glb"
 data = asset.read_bytes()
 magic, version, length = struct.unpack_from("<4sII", data)
 assert magic == b"glTF" and version == 2, "Expected glTF 2.0"
@@ -25,7 +25,7 @@ assert blend.is_file() and blend.stat().st_size > 10000, "Missing Blender origin
 for name in ["exterior", "interior", "cab"]:
     image = root / f"deliverables/{name}.png"
     assert image.read_bytes().startswith(b"\x89PNG\r\n\x1a\n"), f"Missing {name} render"
-station_data = (root / "public/assets/station.glb").read_bytes()
+station_data = (root / "assets/station.glb").read_bytes()
 station_magic, station_version, station_length = struct.unpack_from("<4sII", station_data)
 assert station_magic == b"glTF" and station_version == 2
 assert station_length == len(station_data), "Truncated station GLB"

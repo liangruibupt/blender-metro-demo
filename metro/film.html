@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <title>Metro Atelier · 视频预览</title>
+</head>
+<body>
+  <main class="film-stage"><canvas id="film-canvas" width="1920" height="1080" aria-label="地铁分镜视频预览"></canvas><div class="film-notice"><div id="film-status" role="status">正在载入场景</div><button id="film-retry" hidden>重新载入</button></div></main>
+  <footer class="film-controls">
+    <a href="./" class="film-brand" title="返回交互展示">M01 / FILM</a>
+    <button id="film-play" aria-label="播放" title="播放" disabled><i data-lucide="play"></i></button>
+    <input id="film-seek" type="range" min="0" max="80" step=".01" value=".75" aria-label="视频时间" disabled>
+    <output id="film-time">00:00 / 01:20</output>
+    <button id="film-export" aria-label="导出 MP4" title="导出 MP4" disabled><i data-lucide="download"></i></button>
+  </footer>
+  <script>
+    if(location.protocol==='file:'){
+      document.querySelector('#film-status').textContent='此场景需要通过本地 HTTP 服务打开，不能直接打开 HTML 文件。';
+    }
+  </script>
+  <script type="module" src="./src/film-bootstrap.js"></script>
+</body>
+</html>

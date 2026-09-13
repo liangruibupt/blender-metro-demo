@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { Box3, Group, PerspectiveCamera, Quaternion, Euler, Vector3 } from 'three';
 import { bindRig, jointPose, filmState, modeState, CHAPTERS, fitCamera } from './optimus-rig.js';
 
-const definition=JSON.parse(readFileSync(new URL('../public/assets/optimus-rig.json',import.meta.url)));
+const definition=JSON.parse(readFileSync(new URL('../assets/optimus-rig.json',import.meta.url)));
 const near=(a,b,epsilon=1e-7)=>assert.ok(Math.abs(a-b)<epsilon,`${a} != ${b}`);
 
 test('rig has a single parent tree with six wheels and no duplicate joint IDs',()=>{
@@ -18,7 +18,7 @@ test('rig has a single parent tree with six wheels and no duplicate joint IDs',(
   assert.equal(definition.joints.filter(joint=>joint.id.includes('wheel')).length,6);
 });
 test('the real Blender export contains exactly the documented articulated hierarchy',()=>{
-  const buffer=readFileSync(new URL('../public/assets/optimus.glb',import.meta.url));
+  const buffer=readFileSync(new URL('../assets/optimus.glb',import.meta.url));
   assert.equal(buffer.readUInt32LE(0),0x46546c67);
   const gltf=JSON.parse(buffer.subarray(20,20+buffer.readUInt32LE(12)).toString());
   const ids=gltf.nodes.filter(node=>node.extras?.rigId).map(node=>node.extras.rigId).sort();

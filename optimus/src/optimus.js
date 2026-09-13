@@ -4,8 +4,10 @@ import { createIcons, Camera, Maximize, Box, TrainFront, Rotate3d, Boxes,
   Wrench, Repeat2, Clapperboard, X, SkipBack, Play, Pause, Download, Square } from 'lucide';
 import { createOptimusScene } from './optimus-scene.js';
 import { DURATION, modeState, filmState, clamp, fitCamera } from './optimus-rig.js';
+import modelUrl from '../assets/optimus.glb?url';
 
 const $=selector=>document.querySelector(selector);
+$('#op-download').href=modelUrl;
 const icons={Camera,Maximize,Box,TrainFront,Rotate3d,Boxes,Wrench,Repeat2,Clapperboard,X,SkipBack,Play,Pause,Download,Square};
 const refreshIcons=()=>createIcons({icons,attrs:{'stroke-width':1.65}});
 refreshIcons();

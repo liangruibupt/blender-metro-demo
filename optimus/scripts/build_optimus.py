@@ -10,7 +10,7 @@ import bpy
 from mathutils import Euler, Matrix, Quaternion, Vector
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ROOT / "public" / "assets"
+ASSETS = ROOT / "assets"
 DELIVERY = ROOT / "deliverables"
 ASSETS.mkdir(parents=True, exist_ok=True)
 DELIVERY.mkdir(exist_ok=True)

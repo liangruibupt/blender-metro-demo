@@ -54,4 +54,4 @@ self-collision freedom or manufacturing feasibility. Physical mobile devices
 and the ChatGPT embedded browser were not tested. The original `.blend` assets,
 GLBs and metro movie remain unchanged.
 
-Screenshots are stored in the ignored `output/playwright/` directory.
+Screenshots are stored in the ignored repository-root `output/playwright/` directory.

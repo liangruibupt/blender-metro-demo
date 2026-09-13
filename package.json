@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
-    "test": "node --test src/*.test.js",
+    "test": "node --test tests/*.test.js metro/src/*.test.js optimus/src/*.test.js",
+    "test:metro": "node --test metro/src/*.test.js",
+    "test:optimus": "node --test optimus/src/*.test.js",
+    "verify:deploy": "node scripts/check_deployment.mjs",
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {

@@ -7,14 +7,16 @@ an exact reproduction of a commercial toy, or a manufacturing-ready mechanism.
 
 ## Deliverables
 
-- `optimus.html`: interactive Three.js presentation.
-- `optimus-watch.html`: ordinary MP4 playback without WebGL or JavaScript.
+Paths in this list are relative to the `optimus/` task directory.
+
+- `index.html`: interactive Three.js presentation.
+- `watch.html`: ordinary MP4 playback without WebGL or JavaScript.
 - `deliverables/optimus-showcase.mp4`: the complete directed sequence,
   80 seconds, 1920 x 1080, 24 fps, silent H.264.
 - `deliverables/optimus-prime.blend`: editable Blender model, materials, joint
   hierarchy and an 80-second keyed animation with a camera orbit.
-- `public/assets/optimus.glb`: one model with 29 stable articulated joints.
-- `public/assets/optimus-rig.json`: the robot/truck poses, explosion offsets,
+- `assets/optimus.glb`: one model with 29 stable articulated joints.
+- `assets/optimus-rig.json`: the robot/truck poses, explosion offsets,
   assembly ordering and transformation intervals used by the web viewer.
 - `deliverables/optimus-robot.png`, `optimus-truck.png`: Blender Cycles renders.
 - `scripts/build_optimus.py`: reproducible model and asset generation.
@@ -76,16 +78,19 @@ load the encoder until it is needed. This is not a Cycles-rendered movie.
 
 ## Reproduce
 
+Run commands from the repository root.
+
 ```sh
 /Applications/Blender.app/Contents/MacOS/Blender \
   --background --factory-startup --python-exit-code 1 \
-  --python scripts/build_optimus.py -- --render
+  --python optimus/scripts/build_optimus.py -- --render
 npm test
 npm run build
+npm run verify:deploy
 npm run preview -- --port 5193
 ```
 
-Open `http://127.0.0.1:5193/optimus.html`. For development, use
+Open `http://127.0.0.1:5193/optimus/`. For development, use
 `npm run dev -- --port 5193`. Pick another port if it is occupied. The 3D page
 requires HTTP and WebGL; do not open it with `file://`.
 
@@ -97,7 +102,7 @@ while the browser uses the bounds-aware director camera.
 The optional Google Fonts request supplies Barlow and Barlow Condensed. Local
 system fonts are the fallback; no remote visual asset is required.
 
-See `OPTIMUS_QA.md` for verification results and the limits of the checks.
+See `QA.md` for verification results and the limits of the checks.
 
 If rebuilding the model, export the movie again to keep it synchronized.
 The generated movie is included by the production build; generating GLB alone

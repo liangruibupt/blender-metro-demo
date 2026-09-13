@@ -1,71 +1,15 @@
 <!doctype html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#edf0ef" />
-    <meta name="description" content="Central station: an original island platform with a vaulted ceiling, M01 metro train and continuous platform-to-train walkthrough, created in Blender." />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <title>Central · Metro Atelier</title>
-  </head>
-  <body>
-    <main id="app">
-      <div id="viewport" aria-label="地铁三维交互视图"></div>
-      <header class="header">
-        <a class="brand" href="./" aria-label="Metro Atelier 首页"><span class="brand-mark">M<span></span></span><span>METRO<span class="brand-light">ATELIER</span></span></a>
-        <div class="project-tag"><span class="live-dot"></span> CONCEPT SERIES <span class="divider">/</span> 001</div>
-        <div class="header-actions">
-          <a class="icon-button" href="./optimus.html" title="擎天柱展示" aria-label="擎天柱展示"><i data-lucide="box"></i></a>
-          <a class="icon-button" href="./watch.html" title="观看视频预览" aria-label="观看视频预览"><i data-lucide="film"></i></a>
-          <button class="icon-button" id="capture" title="保存当前视角" aria-label="保存当前视角" disabled><i data-lucide="camera"></i></button>
-          <button class="icon-button" id="fullscreen" title="全屏" aria-label="全屏"><i data-lucide="maximize"></i></button>
-          <a class="icon-button" href="./assets/metro.glb" download title="下载 3D 模型" aria-label="下载 3D 模型"><i data-lucide="download"></i></a>
-        </div>
-      </header>
-      <section class="identity" aria-label="列车信息">
-        <div class="eyebrow">HARBOR LINE <span>/</span> STATION 01</div>
-        <h1><span id="scene-name">CENTRAL</span><span class="title-dot">.</span></h1>
-        <p id="scene-subtitle">中央站 · M01 地铁展示</p>
-        <div class="spec-strip"><span><b id="spec-value-0">36</b><span class="spec-unit" id="spec-unit-0">m</span><span id="spec-label-0">站台长度</span></span><span><b id="spec-value-1">02</b><span class="spec-unit" id="spec-unit-1">侧</span><span id="spec-label-1">轨道</span></span><span><b id="spec-value-2">01</b><span class="spec-unit" id="spec-unit-2">号</span><span id="spec-label-2">Harbor Line</span></span></div>
-        <div class="inspection-scope" id="inspection-scope" role="group" aria-label="检查对象" hidden>
-          <button data-scope="station" aria-label="站台全景" aria-pressed="true" title="站台全景"><i data-lucide="map-pin"></i><span>站台</span></button>
-          <button data-scope="train" aria-label="列车全景" aria-pressed="false" title="列车全景"><i data-lucide="train-front"></i><span>列车</span></button>
-        </div>
-      </section>
-      <aside class="scene-tools" aria-label="展示选项">
-        <button id="orbit" class="tool-button active" aria-label="自动环绕" aria-pressed="true" title="自动环绕"><i data-lucide="rotate-3d"></i><span>自动环绕</span></button>
-        <button id="bottom-view" class="tool-button" aria-label="底部视图" aria-pressed="false" title="底部视图"><i data-lucide="arrow-down-to-line"></i><span>底部视图</span></button>
-        <button id="doors" class="tool-button" aria-label="车门" aria-pressed="false" title="打开车门"><i data-lucide="door-open"></i><span>车门</span></button>
-        <button id="cutaway" class="tool-button" aria-label="剖视" aria-pressed="false" title="移除列车车顶"><i data-lucide="layers-2"></i><span>剖视</span></button>
-        <div class="tool-divider"></div>
-        <button id="reset" class="tool-button" aria-label="复位" title="重置当前视角"><i data-lucide="focus"></i><span>复位</span></button>
-      </aside>
-      <div id="hotspots" aria-label="细节位置"></div>
-      <aside id="detail-panel" class="detail-panel" hidden>
-        <div class="detail-heading"><span id="detail-index"></span><button id="close-detail" class="icon-button" aria-label="关闭细节"><i data-lucide="x"></i></button></div>
-        <h2 id="detail-title"></h2><p id="detail-copy"></p>
-        <dl id="detail-specs"></dl>
-      </aside>
-      <div class="loading" id="loading" role="status"><div class="loading-line"><span></span></div><span id="loading-label">正在载入中央站与 M01</span></div>
-      <div class="error-state" id="error" role="alert" hidden><h2>模型暂时无法载入</h2><p id="error-copy"></p><button id="retry">重新载入</button></div>
-      <footer class="footer">
-        <div class="view-caption"><span id="view-number">02 / 04</span><strong id="view-name">中央站 · 1 号站台</strong><span id="view-en">CENTRAL / PLATFORM 01</span></div>
-        <nav class="view-selector" aria-label="视角切换">
-          <button class="view-tab" data-view="exterior" aria-label="全景 360°" aria-pressed="false"><i data-lucide="rotate-3d"></i><span>全景 <small>360°</small></span></button>
-          <button class="view-tab selected" data-view="platform" aria-label="进入站台" aria-pressed="true"><i data-lucide="map-pin"></i><span>站台</span></button>
-          <button class="view-tab" data-view="interior" aria-pressed="false"><i data-lucide="armchair"></i><span>进入车厢</span></button>
-          <button class="view-tab" data-view="cab" aria-pressed="false"><i data-lucide="gauge"></i><span>进入驾驶室</span></button>
-        </nav>
-        <div class="footer-meta"><span class="swatch"></span> JADE / ALUMINIUM<span class="concept">ORIGINAL CONCEPT · BLENDER</span></div>
-      </footer>
-      <div class="walk-controls" id="walk-controls" hidden aria-label="舱内移动">
-        <button class="icon-button walk-up" data-walk="forward" aria-label="前进" title="前进"><i data-lucide="arrow-up"></i></button>
-        <button class="icon-button walk-left" data-walk="left" aria-label="左移" title="左移"><i data-lucide="arrow-left"></i></button>
-        <button class="icon-button walk-down" data-walk="back" aria-label="后退" title="后退"><i data-lucide="arrow-down"></i></button>
-        <button class="icon-button walk-right" data-walk="right" aria-label="右移" title="右移"><i data-lucide="arrow-right"></i></button>
-      </div>
-      <div id="toast" role="status"></div>
-    </main>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mechanical Atelier</title>
+  <script>
+    const target=new URL('./metro/index.html',location.href);
+    target.search=location.search;target.hash=location.hash;
+    location.replace(target.href);
+  </script>
+  <noscript><meta http-equiv="refresh" content="0;url=./metro/index.html"></noscript>
+</head>
+<body><a href="./metro/index.html">Metro Atelier</a></body>
 </html>

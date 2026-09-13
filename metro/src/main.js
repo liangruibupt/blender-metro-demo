@@ -7,8 +7,11 @@ import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { createIcons, Camera, Maximize, Download, Rotate3d, DoorOpen, Layers2, Focus, TrainFront, Armchair, Gauge, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Plus, X, MapPin, ArrowDownToLine, Film, Box } from 'lucide';
 import { resolveMove, inDoorway, visitorArea } from './navigation.js';
 import { ORBIT_LIMITS, inspectionView, inspectionLayers, inspectionMeshRole } from './inspection.js';
+import metroUrl from '../assets/metro.glb?url';
+import stationUrl from '../assets/station.glb?url';
 
 const $ = (selector) => document.querySelector(selector);
+$('#download-model').href=metroUrl;
 const icons = { Camera, Maximize, Download, Rotate3d, DoorOpen, Layers2, Focus, TrainFront, Armchair, Gauge, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Plus, X, MapPin, ArrowDownToLine, Film, Box };
 const refreshIcons = () => createIcons({ icons, attrs: { 'stroke-width': 1.6 } });
 refreshIcons();
@@ -250,7 +253,7 @@ function optimizeModel(root, defaultOutput = scene) {
 }
 
 const loader = new GLTFLoader();
-Promise.all([loader.loadAsync('./assets/metro.glb'),loader.loadAsync('./assets/station.glb')]).then(([train,environment]) => {
+Promise.all([loader.loadAsync(metroUrl),loader.loadAsync(stationUrl)]).then(([train,environment]) => {
   optimizeModel(train.scene,trainRoot);
   optimizeModel(environment.scene,station);
   // Fill the interior independently of the exterior sun. Lights are intentionally

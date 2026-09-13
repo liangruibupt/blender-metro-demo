@@ -11,7 +11,7 @@ are not physical iOS or Android device tests.
 - `npm test`: 25 tests pass, covering navigation, boarding, furniture and track
   boundaries, upper/lower camera presets, responsive framing, layer visibility
   and the 80-second film timeline.
-- `scripts/check_assets.py`: passes under
+- `metro/scripts/check_assets.py`: passes from the repository root under
   `/Users/ruiliang/Documents/workspaces/venv/bin/python`.
 - GLB: 1,127 nodes, 1,115 meshes, 12 door leaves, 166 roof-related objects.
 - GLB size: 9,012,696 bytes.
@@ -50,7 +50,7 @@ Desktop viewport: 1440 x 1000. Mobile viewport: 390 x 844.
 - PNG capture downloads `M01-cab.png`; GLB download returns `metro.glb`.
 - No mobile horizontal overflow; controls and detail panel visually inspected.
 
-Screenshots are in `output/playwright/` locally and excluded from Git.
+Screenshots are in the repository-root `output/playwright/` locally and excluded from Git.
 
 ## Underside Inspection
 

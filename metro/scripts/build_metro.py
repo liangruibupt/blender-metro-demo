@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser()
 parser.add_argument("--render", action="store_true")
 args = parser.parse_args(sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else [])
-ASSETS = ROOT / "public" / "assets"
+ASSETS = ROOT / "assets"
 DELIVERY = ROOT / "deliverables"
 ASSETS.mkdir(parents=True, exist_ok=True)
 DELIVERY.mkdir(exist_ok=True)
