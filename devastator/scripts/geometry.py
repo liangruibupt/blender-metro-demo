@@ -44,8 +44,8 @@ class Workshop:
         mesh.materials.append(self.materials[material])
         if bevel:
             edge = obj.modifiers.new("Machined chamfer", "BEVEL")
-            edge.width = bevel
-            edge.segments = 2
+            edge.width = min(bevel, .025) if material == "armor" else bevel
+            edge.segments = 1 if material == "armor" else 2
             obj.modifiers.new("Weighted panel normals", "WEIGHTED_NORMAL")
         return obj
 
@@ -199,6 +199,14 @@ class Workshop:
             for i in range(8):
                 a = i*math.tau/8
                 self.bolt((x+math.cos(a)*radius*.44, -width*.58, math.sin(a)*radius*.44), group)
+            self.cyl("Rear sprocket recess", (x, width*.54, 0), radius*.58, .025,
+                     "joint", group, (0, 1, 0))
+            self.cyl("Rear sprocket cap", (x, width*.57, 0), radius*.30, .045,
+                     "armor", group, (0, 1, 0))
+            for i in range(8):
+                a = i*math.tau/8
+                self.bolt((x+math.cos(a)*radius*.44, width*.58, math.sin(a)*radius*.44),
+                          group, axis=(0, 1, 0))
         for i in range(4):
             x = -half+(i+1)*2*half/5
             self.cyl("Road wheel", (x, 0, -.09), radius*.52, width*.94, "joint", group, (0, 1, 0))

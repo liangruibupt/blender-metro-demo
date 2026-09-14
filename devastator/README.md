@@ -1,63 +1,79 @@
-# Devastator / V1 Clay Study Checkpoint
+# Devastator / V1 Clay Study
 
-Status: **WIP source checkpoint, not a successfully built or visually verified model.**
+First reference-guided combined-form study, built and rendered with the Mac's
+installed Blender 5.2.1 LTS. This is a proportion and mechanical-detail review
+version, not final paint, an exact replica, or a validated transformation.
 
-This task is independent of `metro/` and `optimus/`. It preserves the first
-procedural Blender source and six user-supplied reference images. No existing
-study, root deployment entry, dependency, or runtime asset is changed.
+The task is independent of `metro/` and `optimus/`. All source, references,
+generated assets and documentation stay in `devastator/`.
 
-## Preserved Contents
+## Deliverables
 
-- `scripts/build_devastator.py`: draft assembly generation, grayscale materials,
-  GLB batching, studio lighting and four proposed render views.
-- `scripts/geometry.py`: draft hard-surface geometry helpers.
-- `references/`: the six original reference JPEGs, copied without modification.
-- `checkpoint-manifest.json`: SHA-256 hashes of the source scripts and reference
-  images for checkpoint integrity.
-- `RECOVERY.md`: exact progress, failure boundary and next steps.
-- `REFERENCE.md`: source attribution and visual interpretation.
-- `QA.md`: checks actually performed and remaining gaps.
+- `deliverables/devastator-clay.blend`: editable panels, fasteners, tracks,
+  hydraulic lines, grouped assemblies, studio lights and two cameras.
+- `deliverables/devastator-hero.png`: three-quarter combined-form view.
+- `deliverables/devastator-front.png`: frontal proportion view.
+- `deliverables/devastator-rear.png`: crane, rear chassis and crawler details.
+- `deliverables/devastator-detail.png`: upper-body close-up.
+- `assets/devastator.glb`: static browser-ready mesh, batched by assembly and
+  material. No reference images are embedded as textures.
+- `assets/devastator.json`: model statistics, render settings and SHA-256 hashes
+  binding the model, renders and generation scripts.
+- `qa/scene-audit.json`: saved-scene, contact, camera framing and reimport checks.
 
-## Agreed Direction
+All four stills are 1400 x 1400, Cycles, 48 samples with denoising. The first
+900-pixel render was a development preview and has been replaced.
 
-Build a static combined-form clay study first: broad crawler shoulders, narrow
-waist, asymmetric loader and mixer legs, exposed hydraulic connections, crane
-backpack and a long four-bore cannon. Review proportions in front, rear,
-three-quarter and close-up views before adding final green/purple paint.
+## Model Direction
 
-The source is an original, unofficial fan interpretation guided by reference
-images, not an exact reconstruction of the reference sculpt or a proven physical
-transformation mechanism. Separate vehicles and transformation animation are
-outside this first checkpoint.
+The study uses broad crawler shoulders, a narrow mechanical waist, asymmetric
+loader and mixer legs, an exposed crane backpack and a four-bore cannon.
+Materials remain grayscale, with separate armor, steel, rubber, glass and
+recesses. The body retains a simplified stylized form and substantially less
+detail than the supplied sculpt. Proportion approval comes before final paint
+or six-vehicle transformation work.
 
-## Not Yet Produced
+The Blender file retains individual editable parts. The GLB reduces draw calls
+by batching evaluated geometry without including studio lights or the ground
+plane. Its 12 named assembly labels include the display plinth; they are not
+12 independently transformable vehicles.
 
-No `.blend`, `.glb`, rendered PNG, MP4 or web viewer exists for this task.
-Empty staging folders are not deliverables. Intended output paths after a
-successful build are:
+## Blender Cameras
 
-- `assets/devastator.glb`
-- `assets/devastator.json`
-- `deliverables/devastator-clay.blend`
-- `deliverables/devastator-{hero,front,rear,detail}.png`
+The file opens on `Inspection camera`, a static hero view. A separate
+`Animated turntable camera`, parented to `Turntable orbit`, preserves one full
+camera revolution from frame 1 through 241 at 24 fps. Select it as the scene
+camera to inspect the orbit. The robot itself is static.
 
-These are expected outputs only, not links to existing files.
+No MP4, web inspector or deployment integration is included in this Blender
+modeling pass. The existing repository website remains unchanged.
 
-## Resume
+## Reproduce
 
-Read `RECOVERY.md` before running the draft. The attempted command, from the
-repository root, is:
+From the repository root, use the installed Mac application:
 
 ```sh
 /Applications/Blender.app/Contents/MacOS/Blender \
   --background --factory-startup --python-exit-code 1 \
   --python devastator/scripts/build_devastator.py -- \
-  --render --resolution 900 --samples 24 --views hero
+  --render --resolution 1400 --samples 48
+
+/Applications/Blender.app/Contents/MacOS/Blender \
+  --background --factory-startup --python-exit-code 1 \
+  --python devastator/scripts/audit_scene.py
 ```
 
-The previous invocation crashed during Blender's Metal device detection, before
-the Python script executed. Resolve that startup issue and the known draft
-camera-animation issue before treating the generated scene as a deliverable.
+When invoked through Codex on this Mac, these commands need approved execution
+outside the Codex sandbox so Blender can access the native graphics backend.
+This does not install a different Blender or use a container.
 
-This checkpoint intentionally has no Vite entry and does not change the shared
-website. No remote publication is part of this save operation.
+The audit checks all four rendered files, so run the full render command before
+the audit. Omitting `--render` generates the model but does not validate any old
+stills. Rendering selected views is a development operation, not a complete
+deliverable refresh.
+
+`checkpoint-manifest.json` records historical hashes at commit `31abf51`;
+use `assets/devastator.json` for the current generated version.
+
+See `REFERENCE.md` for source attribution, `QA.md` for the scope of validation,
+and `RECOVERY.md` before resuming work.

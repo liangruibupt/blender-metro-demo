@@ -1,77 +1,70 @@
 # Devastator Recovery / 2026-09-14
 
-## User Request
-
-Continue the Blender + GPT-6 Astra creative workflow with Devastator, using the
-six supplied Rex Hsu images. Keep the work in a separate `devastator/` directory
-inside `blender-metro-demo`. The latest instruction is to check in and commit
-the current work and preserve assets, not to finish the model in this checkpoint.
-
-## Exact Checkpoint
+## Active Work
 
 - Repository: `/Users/ruiliang/Documents/workspaces/blender-metro-demo`.
-- Starting commit: `9970646` (Optimus V3 and both weapons).
-- Checkpoint branch: `codex/devastator-clay-checkpoint`.
-- Original staging directory: `/private/tmp/devastator-v1/devastator`.
-- Two draft Python scripts exist and pass Python AST syntax parsing.
-- Six user-supplied JPEGs are preserved under `references/`.
-- No Blender model, GLB, still render, movie, browser page or deployment
-  integration has been generated or verified for Devastator.
+- Task directory: `devastator/`.
+- Branch: `codex/devastator-clay-checkpoint`.
+- Original source/reference checkpoint: `31abf51`.
+- The user authorized resuming Blender work and explicitly wants the installed
+  Mac application, not another Blender installation or a container.
+- Current phase: first combined-form clay model and multi-angle review.
 
-The checkpoint preserves the two scripts as they stood after the interrupted
-build. It does not retroactively claim implementation or visual QA success.
-Use the repository copy for future work; do not depend on temporary files.
+## Current Assets
 
-## Two Separate Failures
+The builder now executes successfully with the installed Blender 5.2.1 LTS
+binary (`9e2066aef7ef`) outside the Codex sandbox. It produces the editable
+`.blend`, static GLB and hero/front/rear/detail Cycles stills.
 
-### Local Blender Startup
+Current paths and usage are in `README.md`. `assets/devastator.json` binds
+generated files to their source hashes; `qa/scene-audit.json` records the checks.
+Always recheck those hashes before relying on an earlier audit.
 
-Blender 5.2.1 LTS, build `9e2066aef7ef`, exited with code 139. The crash backtrace
-enters:
+`checkpoint-manifest.json` belongs to the original commit, not the current
+scripts. The six original reference JPEGs are preserved unchanged.
 
-```text
-supports_barycentric_whitelist
-MTLBackend::metal_is_supported
-GPU_backend_type_selection_detect
-wm_homefile_read_ex
-WM_init
-```
+## Changes Since the Source Checkpoint
 
-The Python backtrace was empty. The failure occurred during startup, before
-the model builder ran. A sandbox/Metal-device access issue is a hypothesis,
-not a confirmed root cause. A retry with the appropriate execution approval
-has not yet been performed.
+- Confirmed the native Mac Blender starts and builds correctly when executed
+  outside the Codex sandbox. The earlier code-139 crash was during its native
+  Metal device detection, before Python execution. This environment change
+  resolves the observed startup failure; it is not a Blender source-level fix.
+- Rendered the first draft, then refined the stance, waist connection, chest
+  layers, thigh/forearm detail, material separation and sharper armor edges.
+- Added rear engine covers, radiator slots, chassis lines and rear sprocket
+  detail after inspecting the back view.
+- Corrected both feet independently to contact the display-plinth surface.
+- Replaced the detached camera action with an independent animated orbit rig.
+  Static still rendering no longer removes turntable motion.
+- Added saved-scene, asset hash, image dimension, sampled camera-framing and
+  GLB reimport checks.
 
-### Model-Service Interruption
+The model-service disconnections discussed earlier were separate Bedrock
+response failures. They are not a reason to alter Blender geometry or to
+change model/provider configuration while resuming this task.
 
-The active thread also encountered repeated model-response failures through
-Bedrock's `us-east-2` Responses endpoint, including HTTP 500 responses and
-stream failures after HTTP 200. Codex exhausted its five-retry sequence.
-This is distinct from Blender's native crash. No credentials or full
-conversation/application logs are included in this repository.
+## Interpretation Limits
 
-## Known Draft Issue
+This remains a stylized, first-pass gray model, not a detail-for-detail copy of
+the Rex Hsu sculpt. Its design uses reference motifs, not measured dimensions.
+No vehicle-form models, six-way transformation, collision-free mechanism,
+final green/purple paint, MP4 or web inspection page is implemented.
 
-`build_devastator.py` creates camera turntable keyframes and then calls
-`camera.animation_data_clear()` before saving. Thus the current source does
-not preserve the claimed active camera turntable. Fix this deliberately during
-the next implementation pass, for example with separate inspection and animated
-cameras. It is documented, not silently changed in this source-preservation commit.
+The camera orbit animates only a camera parent. Source assembly empties are
+organizational transforms, not a solved articulation or vehicle transformation.
 
 ## Next Work
 
-1. Verify Blender can start in the permitted runtime and access its graphics
-   backend before diagnosing Python geometry.
-2. Run the preserved builder, address any actual Blender API/runtime failures,
-   and produce a low-resolution hero render.
-3. Inspect the silhouette against `references/rex-hsu-b-0001.jpg`, then inspect
-   side/back structure, shoulder clearance, feet, hands and cannon attachment.
-4. Correct proportions and intersections. Fix the camera-action issue and
-   verify camera framing rather than relying on the hard-coded presets.
-5. Generate and visually inspect front, rear, hero and detail renders, the
-   editable Blender file and browser GLB as one consistent asset set.
-6. Only then add the independent inspection page and the necessary scoped
-   build/deployment tests. Do not change Metro or Optimus geometry/assets.
+1. Review the actual hero/front/rear/detail images with the user.
+2. Refine silhouette, head, armor mass and mechanical density based on feedback.
+3. Only after proportion approval, add final paint and/or the independent
+   inspection page; do not present transformation as already implemented.
+4. Rebuild all model and render outputs together, rerun the audit and inspect
+   the images after every geometry change.
 
-Do not reapply old Optimus patches, regenerate its outputs, or present these
-draft scripts as a verified six-vehicle transformation.
+Use the repository as the authoritative source. Temporary working files under
+`/private/tmp/devastator-v1` are not a separate accepted version. Do not overwrite
+newer repository assets with stale staging copies.
+
+Do not alter Metro, Optimus, their scripts or generated assets. No automatic
+commit, push or remote deployment is part of this modeling pass.

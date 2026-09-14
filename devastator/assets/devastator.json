@@ -1,0 +1,66 @@
+{
+  "name": "Devastator / V1 clay study",
+  "version": 1,
+  "sourceMeshCount": 3030,
+  "browserMeshCount": 68,
+  "triangles": 479620,
+  "assemblies": [
+    "01 Chest and abdomen",
+    "02 Head",
+    "03 Pelvis",
+    "04 Loader leg",
+    "05 Mixer leg",
+    "06 Excavator shoulder",
+    "07 Dozer shoulder",
+    "08 Raised arm",
+    "09 Weapon arm",
+    "10 Four-bore cannon",
+    "11 Crane backpack",
+    "12 Display plinth"
+  ],
+  "boundsBlender": {
+    "min": [
+      -4.230000019073486,
+      -4.230000019073486,
+      -0.6899999380111694
+    ],
+    "max": [
+      5.861546516418457,
+      4.230000019073486,
+      10.99443531036377
+    ]
+  },
+  "units": "meters (artistic scale)",
+  "reference": "https://www.artstation.com/artwork/w6KbAZ",
+  "scope": "Static combined form. No transformation, collision certification, or final paint.",
+  "renderViews": [
+    "hero",
+    "front",
+    "rear",
+    "detail"
+  ],
+  "animation": {
+    "camera": "Animated turntable camera",
+    "orbit": "Turntable orbit",
+    "frameStart": 1,
+    "frameEnd": 241,
+    "fps": 24,
+    "scope": "Camera orbit only; static combined robot"
+  },
+  "renderSettings": {
+    "engine": "CYCLES",
+    "resolution": 1400,
+    "samples": 48
+  },
+  "files": {
+    "assets/devastator.glb": "c2a6970fdb136bb9ba217c7b5b9de131106880bad1d150a65827bba75713be59",
+    "deliverables/devastator-clay.blend": "eac50e6df7709da66dd7bcf0181e936252a960c16e7351af69fde45a99f71010",
+    "scripts/build_devastator.py": "948a5b75b832569ebf254e0fe9b94ac9cf2df3b453e8ab4bbc2189aa9c33a6a9",
+    "scripts/geometry.py": "04827af6cf33eb679914777346b1b5de8e532e9adf904b392d289f7f3438f507",
+    "scripts/audit_scene.py": "3abbe56b3f8223f979e835bbda6a52802f6c4b2354829661998836b162169665",
+    "deliverables/devastator-hero.png": "0d3e6a7d99c2140cc5e165556d22bc30c8099ae88a2e145a4d74f7540debcf55",
+    "deliverables/devastator-front.png": "5d55995c67cf9f95c5038aea204f64de91867a5cc8f7a7c42becf8a5dfc6353b",
+    "deliverables/devastator-rear.png": "6b3423fea0d55552d3673f1de0360612988a8fbf63490e42a7472a29a54cd091",
+    "deliverables/devastator-detail.png": "98cb0dea5c05eb2b93bb6a2aa26dfe19e983070509f61b719146e095d7b3c638"
+  }
+}

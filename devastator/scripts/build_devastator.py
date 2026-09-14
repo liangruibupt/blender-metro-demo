@@ -32,9 +32,9 @@ collection = bpy.data.collections.new("DEVASTATOR | Editable mechanical assembli
 scene.collection.children.link(collection)
 w = Workshop(collection)
 for name, value, metal, rough in [
-    ("armor", .38, .22, .38), ("edge", .51, .32, .33), ("steel", .29, .65, .32),
-    ("joint", .13, .42, .44), ("recess", .065, .16, .52),
-    ("rubber", .085, .05, .66), ("track", .22, .40, .47),
+    ("armor", .26, .22, .44), ("edge", .40, .32, .36), ("steel", .22, .65, .32),
+    ("joint", .075, .42, .44), ("recess", .032, .16, .52),
+    ("rubber", .032, .05, .72), ("track", .16, .40, .47),
     ("glass", .11, .28, .21), ("optic", .66, .40, .23), ("concrete", .19, .0, .88),
 ]:
     w.material(name, value, metal, rough)
@@ -93,7 +93,11 @@ for side in [-1, 1]:
           .045, "edge", torso)
     for j in range(3):
         x = side*(.4+j*.45)
-        w.panel("Chest service plate", (x, -1.15, 1.51+j*.045), .35, .24, torso, "steel", .01)
+        z = 1.51+j*.045
+        w.panel("Chest service plate", (x, -1.15, z), .37, .31, torso, "steel", .01)
+        w.vent("Chest plate intake", (x, -1.265, z), .24, .14, torso, n=3)
+        w.rod("Chest bridge vertical web", (x+side*.19, -1.17, 1.13+j*.09),
+              (x+side*.19, -1.17, 1.81+j*.02), .025, "edge", torso)
     w.piston("Chest locking ram", (side*1.60, -1.16, 1.10), (side*1.57, -1.16, 1.97),
              torso, .075)
     w.box("Shoulder crossmember", (side*1.87, .05, 1.25), (.65, .75, .63), "joint", torso)
@@ -105,6 +109,11 @@ for side in [-1, 1]:
            (side*1.06, -.58, -.34)], .047, "recess", torso)
     w.hose("Braided lower line", [(side*.92, -.69, .49), (side*.77, -.89, .08),
            (side*.83, -.61, -.48)], .032, "steel", torso)
+    w.panel("Lower chest layered shield", (side*.56, -.96, .75), .73, .24, torso)
+    for z in [.20, .40, .60]:
+        w.panel("Abdominal overlapping shield", (side*.65, -.69, z), .40, .14, torso, "steel", .012)
+    w.piston("Spinal side damper", (side*.61, .62, -.93), (side*.71, .65, 1.51), torso, .09)
+    w.vent("Side torso heat exchanger", (side*1.08, -.65, .52), .35, .42, torso, n=7)
 w.panel("Central chest lock", (0, -1.19, 1.40), .40, 1.04, torso, "edge", .035)
 w.vent("Sternum slots", (0, -1.33, 1.27), .23, .46, torso, n=6)
 w.panel("Upper sternum badge", (0, -1.34, 1.72), .21, .23, torso, "joint", .01)
@@ -138,6 +147,11 @@ w.panel("Helmet forehead ridge", (0, -.31, .49), .20, .21, head, "edge", .018)
 # Pelvis, long articulated thighs, and distinctly different vehicle lower legs.
 pelvis = assembly("03 Pelvis", (0, 0, 5.73))
 w.cyl("Waist slew ring", (0, 0, .39), .83, .37, "steel", pelvis, n=48)
+w.cyl("Waist rotary coupler", (0, 0, .68), .61, .47, "joint", pelvis, n=48)
+for z in [.53, .65, .77, .89]:
+    w.ring("Waist bellows reinforcement", (0, 0, z), .61, .045, "recess", pelvis)
+for side in [-1, 1]:
+    w.piston("Lumbar actuator", (side*.72, .28, .30), (side*.67, .27, 1.05), pelvis, .085)
 w.box("Pelvic carrier", (0, .02, .03), (2.22, 1.12, .78), "joint", pelvis, .16)
 w.panel("Belt plate", (0, -.67, .19), .61, .45, pelvis)
 w.plate("Central pelvic apron", [(-.37, .00), (.37, .00), (.31, -.98), (.18, -1.14),
@@ -149,7 +163,8 @@ for side in [-1, 1]:
     w.tire("Hip road wheel", (side*1.12, .20, -.02), .46, .23, pelvis)
 
 for side, label in [(-1, "04 Loader leg"), (1, "05 Mixer leg")]:
-    leg = assembly(label, (side*1.03, 0, 5.46), rot=(0, -side*.082, 0))
+    leg_angle = .105 if side < 0 else -.17
+    leg = assembly(label, (side*1.03, 0, 5.46), rot=(0, leg_angle, 0))
     w.cyl("Hip universal", (0, 0, 0), .43, 1.0, "steel", leg, (1, 0, 0))
     w.box("Thigh skeleton", (0, .03, -.87), (.91, .86, 1.68), "joint", leg, .10)
     w.plate("Tapered thigh armor", [(-.55, -.19), (.55, -.19), (.43, -1.62), (-.43, -1.62)],
@@ -157,13 +172,33 @@ for side, label in [(-1, "04 Loader leg"), (1, "05 Mixer leg")]:
     w.panel("Thigh split plate", (0, -.67, -.73), .55, .74, leg)
     w.vent("Thigh intake", (0, -.76, -.60), .28, .33, leg, n=5)
     for sx in [-1, 1]:
+        w.panel("Thigh longitudinal panel", (sx*.37, -.67, -.89), .14, .96, leg, "edge", .012)
+        w.rod("Exposed thigh conduit", (sx*.26, -.76, -.94), (sx*.26, -.76, -1.42),
+              .029, "steel", leg)
+    w.panel("Thigh lower hatch", (0, -.69, -1.37), .38, .23, leg, "steel")
+    for sx in [-1, 1]:
         w.piston("Thigh actuator", (sx*.43, .12, -.20), (sx*.38, .12, -1.65), leg, .08)
     w.tire("Upper leg vehicle wheel", (side*.64, .17, -.81), .42, .23, leg)
+    rear_thigh = w.group("Rear thigh detail", (0, .49, -.86), leg, (0, 0, math.pi))
+    w.panel("Rear thigh service cover", (0, -.04, 0), .71, 1.13, rear_thigh, "armor")
+    w.vent("Rear thigh cooling slots", (0, -.17, .20), .45, .27, rear_thigh, n=5)
+    for sx in [-1, 1]:
+        w.piston("Rear thigh hydraulic guide", (sx*.34, -.12, -.51),
+                 (sx*.34, -.12, .48), rear_thigh, .038)
     w.cyl("Knee main pin", (0, -.01, -1.81), .37, 1.17, "steel", leg, (1, 0, 0))
     w.panel("Knee cap", (0, -.55, -1.80), .76, .56, leg, "edge")
     w.vent("Knee ridges", (0, -.70, -1.78), .49, .25, leg, n=4)
     shin = w.group("Lower vehicle chassis", (0, 0, -1.91), leg)
     w.box("Shin twin frame", (0, .22, -1.22), (1.17, 1.13, 2.47), "joint", shin, .12)
+    rear_shin = w.group("Rear shin service bay", (0, .82, -1.26), shin, (0, 0, math.pi))
+    w.panel("Rear engine access", (0, -.025, .06), .94, 1.98, rear_shin, "armor")
+    w.vent("Rear chassis radiator", (0, -.15, .58), .65, .52, rear_shin, n=9)
+    w.panel("Rear chassis auxiliary panel", (-.14, -.14, -.13), .41, .43, rear_shin, "steel")
+    w.panel("Rear chassis battery hatch", (0, -.14, -.65), .57, .32, rear_shin)
+    for sx in [-1, 1]:
+        w.rod("Rear chassis external line", (sx*.41, -.17, -.78),
+              (sx*.41, -.17, .31), .024, "steel", rear_shin)
+    w.hazard((0, -.26, -.65), .44, .16, rear_shin)
     for sx in [-1, 1]:
         w.box("Chassis longitudinal beam", (sx*.51, .54, -1.18), (.19, .24, 2.71), "steel", shin)
         w.piston("Ankle load actuator", (sx*.52, .02, -.98), (sx*.54, -.02, -2.71), shin, .11)
@@ -173,7 +208,14 @@ for side, label in [(-1, "04 Loader leg"), (1, "05 Mixer leg")]:
         w.box("Loader engine bay", (0, -.17, -1.13), (1.21, .93, 2.06), "armor", shin, .11)
         w.panel("Loader front service door", (0, -.70, -1.11), .93, 1.43, shin)
         w.vent("Loader grille", (0, -.85, -.59), .65, .33, shin, n=7)
-        w.panel("Lower inspection cover", (0, -.85, -1.54), .47, .37, shin, "steel")
+        w.panel("Lower inspection cover", (-.12, -.85, -1.54), .47, .37, shin, "steel")
+        w.panel("Central engine access", (-.10, -.84, -1.06), .48, .39, shin)
+        w.vent("Lower engine cooling bank", (-.1, -.96, -1.48), .27, .18, shin, n=4)
+        for sx in [-1, 1]:
+            w.box("Vertical loader armor rail", (sx*.47, -.79, -1.16), (.13, .15, 1.94),
+                  "steel", shin, .014)
+        w.piston("Loader front hydraulic ram", (-.38, -.89, -.99), (-.38, -.90, -1.99),
+                 shin, .046)
         w.box("Loader side tank", (-.73, .04, -.36), (.25, .61, .77), "edge", shin, .08)
         w.cyl("Loader exhaust", (-.67, .26, -.04), .076, .78, "steel", shin)
         ladder((.49, -.80, -1.28), 1.10, shin, .22)
@@ -198,7 +240,7 @@ for side, label in [(-1, "04 Loader leg"), (1, "05 Mixer leg")]:
         ladder((.78, -.22, -1.34), 1.55, shin, .22)
         w.hose("Mixer delivery hose", [(-.75, .02, -.37), (-.84, -.10, -.87),
                (-.82, -.12, -2.15)], .06, "rubber", shin)
-    foot = w.group("Grounded foot", (0, -.12, -2.87), shin, rot=(0, side*.082, 0))
+    foot = w.group("Grounded foot", (0, -.12, -2.87), shin, rot=(0, -leg_angle, 0))
     w.box("Foot structural sole", (0, -.39, -.25), (1.63, 2.05, .30), "joint", foot, .07)
     w.box("Foot armored deck", (0, -.46, -.07), (1.70, 1.91, .26), "armor", foot, .06)
     for x in [-.53, 0, .53]:
@@ -207,6 +249,8 @@ for side, label in [(-1, "04 Loader leg"), (1, "05 Mixer leg")]:
         bucket("Loader foot scoop", (0, -.49, .17), 1.56, foot)
         for sx in [-1, 1]:
             w.piston("Loader scoop linkage", (sx*.61, .44, .55), (sx*.62, -.66, .19), foot, .085)
+        for x in [-.47, 0, .47]:
+            w.box("Scoop floor wear strip", (x, -.75, .08), (.075, .65, .055), "steel", foot, .009)
     else:
         w.box("Mixer truck cab", (0, -.18, .40), (1.44, 1.19, .92), "armor", foot, .11)
         w.panel("Cab windshield frame", (0, -.817, .59), 1.26, .47, foot, "edge")
@@ -235,13 +279,22 @@ for side in [-1, 1]:
     w.box("Crawler cab", (side*.56, -.04, 1.07), (.58, .92, .81), "armor", shoulder, .06)
     w.panel("Crawler windshield", (side*.56, -.52, 1.16), .39, .38, shoulder, "glass")
     w.cyl("Engine exhaust stack", (-side*.67, .24, 1.38), .06, .52, "steel", shoulder)
+    rear_engine = w.group("Crawler rear service face", (0, .70, .91), shoulder, (0, 0, math.pi))
+    w.panel("Crawler rear engine door", (side*.21, -.02, 0), .81, .48, rear_engine)
+    w.vent("Crawler rear air outlet", (side*.21, -.15, 0), .52, .23, rear_engine, n=5)
+    for sx in [-1, 1]:
+        w.rod("Engine deck handrail", (sx*.80, .39, 1.36), (sx*.80, -.36, 1.36),
+              .023, "edge", shoulder)
+        for yy in [-.36, .39]:
+            w.rod("Handrail upright", (sx*.80, yy, 1.11), (sx*.80, yy, 1.36),
+                  .025, "steel", shoulder)
     if side > 0:
         bucket("Raised bulldozer blade", (0, -.15, 1.58), 2.37, shoulder, (.30, 0, 0))
         for sx in [-1, 1]:
             w.piston("Blade lift cylinder", (sx*.65, .15, .56), (sx*.78, -.01, 1.63),
                      shoulder, .085)
     else:
-        boom = w.group("Folded excavator boom", (-.43, .52, .91), shoulder, (0, -.30, 0))
+        boom = w.group("Folded excavator boom", (-.43, .73, .83), shoulder, (.48, -.30, 0))
         w.box("Excavator boom base", (0, 0, .52), (.35, .40, 1.27), "armor", boom)
         w.cyl("Boom pivot pin", (0, -.03, .05), .20, .58, "steel", boom, (0, 1, 0))
         w.box("Folded stick", (.37, 0, .95), (.83, .36, .28), "edge", boom)
@@ -279,10 +332,18 @@ for side in [-1, 1]:
                     rot=(math.radians(-106 if side < 0 else -16), 0, 0))
     w.cyl("Elbow hinge", (0, 0, 0), .30, 1.13, "steel", elbow, (1, 0, 0))
     w.box("Heavy forearm carrier", (0, 0, -.68), (1.19, 1.08, 1.25), "joint", elbow, .15)
+    rear_arm = w.group("Forearm rear detail", (0, .56, -.68), elbow, (0, 0, math.pi))
+    w.panel("Rear forearm shell", (0, -.03, 0), .93, .94, rear_arm)
+    w.vent("Rear forearm outlet", (0, -.16, .17), .58, .26, rear_arm, n=5)
+    w.panel("Rear forearm access", (0, -.15, -.23), .56, .24, rear_arm, "steel")
     w.plate("Forearm shell", [(-.65, -.12), (.65, -.12), (.59, -1.13),
             (.39, -1.31), (-.43, -1.31), (-.62, -1.11)], -.55, .20, "armor", elbow, .06)
     w.panel("Forearm inspection panel", (0, -.71, -.48), .83, .52, elbow)
     w.vent("Forearm louvres", (0, -.84, -.47), .52, .27, elbow, n=5)
+    for sx in [-1, 1]:
+        w.panel("Forearm reinforcing rail", (sx*.48, -.73, -.76), .15, .61, elbow, "steel", .015)
+        w.rod("Cuff locking tie", (sx*.34, -.70, -.81), (sx*.34, -.69, -1.19),
+              .031, "edge", elbow)
     for sx in [-1, 1]:
         w.cyl("Forearm hydraulic tank", (sx*.65, .10, -.63), .17, .89, "armor", elbow)
         for z in [-.98, -.32]:
@@ -360,9 +421,24 @@ for obj in assemblies.values():
     if obj.parent == root and obj != base:
         obj.location.z += offset
 bpy.context.view_layer.update()
+for sole in feet:
+    leg = sole.parent
+    while leg.parent != root:
+        leg = leg.parent
+    low = min((sole.matrix_world @ Vector(c)).z for c in sole.bound_box)
+    leg.location.z += -.315-low
+bpy.context.view_layer.update()
 
 def bounds(objects):
-    pts = [o.matrix_world @ Vector(c) for o in objects if o.type == "MESH" for c in o.bound_box]
+    # Rotated object bounding-box corners overestimate the exported geometry.
+    pts = []
+    for obj in objects:
+        if obj.type not in {"MESH", "CURVE"}:
+            continue
+        evaluated = obj.evaluated_get(depsgraph)
+        mesh = evaluated.to_mesh()
+        pts.extend(obj.matrix_world @ v.co for v in mesh.vertices)
+        evaluated.to_mesh_clear()
     lo = Vector([min(p[i] for p in pts) for i in range(3)])
     hi = Vector([max(p[i] for p in pts) for i in range(3)])
     return lo, hi
@@ -434,7 +510,7 @@ scene.world.node_tree.nodes["Background"].inputs["Color"].default_value = (.22, 
 scene.world.node_tree.nodes["Background"].inputs["Strength"].default_value = .45
 scene.view_settings.view_transform = "AgX"
 scene.view_settings.look = "AgX - Medium High Contrast"
-bpy.ops.mesh.primitive_plane_add(size=200, location=(0, 0, -.70))
+bpy.ops.mesh.primitive_plane_add(size=2000, location=(0, 0, -.70))
 floor = bpy.context.object
 floor.name = "Studio ground (not exported)"
 floor.data.materials.append(w.material("studio", .065, .0, .77))
@@ -448,8 +524,8 @@ def light(name, location, power, size, target):
     obj.rotation_euler = (Vector(target)-obj.location).to_track_quat("-Z", "Y").to_euler()
 
 
-light("Large overhead key", (-6, -8, 15), 3200, 7, (0, 0, 6))
-light("Front fill", (7, -10, 8), 1900, 6, (0, 0, 6))
+light("Large overhead key", (-6, -8, 15), 2800, 7, (0, 0, 6))
+light("Front fill", (7, -10, 8), 1200, 6, (0, 0, 6))
 light("Rear rim", (4, 6, 13), 4400, 5, (0, 0, 7))
 light("Side strip", (-8, 3, 6), 2100, 5, (0, 0, 6))
 bpy.ops.object.camera_add()
@@ -460,7 +536,7 @@ camera.data.clip_end = 250
 scene.camera = camera
 center = (lo+hi)/2
 views = {
-    "hero": ((13, -24, 13), (0.6, 0, 5.2), 15.0),
+    "hero": ((12, -26, 10), (0.6, 0, 5.2), 14.7),
     "front": ((0, -26, 8), (0.6, 0, 5.2), 14.5),
     "rear": ((-14, 24, 12), (0, 0, 5.2), 15.0),
     "detail": ((-9, -15, 12), (-.4, -.05, 8.6), 7.7),
@@ -473,16 +549,29 @@ def camera_pose(pos, target, scale):
     camera.data.ortho_scale = scale
 
 
-# A 10-second keyed camera turntable is editable in Blender; the robot is static.
+# Use a separate orbit camera so rendering inspection stills never clears motion.
 scene.frame_start, scene.frame_end = 1, 241
-for frame in range(1, 242, 4):
-    angle = math.tau*(frame-1)/240
-    camera_pose((math.sin(angle)*26, -math.cos(angle)*26, 12), (0, 0, 5.2), 15.8)
-    camera.keyframe_insert("location", frame=frame)
-    camera.keyframe_insert("rotation_euler", frame=frame)
+orbit = bpy.data.objects.new("Turntable orbit", None)
+scene.collection.objects.link(orbit)
+orbit.location = (0, 0, 5.2)
+orbit.empty_display_size = .3
+orbit.rotation_euler.z = .43
+orbit.keyframe_insert("rotation_euler", frame=1, index=2)
+orbit.rotation_euler.z = .43+math.tau
+orbit.keyframe_insert("rotation_euler", frame=241, index=2)
+for layer in orbit.animation_data.action.layers:
+    for strip in layer.strips:
+        for bag in strip.channelbags:
+            for curve in bag.fcurves:
+                for key in curve.keyframe_points:
+                    key.interpolation = "LINEAR"
+orbit_camera = bpy.data.objects.new("Animated turntable camera", camera.data.copy())
+scene.collection.objects.link(orbit_camera)
+orbit_camera.parent = orbit
+orbit_camera.location = (0, -26, 6.8)
+orbit_camera.rotation_euler = (-orbit_camera.location).to_track_quat("-Z", "Y").to_euler()
+orbit_camera.data.ortho_scale = 15.8
 scene.frame_set(1)
-# Render presets are explicit camera poses rather than separate scene variants.
-camera.animation_data_clear()
 camera_pose(*views["hero"])
 for screen in bpy.data.screens:
     for area in screen.areas:
@@ -501,10 +590,20 @@ manifest = {
     "units": "meters (artistic scale)", "reference": "https://www.artstation.com/artwork/w6KbAZ",
     "scope": "Static combined form. No transformation, collision certification, or final paint.",
     "renderViews": list(views),
+    "animation": {"camera": orbit_camera.name, "orbit": orbit.name,
+                  "frameStart": 1, "frameEnd": 241, "fps": 24,
+                  "scope": "Camera orbit only; static combined robot"},
+    "renderSettings": {"engine": "CYCLES", "resolution": args.resolution,
+                       "samples": args.samples},
     "files": {},
 }
 for path in [ASSETS/"devastator.glb", DELIVERY/"devastator-clay.blend",
-             ROOT/"scripts/build_devastator.py", ROOT/"scripts/geometry.py"]:
+             ROOT/"scripts/build_devastator.py", ROOT/"scripts/geometry.py",
+             ROOT/"scripts/audit_scene.py"]:
     manifest["files"][str(path.relative_to(ROOT))] = hashlib.sha256(path.read_bytes()).hexdigest()
+if args.render:
+    for view in args.views:
+        path = DELIVERY / f"devastator-{view}.png"
+        manifest["files"][str(path.relative_to(ROOT))] = hashlib.sha256(path.read_bytes()).hexdigest()
 (ASSETS/"devastator.json").write_text(json.dumps(manifest, indent=2)+"\n")
 print(json.dumps(manifest, indent=2))
