@@ -6,3 +6,5 @@ dist/
 *.log
 .playwright-cli/
 output/playwright/
+__pycache__/
+*.py[cod]

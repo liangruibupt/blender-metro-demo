@@ -9,7 +9,7 @@ documentation. Dependencies and deployment remain shared at the repository root.
 | Task | Interactive entry | Video | Documentation |
 | --- | --- | --- | --- |
 | Metro / Central & M01 | [metro/index.html](metro/index.html) | [metro/watch.html](metro/watch.html) | [Metro README](metro/README.md) |
-| Optimus Prime / G1 | [optimus/index.html](optimus/index.html) | [optimus/watch.html](optimus/watch.html) | [Optimus README](optimus/README.md) |
+| Optimus Prime / Metal V3 | [optimus/index.html](optimus/index.html) | [optimus/watch.html](optimus/watch.html) | [Optimus README](optimus/README.md) |
 
 ```text
 metro/
@@ -104,6 +104,8 @@ publishing workflow and deploy only after the checks above pass.
   --python-exit-code 1 --python metro/scripts/build_station.py -- --render
 /Applications/Blender.app/Contents/MacOS/Blender --background --factory-startup \
   --python-exit-code 1 --python optimus/scripts/build_optimus.py -- --render
+/Applications/Blender.app/Contents/MacOS/Blender --background --factory-startup \
+  --python-exit-code 1 --python optimus/scripts/audit_motion.py
 python3 metro/scripts/check_assets.py
 ```
 
