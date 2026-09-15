@@ -1,5 +1,40 @@
 # Devastator V2 Recovery / 2026-09-15
 
+## Active Assembly Iteration
+
+The user now requests an assembly animation shorter than 20 seconds, at the
+existing turntable's detail level, without creating another version folder.
+Current target: 18 seconds, 432 frames, 1080p24, Eevee 64 samples.
+This request supersedes the older static-only scope for this added animation.
+The accepted static source and old 360 video remain unchanged.
+
+Work is in `/private/tmp/devastator-v2`, to be synchronized into the existing
+repository `devastator/v2/` after verification. `ASSEMBLY.md` describes scope,
+timeline and commands. New scripts are `assembly_motion.py`, `build_assembly.py`,
+`audit_assembly.py`, `render_assembly.py` and `encode_assembly.py`.
+
+Build succeeded with 81 evaluated meshes, all 610,432 original triangles and
+14 motion controls. The 432-frame audit and visual keyframe gate passed.
+The initial wide camera was outside the old cyclorama; the animation-only
+cyclorama was expanded by 25 units, and dolly-in was delayed to seconds 9-16
+to keep the elevated head in frame. Original scene geometry is unchanged.
+Full 1080p/64-sample rendering completed all 432 frames in about 27 minutes.
+Current production frames: `work/assembly-a646980aad4b/`.
+An additional independent `audit_assembly_motion.py` passes 1,728 pair/frame
+checks across the same four selected non-joint pairs. Its report is
+`qa/assembly-motion-clearance.json`. It does not alter the rendering inputs.
+`assembly-render.json` has `complete: true`; `assembly-video-audit.json`
+passes for the 18-second 1080p24 H.264 MP4. All 432 frames decode, and the
+18-sample decoded contact sheet was visually inspected. Reopened-scene and
+motion-clearance checks also pass. Final native scene and video are
+`deliverables/devastator-v2-assembly.blend` and
+`deliverables/devastator-v2-assembly.mp4`.
+
+The user added a reference MP4 under `devastator/references/`; preserve it.
+The prior V2 delivery was committed as `24f4fdd`; the user subsequently committed
+the reference video as `a690bea`. This iteration has not been authorized for
+an automatic commit or push.
+
 ## User Direction
 
 Continue refining V2 from the supplied 12.01-second video, produce a complete

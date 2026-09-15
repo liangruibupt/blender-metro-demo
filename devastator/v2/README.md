@@ -1,5 +1,22 @@
 # Devastator V2 / Video-Guided Refinement
 
+## Assembly Animation
+
+V2 now also has an 18-second modular assembly sequence in this same directory.
+It retains all 610,432 triangles and the turntable's 1080p24 Eevee 64-sample
+quality, adding module docking, elbow folding and rear-crane folding.
+The original sculpture and 12-second 360-degree turntable are unchanged.
+
+- `deliverables/devastator-v2-assembly.blend`: animated native scene.
+- `deliverables/devastator-v2-assembly.mp4`: 18-second H.264 presentation.
+- `assets/devastator-v2-assembly.json`: independent animation provenance.
+- `ASSEMBLY.md`: choreography, build commands and verification scope.
+
+This is a staged assembly of the existing robot modules, not six independently
+modeled vehicles or a mechanically solved vehicle-to-robot transformation.
+
+## Sculpture
+
 V2 is the current retained model inside `devastator/v2/`. Obsolete V1 generated
 assets, build scripts and checkpoint documents are removed from the working
 tree at the user's request; git history is unchanged. Reference originals,

@@ -1,5 +1,41 @@
 # V2 Verification / 2026-09-15
 
+## Added Assembly Animation
+
+The 18-second assembly scene preserves 610,432 triangles in 81 evaluated
+meshes, driven by 14 controls. The original sculpture, stills and turntable
+remain unchanged.
+
+The reopened animation passes all 432 frames for camera framing, unit scale,
+finite control transforms, floor clearance and 3,888 studio coverage rays.
+The camera is also checked to remain inside the expanded cyclorama.
+The largest final vertex displacement from the original bind geometry is
+0.0000016093 model units, below the 0.0001 tolerance.
+
+An independent motion audit checks four named pairs across all 432 frames:
+1,728 pair/frame checks, comprising 1,592 disjoint bounding-box rejections and
+136 triangle-level BVH tests. No surface crossing is found in those pairs.
+This excludes other pairs, containment and motion between sampled frames.
+
+Nine low-resolution keyframes were rendered for visual QA, including the
+opening layout, leg/torso docking, arm folding and completed pose. The initial
+preview exposed a camera outside the studio and an early dolly-in cropping the
+head; both were corrected before the final render. The corrected keyframes and
+the first full-resolution frame were opened and inspected.
+
+Evidence: `assembly-scene-audit.json`, `assembly-motion-clearance.json`.
+Final video validation is recorded in `assembly-video-audit.json`: PASS.
+The encoded H.264 stream is exactly 18 seconds, 1920 x 1080, 24 fps and 432
+frames, with no audio. All 432 frames decode; minimum grayscale deviation is
+38.786 and maximum adjacent-frame difference is 1.030 at 160 x 90.
+Ten transitions near the slowly eased opening/ending are nearly identical;
+none form a half-second freeze. This one-way assembly is intentionally not a loop.
+
+All 18 once-per-second decoded samples in `assembly-contact-sheet.jpg` were
+opened for visual inspection. The production render used Eevee 64 samples,
+ray tracing and fast GI, matching the existing turntable quality settings.
+The complete saved-scene audit was repeated after MP4 encoding.
+
 ## Verified Delivery
 
 The video-guided refinement and presentation checkpoint passes the native

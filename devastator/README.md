@@ -4,6 +4,9 @@ The current retained model and all deliverables are in [`v2/`](v2/).
 
 - [Editable Blender scene](v2/deliverables/devastator-v2.blend)
 - [Full 360-degree video](v2/deliverables/devastator-v2-360.mp4)
+- [18-second assembly animation](v2/deliverables/devastator-v2-assembly.mp4)
+- [Editable assembly scene](v2/deliverables/devastator-v2-assembly.blend)
+- [Assembly choreography and verification](v2/ASSEMBLY.md)
 - [Hero render](v2/deliverables/devastator-v2-hero.png)
 - [GLB model](v2/assets/devastator-v2.glb)
 - [Reference-free prompts in Chinese](v2/PROMPTS.md)

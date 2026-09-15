@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "framesChecked": 432,
+  "pairs": [
+    [
+      "03 Recessed helmet",
+      "06 Raised crushing arm"
+    ],
+    [
+      "03 Recessed helmet",
+      "08 Long armored cannon"
+    ],
+    [
+      "08 Long armored cannon",
+      "09 Loader leg"
+    ],
+    [
+      "08 Long armored cannon",
+      "10 Mixer leg"
+    ]
+  ],
+  "pairFrameChecks": 1728,
+  "surfaceTests": 136,
+  "boundsSeparated": 1592,
+  "sceneSHA256": "0012e9b4a90725d29f1afe51b9a236615ff51fb96ac08287bf8f938fbeab4473",
+  "scriptSHA256": "d64530e244550cdccc2633b03b80c2338471c5d113f171d6d6a40035f34a9413",
+  "limits": [
+    "Only the four named pairs; joints, containment and other pairs are excluded",
+    "Per-frame surface checks are not continuous swept-volume collision certification"
+  ]
+}
