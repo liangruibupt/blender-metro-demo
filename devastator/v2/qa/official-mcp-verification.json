@@ -1,0 +1,211 @@
+{
+  "status": "PASS",
+  "testedAtUTC": "2026-09-15T09:30:35.943297+00:00",
+  "transport": "MCP over stdio -> official TCP bridge -> live Blender",
+  "sourceRepository": "https://projects.blender.org/lab/blender_mcp",
+  "sourceCommit": "2cea8d566dde07fbac28a61d698909d69724e853",
+  "officialPackageVersion": "1.0.3",
+  "mcpSDKVersion": "1.28.0",
+  "serverCommand": "/Users/ruiliang/Documents/workspaces/venv/bin/blender-mcp",
+  "serverInfo": {
+    "name": "blender-mcp",
+    "title": null,
+    "version": "1.28.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "availableTools": 26,
+  "calls": [
+    {
+      "tool": "execute_blender_code",
+      "seconds": 1.036
+    },
+    {
+      "tool": "get_blendfile_summary_datablocks",
+      "seconds": 0.21
+    },
+    {
+      "tool": "get_blendfile_summary_missing_files",
+      "seconds": 0.247
+    },
+    {
+      "tool": "execute_blender_code",
+      "seconds": 1.37
+    },
+    {
+      "tool": "execute_blender_code",
+      "seconds": 0.093
+    },
+    {
+      "tool": "render_viewport_to_path",
+      "seconds": 5.92
+    },
+    {
+      "tool": "execute_blender_code",
+      "seconds": 0.251
+    },
+    {
+      "tool": "execute_blender_code",
+      "seconds": 0.252
+    }
+  ],
+  "originalSHA256": "0012e9b4a90725d29f1afe51b9a236615ff51fb96ac08287bf8f938fbeab4473",
+  "originalUnchanged": true,
+  "copyUnchangedOnDisk": true,
+  "sceneStateRestored": true,
+  "dataBlocks": {
+    "status": "ok",
+    "datablock_counts": {
+      "actions": 16,
+      "all_ids": 257,
+      "cameras": 6,
+      "collections": 2,
+      "images": 2,
+      "lights": 4,
+      "linestyles": 1,
+      "materials": 11,
+      "meshes": 82,
+      "objects": 107,
+      "palettes": 1,
+      "scenes": 1,
+      "screens": 11,
+      "window_managers": 1,
+      "workspaces": 11,
+      "worlds": 1
+    },
+    "render_engine": "BLENDER_EEVEE",
+    "scene_name": "Scene",
+    "workspaces": [
+      "Animation",
+      "Compositing",
+      "Geometry Nodes",
+      "Layout",
+      "Modeling",
+      "Rendering",
+      "Scripting",
+      "Sculpting",
+      "Shading",
+      "Texture Paint",
+      "UV Editing"
+    ],
+    "active_workspace": "Layout"
+  },
+  "missingFiles": {
+    "status": "ok",
+    "missing_files": [],
+    "total_checked": 0
+  },
+  "metrics": {
+    "blenderVersion": "5.2.1 LTS",
+    "blendFile": "/private/tmp/blender-official-mcp-validation/devastator-v2-assembly-validation.blend",
+    "meshCount": 81,
+    "triangleCount": 610432,
+    "motionControls": 14,
+    "frameCount": 432,
+    "fps": 24,
+    "resolution": [
+      1920,
+      1080
+    ],
+    "renderEngine": "BLENDER_EEVEE",
+    "renderSamples": 64,
+    "rayTracing": true,
+    "fastGI": true,
+    "camera": "V2 Assembly camera",
+    "framingFailures": [],
+    "minimumMovingBoundingZ": -1.862645149230957e-07,
+    "maximumScaleError": 1.1920928955078125e-07,
+    "maximumFinalVertexError": 1.6093254089355469e-06,
+    "sampledFraming": [
+      {
+        "frame": 1,
+        "min": [
+          0.25984422645986527,
+          0.11082367189887044
+        ],
+        "max": [
+          0.769602198660984,
+          0.8648950033827105
+        ]
+      },
+      {
+        "frame": 73,
+        "min": [
+          0.2609689868025358,
+          0.1106046226242775
+        ],
+        "max": [
+          0.7678661444248693,
+          0.8648785577586072
+        ]
+      },
+      {
+        "frame": 145,
+        "min": [
+          0.2669382589107818,
+          0.10961192867317171
+        ],
+        "max": [
+          0.7585555197556191,
+          0.86478934263822
+        ]
+      },
+      {
+        "frame": 217,
+        "min": [
+          0.32603849851436995,
+          0.10828332640858274
+        ],
+        "max": [
+          0.7402118166079574,
+          0.8646162408669216
+        ]
+      },
+      {
+        "frame": 289,
+        "min": [
+          0.3573566825932938,
+          0.08886810861380823
+        ],
+        "max": [
+          0.7567431333429122,
+          0.731742321075033
+        ]
+      },
+      {
+        "frame": 361,
+        "min": [
+          0.3151640286461091,
+          0.04046410320227317
+        ],
+        "max": [
+          0.7023498715314749,
+          0.9082104641198199
+        ]
+      },
+      {
+        "frame": 432,
+        "min": [
+          0.31352909970234694,
+          0.0378667872323073
+        ],
+        "max": [
+          0.7026886400927225,
+          0.9175205576581626
+        ]
+      }
+    ],
+    "missingMaterials": [],
+    "finiteTransforms": true,
+    "restoredFrame": 1,
+    "restoredSubframe": 0.0
+  },
+  "previewSHA256": "47c3886f3d3c70c7da6b6ce212895c5cb23a3b4fa8a75e717358bc144f7d56ae",
+  "payloadSHA256": "bdcb56a65151ef206ef67e3b43d529469b0b3d02c839c56b15c3917315d62757",
+  "verifierSHA256": "8f155087790b528d5af4d78c6889e7040d559213c7a2c13b3a48d4be58e1493a",
+  "limits": [
+    "MCP connectivity and selected geometry checks, not an exhaustive collision test",
+    "Disposable scene copy is not an operating-system security sandbox",
+    "Native Codex tool discovery still requires a refreshed session"
+  ]
+}

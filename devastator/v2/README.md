@@ -1,5 +1,13 @@
 # Devastator V2 / Video-Guided Refinement
 
+## Official MCP
+
+The official Blender Lab MCP is configured as `blender-official` in Codex.
+Use it for live scene edits, structured inspection and verification. A real
+MCP protocol test against a disposable V2 copy passed all 432 frame checks and
+produced a full-resolution render without changing the accepted assets.
+See `MCP_SETUP.md` for installation details, limitations and reproduction.
+
 ## Assembly Animation
 
 V2 now also has an 18-second modular assembly sequence in this same directory.

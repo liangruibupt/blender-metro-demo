@@ -1,5 +1,24 @@
 # Devastator V2 Recovery / 2026-09-15
 
+## Official MCP Setup
+
+The user requested the official Blender Lab MCP for subsequent development
+and installed its 1.0.3 add-on manually. The matching server was then built
+from official commit `2cea8d566dde07fbac28a61d698909d69724e853` and installed
+in the explicitly requested `/Users/ruiliang/Documents/workspaces/venv`.
+Do not create a replacement environment or use the third-party PyPI project.
+
+Codex global server `blender-official` is enabled, using stdio and loopback
+`127.0.0.1:9876`. `MCP_SETUP.md` records the setup and security limitations.
+The real MCP test passed: 26 tools, 610,432 triangles, 432 frames, correct
+scene-state restoration and unchanged source hashes. It also generated
+`qa/official-mcp-preview.png` using the official rendering tool.
+
+The validation copy remains open in a separate Blender instance. Native
+Codex tools may require a new conversation/app restart to be discovered.
+The protocol test itself already completed using the official MCP SDK.
+No automatic commit or push is authorized for this setup.
+
 ## Active Assembly Iteration
 
 The user now requests an assembly animation shorter than 20 seconds, at the
