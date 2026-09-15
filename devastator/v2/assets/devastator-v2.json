@@ -1,0 +1,99 @@
+{
+  "version": 2,
+  "revision": "video-refinement",
+  "collection": "DEVASTATOR V2 | Reference silhouette",
+  "sourceMeshes": 3791,
+  "browserMeshes": 68,
+  "triangles": 610432,
+  "assemblies": [
+    "01 Pelvic load frame",
+    "02 Chest bridge and abdomen",
+    "03 Recessed helmet",
+    "04 Excavator shoulder",
+    "05 Dozer shoulder",
+    "06 Raised crushing arm",
+    "07 Cannon arm",
+    "08 Long armored cannon",
+    "11 Crane and powertrain",
+    "09 Loader leg",
+    "10 Mixer leg",
+    "12 Fractured concrete base"
+  ],
+  "bounds": {
+    "min": [
+      -3.983119010925293,
+      -3.0944290161132812,
+      -0.6000000238418579
+    ],
+    "max": [
+      7.786764621734619,
+      2.3499999046325684,
+      11.170177459716797
+    ]
+  },
+  "feet": [
+    {
+      "name": "Foot contact sole",
+      "ground": 0,
+      "actual": -1.862645149230957e-07
+    },
+    {
+      "name": "Foot contact sole.001",
+      "ground": 0.2,
+      "actual": 0.2000001072883606
+    }
+  ],
+  "cameras": {
+    "hero": "V2 View hero",
+    "front": "V2 View front",
+    "rear": "V2 View rear",
+    "detail": "V2 View detail"
+  },
+  "orbitCamera": "V2 View turntable",
+  "studio": "Studio cyclorama (not exported)",
+  "heroAzimuthDegrees": 40.69553103949202,
+  "renderSettings": {
+    "width": 1600,
+    "height": 1200,
+    "samples": 64,
+    "engine": "CYCLES",
+    "device": "METAL"
+  },
+  "turntableSettings": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "frames": 288,
+    "loopFrame": 289,
+    "seconds": 12,
+    "engine": "BLENDER_EEVEE",
+    "samples": 64
+  },
+  "renderedViews": [
+    "hero",
+    "front",
+    "rear",
+    "detail"
+  ],
+  "scope": "Static gray sculpture. Not an exact reconstruction or validated transformation.",
+  "files": {
+    "scripts/upper_body.py": "b44947e0758182df135e76ebc2e68e9bb950b3d1b03270930f91728589e578e3",
+    "scripts/scene_io.py": "11ab85ba681ed564c778e6db68e2618accb8cf28456b6e144ee376585317bc04",
+    "scripts/render_turntable.py": "70dace8c394c404eb8d150ad065fd39a4a5b846259ddef419c8a480646c46e84",
+    "scripts/refinement.py": "e968e98f2c4b92aa37a3fedbaa2ee90663ba33009a8b29a6116f1eb39ae3168a",
+    "scripts/encode_turntable.py": "da2c81dabcba1375200818ca77872790d238c81b996bb5d6ab7a928f6db4900f",
+    "scripts/audit_scene.py": "f5173b2782b48e7bebff1669c9c79ee17ebd50857b354d86dadaf97de0d8c54e",
+    "scripts/build_devastator.py": "8be4ba1e7a714e7ccc9a8293c7373106dafc0ca3793e5abfff66259cd12cfea9",
+    "scripts/geometry.py": "82c31b92dd9b9cb7772a17b279b2ddf13cee3ebca622c48200a226dc515a2ca6",
+    "scripts/lower_body.py": "4dfae3bc6bf1bded2f3ab0fec0805aed3999f282d03d646578780e80fd8ed417",
+    "scripts/parts.py": "e9319ba0b78377fb69c652c81e927ccc949109c90153e6e195bcb7ba06906a65",
+    "assets/devastator-v2.glb": "e3c83dc8c04e9c32ef3409575706960ec0bed1e5e19009d09ab4ccf53daf0685",
+    "deliverables/devastator-v2.blend": "2d35fe9634074fde3f8db576412fed52152b144c925777163475fceb8a02221f",
+    "deliverables/devastator-v2-hero.png": "d8c5111cad0c177b2e606dac275d98bc532f410127a04317bcc92683c9c160fe",
+    "deliverables/devastator-v2-front.png": "f7be10e8910191714820aabc8d2f697840b2f426519e3c0a66ead835c6e855e8",
+    "deliverables/devastator-v2-rear.png": "7ddd26b60fe59991499ab14d65cf9a60c10198500c606f4c9b33269c6182fd3e",
+    "deliverables/devastator-v2-detail.png": "95661f05a887bbd0cf3b834baf410cfb2d04eeeedf5a94711062aa27ee63a04c",
+    "deliverables/devastator-v2-360.mp4": "077ee759e8d585be626b6c432c9748c3b3e8a21a62dd2e0a01a25a3c7e79317f"
+  },
+  "renderedTurntable": true
+}

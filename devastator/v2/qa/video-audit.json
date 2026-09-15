@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "video": "deliverables/devastator-v2-360.mp4",
+  "sha256": "077ee759e8d585be626b6c432c9748c3b3e8a21a62dd2e0a01a25a3c7e79317f",
+  "settings": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "frames": 288,
+    "loopFrame": 289,
+    "seconds": 12,
+    "engine": "BLENDER_EEVEE",
+    "samples": 64
+  },
+  "sourceInputs": {
+    "deliverables/devastator-v2.blend": "2d35fe9634074fde3f8db576412fed52152b144c925777163475fceb8a02221f",
+    "assets/devastator-v2.glb": "e3c83dc8c04e9c32ef3409575706960ec0bed1e5e19009d09ab4ccf53daf0685"
+  },
+  "renderSignature": "355eb5d0d4d4dc43b0e88b26e8bdda73539720f5a6ab9eb15bf7fbe635314ca6",
+  "decodedFrames": 288,
+  "movingTransitions": 287,
+  "minimumGrayscaleStdDev": 43.19918498409351,
+  "maximumAdjacentFrameDifference": 1.6297916666666667,
+  "loopFrameDifference": 1.6090277777777777,
+  "limits": [
+    "Pixel tests do not replace visual inspection or certify reference likeness"
+  ]
+}
