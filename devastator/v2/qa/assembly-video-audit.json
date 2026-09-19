@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "video": "deliverables/devastator-v2-assembly.mp4",
+  "sha256": "6f90803c8cf2c69707db52e08efb54cfafe32f47a127934f20ab1401eb4dd520",
+  "settings": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "frames": 432,
+    "seconds": 18,
+    "engine": "BLENDER_EEVEE",
+    "samples": 64
+  },
+  "decodedFrames": 432,
+  "minimumGrayscaleStdDev": 38.78558318445322,
+  "maximumAdjacentDifference": 1.0299305555555556,
+  "nearIdenticalTransitions": [
+    2,
+    3,
+    6,
+    7,
+    10,
+    11,
+    15,
+    428,
+    429,
+    431
+  ],
+  "renderSignature": "a646980aad4bd2f235d439b294fca3e1a032f68251bc6802a047f0166e8d0086",
+  "limits": [
+    "One-way assembly, intentionally not a loop",
+    "Pixel tests do not certify mechanical plausibility or visual quality"
+  ]
+}

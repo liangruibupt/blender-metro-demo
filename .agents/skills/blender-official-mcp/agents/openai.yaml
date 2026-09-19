@@ -1,0 +1,6 @@
+interface:
+  display_name: "Official Blender MCP"
+  short_description: "Use Blender Lab MCP for modeling and scene validation"
+  default_prompt: "Use $blender-official-mcp to inspect and develop this Blender project through the official MCP server."
+policy:
+  allow_implicit_invocation: true

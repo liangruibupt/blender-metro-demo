@@ -1,0 +1,1319 @@
+{
+  "version": 2,
+  "revision": "assembly-animation",
+  "settings": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "frames": 432,
+    "seconds": 18,
+    "engine": "BLENDER_EEVEE",
+    "samples": 64
+  },
+  "collection": "DEVASTATOR V2 | Assembly animation",
+  "camera": "V2 Assembly camera",
+  "sourceMeshes": 3791,
+  "animatedMeshes": 81,
+  "triangles": 610432,
+  "controls": {
+    "01 Pelvic load frame": "Assemble | 01 Pelvic load frame",
+    "02 Chest bridge and abdomen": "Assemble | 02 Chest bridge and abdomen",
+    "03 Recessed helmet": "Assemble | 03 Recessed helmet",
+    "04 Excavator shoulder": "Assemble | 04 Excavator shoulder",
+    "05 Dozer shoulder": "Assemble | 05 Dozer shoulder",
+    "06 Raised crushing arm": "Assemble | 06 Raised crushing arm",
+    "07 Cannon arm": "Assemble | 07 Cannon arm",
+    "08 Long armored cannon": "Assemble | 08 Long armored cannon",
+    "09 Loader leg": "Assemble | 09 Loader leg",
+    "10 Mixer leg": "Assemble | 10 Mixer leg",
+    "11 Crane and powertrain": "Assemble | 11 Crane and powertrain",
+    "06 Raised crushing arm / elbow": "Assemble | 06 Raised crushing arm / elbow",
+    "07 Cannon arm / elbow": "Assemble | 07 Cannon arm / elbow",
+    "11 Crane and powertrain / boom": "Assemble | 11 Crane and powertrain / boom"
+  },
+  "restWorld": {
+    "01 Pelvic load frame": [
+      [
+        0.999187707901001,
+        -0.019998665899038315,
+        0.03498585522174835,
+        0.0
+      ],
+      [
+        0.01998641900718212,
+        0.9998000264167786,
+        0.0006998104508966208,
+        0.0
+      ],
+      [
+        -0.03499285504221916,
+        0.0,
+        0.9993875622749329,
+        5.559999942779541
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "02 Chest bridge and abdomen": [
+      [
+        0.9949634671211243,
+        0.09856945276260376,
+        -0.01821637898683548,
+        0.01719271019101143
+      ],
+      [
+        -0.09971302002668381,
+        0.9918511509895325,
+        -0.07930152863264084,
+        0.05035390332341194
+      ],
+      [
+        0.010251227766275406,
+        0.0807185247540474,
+        0.996684193611145,
+        6.079681396484375
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "03 Recessed helmet": [
+      [
+        0.9980563521385193,
+        -0.06082607060670853,
+        0.0135567057877779,
+        -0.07959656417369843
+      ],
+      [
+        0.06193239986896515,
+        0.9922968745231628,
+        -0.10729141533374786,
+        -0.5398241281509399
+      ],
+      [
+        -0.006926156580448151,
+        0.10792246460914612,
+        0.9941351413726807,
+        9.733230590820312
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "04 Excavator shoulder": [
+      [
+        0.9812933206558228,
+        0.15805408358573914,
+        0.10992024838924408,
+        -2.549588680267334
+      ],
+      [
+        -0.14738702774047852,
+        0.9840871691703796,
+        -0.09924536943435669,
+        0.21013067662715912
+      ],
+      [
+        -0.12385722994804382,
+        0.08118797838687897,
+        0.988973081111908,
+        8.985228538513184
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "05 Dozer shoulder": [
+      [
+        0.98829185962677,
+        0.038730088621377945,
+        -0.14757801592350006,
+        2.5048255920410156
+      ],
+      [
+        -0.0500003919005394,
+        0.9960455298423767,
+        -0.07343946397304535,
+        -0.2964114844799042
+      ],
+      [
+        0.14415010809898376,
+        0.07995857298374176,
+        0.9863200783729553,
+        9.037303924560547
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "06 Raised crushing arm": [
+      [
+        0.9603249430656433,
+        0.0786518007516861,
+        0.2675630450248718,
+        -2.4985623359680176
+      ],
+      [
+        -0.05384639650583267,
+        0.9936469197273254,
+        -0.098825603723526,
+        0.009538620710372925
+      ],
+      [
+        -0.27363598346710205,
+        0.0804973766207695,
+        0.9584589600563049,
+        8.910000801086426
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "07 Cannon arm": [
+      [
+        0.9461290240287781,
+        0.1184476763010025,
+        -0.30134713649749756,
+        2.4165573120117188
+      ],
+      [
+        -0.13721416890621185,
+        0.9896586537361145,
+        -0.04181068763136864,
+        -0.48304370045661926
+      ],
+      [
+        0.29327839612960815,
+        0.08090739697217941,
+        0.9525973796844482,
+        8.960641860961914
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "08 Long armored cannon": [
+      [
+        0.504326581954956,
+        0.2316727340221405,
+        -0.8318548202514648,
+        3.646528959274292
+      ],
+      [
+        0.06558691710233688,
+        0.9502782821655273,
+        0.3044170141220093,
+        -1.3121789693832397
+      ],
+      [
+        0.8610186576843262,
+        -0.208084374666214,
+        0.4640558362007141,
+        5.4377241134643555
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "09 Loader leg": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        -0.9399999976158142
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        5.400000095367432
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "10 Mixer leg": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.9900000095367432
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.029999999329447746
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        5.369999885559082
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "11 Crane and powertrain": [
+      [
+        0.9949634671211243,
+        0.09856945276260376,
+        -0.01821637898683548,
+        0.06946241110563278
+      ],
+      [
+        -0.09971302002668381,
+        0.9918511509895325,
+        -0.07930152863264084,
+        0.7562357187271118
+      ],
+      [
+        0.010251227766275406,
+        0.0807185247540474,
+        0.996684193611145,
+        7.872555732727051
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "06 Raised crushing arm / elbow": [
+      [
+        0.9425527453422546,
+        -0.2544648051261902,
+        -0.21643036603927612,
+        -2.8811774253845215
+      ],
+      [
+        -0.04782352223992348,
+        -0.743995726108551,
+        0.6664708852767944,
+        0.15085922181606293
+      ],
+      [
+        -0.33061662316322327,
+        -0.6178333759307861,
+        -0.7134245038032532,
+        7.539404392242432
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "07 Cannon arm / elbow": [
+      [
+        0.9152151346206665,
+        0.2316727340221405,
+        -0.32971057295799255,
+        2.8474836349487305
+      ],
+      [
+        -0.1404167115688324,
+        0.9502782821655273,
+        0.27794697880744934,
+        -0.42325443029403687
+      ],
+      [
+        0.3777095079421997,
+        -0.208084374666214,
+        0.9022396802902222,
+        7.598427772521973
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "11 Crane and powertrain / boom": [
+      [
+        0.9810689091682434,
+        0.09856945276260376,
+        -0.16669732332229614,
+        0.15938523411750793
+      ],
+      [
+        -0.11044402420520782,
+        0.9918511509895325,
+        -0.06351012736558914,
+        1.676680564880371
+      ],
+      [
+        0.15907874703407288,
+        0.0807185247540474,
+        0.9839606285095215,
+        8.097933769226074
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "restBasis": {
+    "01 Pelvic load frame": [
+      [
+        0.999187707901001,
+        -0.019998665899038315,
+        0.03498585522174835,
+        0.0
+      ],
+      [
+        0.01998641900718212,
+        0.9998000264167786,
+        0.0006998104508966208,
+        0.0
+      ],
+      [
+        -0.03499285504221916,
+        0.0,
+        0.9993875622749329,
+        5.559999942779541
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "02 Chest bridge and abdomen": [
+      [
+        0.9949634671211243,
+        0.09856945276260376,
+        -0.01821637898683548,
+        0.01719271019101143
+      ],
+      [
+        -0.09971302002668381,
+        0.9918511509895325,
+        -0.07930152863264084,
+        0.05035390332341194
+      ],
+      [
+        0.010251227766275406,
+        0.0807185247540474,
+        0.996684193611145,
+        6.079681396484375
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "03 Recessed helmet": [
+      [
+        0.9980563521385193,
+        -0.06082607060670853,
+        0.0135567057877779,
+        -0.07959656417369843
+      ],
+      [
+        0.06193239986896515,
+        0.9922968745231628,
+        -0.10729141533374786,
+        -0.5398241281509399
+      ],
+      [
+        -0.006926156580448151,
+        0.10792246460914612,
+        0.9941351413726807,
+        9.733230590820312
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "04 Excavator shoulder": [
+      [
+        0.9812933206558228,
+        0.15805408358573914,
+        0.10992024838924408,
+        -2.549588680267334
+      ],
+      [
+        -0.14738702774047852,
+        0.9840871691703796,
+        -0.09924536943435669,
+        0.21013067662715912
+      ],
+      [
+        -0.12385722994804382,
+        0.08118797838687897,
+        0.988973081111908,
+        8.985228538513184
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "05 Dozer shoulder": [
+      [
+        0.98829185962677,
+        0.038730088621377945,
+        -0.14757801592350006,
+        2.5048255920410156
+      ],
+      [
+        -0.0500003919005394,
+        0.9960455298423767,
+        -0.07343946397304535,
+        -0.2964114844799042
+      ],
+      [
+        0.14415010809898376,
+        0.07995857298374176,
+        0.9863200783729553,
+        9.037303924560547
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "06 Raised crushing arm": [
+      [
+        0.9603249430656433,
+        0.0786518007516861,
+        0.2675630450248718,
+        -2.4985623359680176
+      ],
+      [
+        -0.05384639650583267,
+        0.9936469197273254,
+        -0.098825603723526,
+        0.009538620710372925
+      ],
+      [
+        -0.27363598346710205,
+        0.0804973766207695,
+        0.9584589600563049,
+        8.910000801086426
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "07 Cannon arm": [
+      [
+        0.9461290240287781,
+        0.1184476763010025,
+        -0.30134713649749756,
+        2.4165573120117188
+      ],
+      [
+        -0.13721416890621185,
+        0.9896586537361145,
+        -0.04181068763136864,
+        -0.48304370045661926
+      ],
+      [
+        0.29327839612960815,
+        0.08090739697217941,
+        0.9525973796844482,
+        8.960641860961914
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "08 Long armored cannon": [
+      [
+        0.504326581954956,
+        0.2316727340221405,
+        -0.8318548202514648,
+        3.646528959274292
+      ],
+      [
+        0.06558691710233688,
+        0.9502782821655273,
+        0.3044170141220093,
+        -1.3121789693832397
+      ],
+      [
+        0.8610186576843262,
+        -0.208084374666214,
+        0.4640558362007141,
+        5.4377241134643555
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "09 Loader leg": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        -0.9399999976158142
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        5.400000095367432
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "10 Mixer leg": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.9900000095367432
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.029999999329447746
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        5.369999885559082
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "11 Crane and powertrain": [
+      [
+        0.9949634671211243,
+        0.09856945276260376,
+        -0.01821637898683548,
+        0.06946241110563278
+      ],
+      [
+        -0.09971302002668381,
+        0.9918511509895325,
+        -0.07930152863264084,
+        0.7562357187271118
+      ],
+      [
+        0.010251227766275406,
+        0.0807185247540474,
+        0.996684193611145,
+        7.872555732727051
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "06 Raised crushing arm / elbow": [
+      [
+        0.9982005953788757,
+        -0.03524595871567726,
+        -0.048511896282434464,
+        -3.03611159324646e-07
+      ],
+      [
+        1.862645149230957e-09,
+        -0.8090170621871948,
+        0.5877852439880371,
+        -1.4901161193847656e-08
+      ],
+      [
+        -0.059963956475257874,
+        -0.586727499961853,
+        -0.8075612187385559,
+        -1.4299999475479126
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "07 Cannon arm / elbow": [
+      [
+        0.9959526658058167,
+        0.02777400240302086,
+        -0.08547957241535187,
+        3.501772880554199e-07
+      ],
+      [
+        -1.862645149230957e-09,
+        0.9510565400123596,
+        0.30901700258255005,
+        2.9802322387695312e-08
+      ],
+      [
+        0.08987856656312943,
+        -0.307766318321228,
+        0.9472073316574097,
+        -1.4300003051757812
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "11 Crane and powertrain / boom": [
+      [
+        0.9887710809707642,
+        -4.94765117764473e-09,
+        -0.14943814277648926,
+        0.0
+      ],
+      [
+        -4.6566128730773926e-09,
+        0.9999999403953552,
+        1.1175870895385742e-08,
+        0.9399998784065247
+      ],
+      [
+        0.14943812787532806,
+        4.190951585769653e-09,
+        0.9887711405754089,
+        0.15000095963478088
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "bindGeometry": {
+    "01 Pelvic load frame / joint": {
+      "vertices": 1332,
+      "triangles": 2628,
+      "material": "joint",
+      "motionKey": "01 Pelvic load frame"
+    },
+    "01 Pelvic load frame / armor": {
+      "vertices": 234,
+      "triangles": 448,
+      "material": "armor",
+      "motionKey": "01 Pelvic load frame"
+    },
+    "01 Pelvic load frame / recess": {
+      "vertices": 180,
+      "triangles": 348,
+      "material": "recess",
+      "motionKey": "01 Pelvic load frame"
+    },
+    "01 Pelvic load frame / steel": {
+      "vertices": 4828,
+      "triangles": 9420,
+      "material": "steel",
+      "motionKey": "01 Pelvic load frame"
+    },
+    "01 Pelvic load frame / edge": {
+      "vertices": 1632,
+      "triangles": 3224,
+      "material": "edge",
+      "motionKey": "01 Pelvic load frame"
+    },
+    "01 Pelvic load frame / rubber": {
+      "vertices": 7776,
+      "triangles": 15096,
+      "material": "rubber",
+      "motionKey": "01 Pelvic load frame"
+    },
+    "02 Chest bridge and abdomen / joint": {
+      "vertices": 5036,
+      "triangles": 9932,
+      "material": "joint",
+      "motionKey": "02 Chest bridge and abdomen"
+    },
+    "02 Chest bridge and abdomen / steel": {
+      "vertices": 17448,
+      "triangles": 33964,
+      "material": "steel",
+      "motionKey": "02 Chest bridge and abdomen"
+    },
+    "02 Chest bridge and abdomen / armor": {
+      "vertices": 1692,
+      "triangles": 3268,
+      "material": "armor",
+      "motionKey": "02 Chest bridge and abdomen"
+    },
+    "02 Chest bridge and abdomen / recess": {
+      "vertices": 2380,
+      "triangles": 4652,
+      "material": "recess",
+      "motionKey": "02 Chest bridge and abdomen"
+    },
+    "02 Chest bridge and abdomen / edge": {
+      "vertices": 5640,
+      "triangles": 11084,
+      "material": "edge",
+      "motionKey": "02 Chest bridge and abdomen"
+    },
+    "02 Chest bridge and abdomen / rubber": {
+      "vertices": 7776,
+      "triangles": 15096,
+      "material": "rubber",
+      "motionKey": "02 Chest bridge and abdomen"
+    },
+    "03 Recessed helmet / armor": {
+      "vertices": 392,
+      "triangles": 756,
+      "material": "armor",
+      "motionKey": "03 Recessed helmet"
+    },
+    "03 Recessed helmet / joint": {
+      "vertices": 672,
+      "triangles": 1324,
+      "material": "joint",
+      "motionKey": "03 Recessed helmet"
+    },
+    "03 Recessed helmet / steel": {
+      "vertices": 2134,
+      "triangles": 4156,
+      "material": "steel",
+      "motionKey": "03 Recessed helmet"
+    },
+    "03 Recessed helmet / recess": {
+      "vertices": 384,
+      "triangles": 744,
+      "material": "recess",
+      "motionKey": "03 Recessed helmet"
+    },
+    "03 Recessed helmet / edge": {
+      "vertices": 280,
+      "triangles": 540,
+      "material": "edge",
+      "motionKey": "03 Recessed helmet"
+    },
+    "03 Recessed helmet / optic": {
+      "vertices": 112,
+      "triangles": 216,
+      "material": "optic",
+      "motionKey": "03 Recessed helmet"
+    },
+    "04 Excavator shoulder / joint": {
+      "vertices": 3144,
+      "triangles": 6192,
+      "material": "joint",
+      "motionKey": "04 Excavator shoulder"
+    },
+    "04 Excavator shoulder / steel": {
+      "vertices": 11020,
+      "triangles": 21508,
+      "material": "steel",
+      "motionKey": "04 Excavator shoulder"
+    },
+    "04 Excavator shoulder / armor": {
+      "vertices": 1814,
+      "triangles": 3548,
+      "material": "armor",
+      "motionKey": "04 Excavator shoulder"
+    },
+    "04 Excavator shoulder / track": {
+      "vertices": 4480,
+      "triangles": 8640,
+      "material": "track",
+      "motionKey": "04 Excavator shoulder"
+    },
+    "04 Excavator shoulder / edge": {
+      "vertices": 4912,
+      "triangles": 9492,
+      "material": "edge",
+      "motionKey": "04 Excavator shoulder"
+    },
+    "04 Excavator shoulder / recess": {
+      "vertices": 1384,
+      "triangles": 2636,
+      "material": "recess",
+      "motionKey": "04 Excavator shoulder"
+    },
+    "04 Excavator shoulder / glass": {
+      "vertices": 56,
+      "triangles": 108,
+      "material": "glass",
+      "motionKey": "04 Excavator shoulder"
+    },
+    "05 Dozer shoulder / joint": {
+      "vertices": 3376,
+      "triangles": 6652,
+      "material": "joint",
+      "motionKey": "05 Dozer shoulder"
+    },
+    "05 Dozer shoulder / steel": {
+      "vertices": 11276,
+      "triangles": 21996,
+      "material": "steel",
+      "motionKey": "05 Dozer shoulder"
+    },
+    "05 Dozer shoulder / armor": {
+      "vertices": 1918,
+      "triangles": 3736,
+      "material": "armor",
+      "motionKey": "05 Dozer shoulder"
+    },
+    "05 Dozer shoulder / track": {
+      "vertices": 4480,
+      "triangles": 8640,
+      "material": "track",
+      "motionKey": "05 Dozer shoulder"
+    },
+    "05 Dozer shoulder / edge": {
+      "vertices": 6128,
+      "triangles": 11884,
+      "material": "edge",
+      "motionKey": "05 Dozer shoulder"
+    },
+    "05 Dozer shoulder / recess": {
+      "vertices": 1216,
+      "triangles": 2308,
+      "material": "recess",
+      "motionKey": "05 Dozer shoulder"
+    },
+    "06 Raised crushing arm / joint": {
+      "vertices": 988,
+      "triangles": 1952,
+      "material": "joint",
+      "motionKey": "06 Raised crushing arm"
+    },
+    "06 Raised crushing arm / steel": {
+      "vertices": 1624,
+      "triangles": 3180,
+      "material": "steel",
+      "motionKey": "06 Raised crushing arm"
+    },
+    "06 Raised crushing arm / armor": {
+      "vertices": 318,
+      "triangles": 620,
+      "material": "armor",
+      "motionKey": "06 Raised crushing arm"
+    },
+    "06 Raised crushing arm / edge": {
+      "vertices": 864,
+      "triangles": 1704,
+      "material": "edge",
+      "motionKey": "06 Raised crushing arm"
+    },
+    "06 Raised crushing arm / elbow / joint": {
+      "vertices": 2368,
+      "triangles": 4652,
+      "material": "joint",
+      "motionKey": "06 Raised crushing arm / elbow"
+    },
+    "06 Raised crushing arm / elbow / steel": {
+      "vertices": 7354,
+      "triangles": 14316,
+      "material": "steel",
+      "motionKey": "06 Raised crushing arm / elbow"
+    },
+    "06 Raised crushing arm / elbow / armor": {
+      "vertices": 1690,
+      "triangles": 3212,
+      "material": "armor",
+      "motionKey": "06 Raised crushing arm / elbow"
+    },
+    "06 Raised crushing arm / elbow / recess": {
+      "vertices": 1236,
+      "triangles": 2396,
+      "material": "recess",
+      "motionKey": "06 Raised crushing arm / elbow"
+    },
+    "06 Raised crushing arm / elbow / edge": {
+      "vertices": 2504,
+      "triangles": 4940,
+      "material": "edge",
+      "motionKey": "06 Raised crushing arm / elbow"
+    },
+    "07 Cannon arm / joint": {
+      "vertices": 988,
+      "triangles": 1952,
+      "material": "joint",
+      "motionKey": "07 Cannon arm"
+    },
+    "07 Cannon arm / steel": {
+      "vertices": 1624,
+      "triangles": 3180,
+      "material": "steel",
+      "motionKey": "07 Cannon arm"
+    },
+    "07 Cannon arm / armor": {
+      "vertices": 318,
+      "triangles": 620,
+      "material": "armor",
+      "motionKey": "07 Cannon arm"
+    },
+    "07 Cannon arm / edge": {
+      "vertices": 864,
+      "triangles": 1704,
+      "material": "edge",
+      "motionKey": "07 Cannon arm"
+    },
+    "07 Cannon arm / elbow / joint": {
+      "vertices": 2368,
+      "triangles": 4652,
+      "material": "joint",
+      "motionKey": "07 Cannon arm / elbow"
+    },
+    "07 Cannon arm / elbow / steel": {
+      "vertices": 7354,
+      "triangles": 14316,
+      "material": "steel",
+      "motionKey": "07 Cannon arm / elbow"
+    },
+    "07 Cannon arm / elbow / armor": {
+      "vertices": 1690,
+      "triangles": 3212,
+      "material": "armor",
+      "motionKey": "07 Cannon arm / elbow"
+    },
+    "07 Cannon arm / elbow / recess": {
+      "vertices": 1236,
+      "triangles": 2396,
+      "material": "recess",
+      "motionKey": "07 Cannon arm / elbow"
+    },
+    "07 Cannon arm / elbow / edge": {
+      "vertices": 2504,
+      "triangles": 4940,
+      "material": "edge",
+      "motionKey": "07 Cannon arm / elbow"
+    },
+    "08 Long armored cannon / joint": {
+      "vertices": 1400,
+      "triangles": 2780,
+      "material": "joint",
+      "motionKey": "08 Long armored cannon"
+    },
+    "08 Long armored cannon / armor": {
+      "vertices": 150,
+      "triangles": 284,
+      "material": "armor",
+      "motionKey": "08 Long armored cannon"
+    },
+    "08 Long armored cannon / recess": {
+      "vertices": 1312,
+      "triangles": 2564,
+      "material": "recess",
+      "motionKey": "08 Long armored cannon"
+    },
+    "08 Long armored cannon / steel": {
+      "vertices": 4680,
+      "triangles": 9188,
+      "material": "steel",
+      "motionKey": "08 Long armored cannon"
+    },
+    "08 Long armored cannon / edge": {
+      "vertices": 112,
+      "triangles": 216,
+      "material": "edge",
+      "motionKey": "08 Long armored cannon"
+    },
+    "11 Crane and powertrain / armor": {
+      "vertices": 48,
+      "triangles": 88,
+      "material": "armor",
+      "motionKey": "11 Crane and powertrain"
+    },
+    "11 Crane and powertrain / steel": {
+      "vertices": 2816,
+      "triangles": 5448,
+      "material": "steel",
+      "motionKey": "11 Crane and powertrain"
+    },
+    "11 Crane and powertrain / joint": {
+      "vertices": 2184,
+      "triangles": 4360,
+      "material": "joint",
+      "motionKey": "11 Crane and powertrain"
+    },
+    "11 Crane and powertrain / edge": {
+      "vertices": 1008,
+      "triangles": 1968,
+      "material": "edge",
+      "motionKey": "11 Crane and powertrain"
+    },
+    "11 Crane and powertrain / recess": {
+      "vertices": 808,
+      "triangles": 1560,
+      "material": "recess",
+      "motionKey": "11 Crane and powertrain"
+    },
+    "11 Crane and powertrain / boom / armor": {
+      "vertices": 168,
+      "triangles": 316,
+      "material": "armor",
+      "motionKey": "11 Crane and powertrain / boom"
+    },
+    "11 Crane and powertrain / boom / recess": {
+      "vertices": 404,
+      "triangles": 776,
+      "material": "recess",
+      "motionKey": "11 Crane and powertrain / boom"
+    },
+    "11 Crane and powertrain / boom / steel": {
+      "vertices": 6348,
+      "triangles": 12552,
+      "material": "steel",
+      "motionKey": "11 Crane and powertrain / boom"
+    },
+    "11 Crane and powertrain / boom / edge": {
+      "vertices": 488,
+      "triangles": 960,
+      "material": "edge",
+      "motionKey": "11 Crane and powertrain / boom"
+    },
+    "11 Crane and powertrain / boom / joint": {
+      "vertices": 1160,
+      "triangles": 2276,
+      "material": "joint",
+      "motionKey": "11 Crane and powertrain / boom"
+    },
+    "09 Loader leg / joint": {
+      "vertices": 6600,
+      "triangles": 13000,
+      "material": "joint",
+      "motionKey": "09 Loader leg"
+    },
+    "09 Loader leg / steel": {
+      "vertices": 21092,
+      "triangles": 41180,
+      "material": "steel",
+      "motionKey": "09 Loader leg"
+    },
+    "09 Loader leg / armor": {
+      "vertices": 2226,
+      "triangles": 4300,
+      "material": "armor",
+      "motionKey": "09 Loader leg"
+    },
+    "09 Loader leg / recess": {
+      "vertices": 2068,
+      "triangles": 3988,
+      "material": "recess",
+      "motionKey": "09 Loader leg"
+    },
+    "09 Loader leg / edge": {
+      "vertices": 9624,
+      "triangles": 18940,
+      "material": "edge",
+      "motionKey": "09 Loader leg"
+    },
+    "09 Loader leg / rubber": {
+      "vertices": 19440,
+      "triangles": 37740,
+      "material": "rubber",
+      "motionKey": "09 Loader leg"
+    },
+    "10 Mixer leg / joint": {
+      "vertices": 6576,
+      "triangles": 12944,
+      "material": "joint",
+      "motionKey": "10 Mixer leg"
+    },
+    "10 Mixer leg / steel": {
+      "vertices": 24528,
+      "triangles": 47908,
+      "material": "steel",
+      "motionKey": "10 Mixer leg"
+    },
+    "10 Mixer leg / armor": {
+      "vertices": 2516,
+      "triangles": 4892,
+      "material": "armor",
+      "motionKey": "10 Mixer leg"
+    },
+    "10 Mixer leg / recess": {
+      "vertices": 2544,
+      "triangles": 4844,
+      "material": "recess",
+      "motionKey": "10 Mixer leg"
+    },
+    "10 Mixer leg / edge": {
+      "vertices": 8968,
+      "triangles": 17688,
+      "material": "edge",
+      "motionKey": "10 Mixer leg"
+    },
+    "10 Mixer leg / rubber": {
+      "vertices": 27352,
+      "triangles": 53092,
+      "material": "rubber",
+      "motionKey": "10 Mixer leg"
+    },
+    "10 Mixer leg / glass": {
+      "vertices": 252,
+      "triangles": 488,
+      "material": "glass",
+      "motionKey": "10 Mixer leg"
+    },
+    "10 Mixer leg / optic": {
+      "vertices": 576,
+      "triangles": 1136,
+      "material": "optic",
+      "motionKey": "10 Mixer leg"
+    },
+    "12 Fractured concrete base / concrete": {
+      "vertices": 1456,
+      "triangles": 2856,
+      "material": "concrete",
+      "motionKey": "STATIC"
+    },
+    "12 Fractured concrete base / steel": {
+      "vertices": 932,
+      "triangles": 1788,
+      "material": "steel",
+      "motionKey": "STATIC"
+    },
+    "12 Fractured concrete base / recess": {
+      "vertices": 68,
+      "triangles": 132,
+      "material": "recess",
+      "motionKey": "STATIC"
+    }
+  },
+  "beats": [
+    [
+      1,
+      "Separated modules"
+    ],
+    [
+      25,
+      "Loader approach"
+    ],
+    [
+      101,
+      "Loader grounded"
+    ],
+    [
+      116,
+      "Mixer grounded"
+    ],
+    [
+      140,
+      "Pelvis locked"
+    ],
+    [
+      169,
+      "Torso locked"
+    ],
+    [
+      226,
+      "Shoulders locked"
+    ],
+    [
+      261,
+      "Arms locked"
+    ],
+    [
+      308,
+      "Head and back locked"
+    ],
+    [
+      357,
+      "Cannon locked"
+    ],
+    [
+      361,
+      "Completed sculpture"
+    ],
+    [
+      432,
+      "Hero finish"
+    ]
+  ],
+  "sourceInputs": {
+    "deliverables/devastator-v2.blend": "2d35fe9634074fde3f8db576412fed52152b144c925777163475fceb8a02221f",
+    "assets/devastator-v2.glb": "e3c83dc8c04e9c32ef3409575706960ec0bed1e5e19009d09ab4ccf53daf0685"
+  },
+  "files": {
+    "deliverables/devastator-v2-assembly.blend": "0012e9b4a90725d29f1afe51b9a236615ff51fb96ac08287bf8f938fbeab4473",
+    "scripts/assembly_motion.py": "12da70e7998024e4cfb5738e72a7546f2c2bd373625ac621a272cdc3c79a92ce",
+    "scripts/build_assembly.py": "9be6d6a790bd3330bbb85ad694926f5c67483475ddb2c502c23c62e2535e057f",
+    "scripts/audit_assembly.py": "d239b75e128a0afaa00fa5f92a2e8270728b2f19e87700da01c611f48bac49b9",
+    "scripts/render_assembly.py": "94ba24929d54d78c5fb98d83bc80567b83ebef85585f5cf2a4f69bf1365dca63",
+    "scripts/encode_assembly.py": "3230a9a093dce40e6083d553eb884ad76a04fe9ace744e000474163beac86bbd",
+    "deliverables/devastator-v2-assembly.mp4": "6f90803c8cf2c69707db52e08efb54cfafe32f47a127934f20ab1401eb4dd520"
+  },
+  "scope": "Rigid modules with articulated elbows and folding crane; no vehicle mode or solved transformation.",
+  "rendered": true
+}
