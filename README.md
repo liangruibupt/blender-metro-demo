@@ -109,6 +109,16 @@ publishing workflow and deploy only after the checks above pass.
 python3 metro/scripts/check_assets.py
 ```
 
+Devastator is Blender-only (no Three.js page or `npm` tests). Its build,
+render and audit steps are documented in
+[devastator/v2/README.md](devastator/v2/README.md) and
+[devastator/v2/ASSEMBLY.md](devastator/v2/ASSEMBLY.md), for example:
+
+```sh
+/Applications/Blender.app/Contents/MacOS/Blender --background --factory-startup \
+  --python-exit-code 1 --python devastator/v2/scripts/build_assembly.py
+```
+
 Each script derives its own task directory from its file location and writes
 only to that task's `assets/` and `deliverables/`. Regenerating a model does not
 regenerate its MP4; export the corresponding movie again when model geometry
