@@ -13,6 +13,9 @@ The current retained model and all deliverables are in [`v2/`](v2/).
 - [Build and verification instructions](v2/README.md)
 - [Verification scope](v2/QA.md)
 
+An experimental AI-generated geometry study (Hunyuan3D-2 + Hi3D v1.0, geometry only) is in
+[`hi3d/`](hi3d/README.en.md) ([中文](hi3d/README.md)). It does not replace V2.
+
 Obsolete V1 model files, renders, scripts and checkpoint documents have been
 removed from the working tree at the user's request. Git history is unchanged.
 The user-provided reference images and original attribution remain in

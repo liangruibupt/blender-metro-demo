@@ -72,6 +72,11 @@ G1 风格同人作品，机器人形态与平头卡车形态共用同一套可�
 视频：[12 秒 360° 环绕](devastator/v2/deliverables/devastator-v2-360.mp4) ·
 [18 秒模块合体](devastator/v2/deliverables/devastator-v2-assembly.mp4)
 
+**实验：用 Hi3D v1.0 从参考生成几何。** 用 4 帧参考视频经 Hunyuan3D-2mv 出粗模，再由 Hi3D 1536 细化（只有几何）。
+四个方向的轮廓都与参考一致，但细小零件会丢失，结果是一整块未经编辑的网格。详见 [devastator/hi3d](devastator/hi3d/README.md)。
+
+![参考视频帧 vs Hi3D 1536](devastator/hi3d/images/ref-vs-hi3d.jpg)
+
 ## 目录结构
 
 ```text
@@ -92,6 +97,7 @@ optimus/
 devastator/
   README.md, REFERENCE.md
   references/            用户提供的参考图与参考视频
+  hi3d/                  Hi3D v1.0 几何实验（截图、视频、脚本）
   v2/
     scripts/, assets/, deliverables/, qa/
     README.md, ASSEMBLY.md, QA.md, PROMPTS.md, MCP_SETUP.md

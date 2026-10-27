@@ -77,6 +77,12 @@ There is no Three.js viewer for this task.
 Videos: [12-second 360° turntable](devastator/v2/deliverables/devastator-v2-360.mp4) ·
 [18-second modular assembly](devastator/v2/deliverables/devastator-v2-assembly.mp4)
 
+**Experiment: Hi3D v1.0 geometry from the references.** Hunyuan3D-2mv coarse mesh from four turntable
+frames, refined by Hi3D at 1536 (geometry only). It matches the reference silhouette from every side, but
+thin parts are lost and the result is one unedited mesh. Details: [devastator/hi3d](devastator/hi3d/README.en.md).
+
+![Reference frames vs Hi3D 1536](devastator/hi3d/images/ref-vs-hi3d.jpg)
+
 ## Layout
 
 ```text
@@ -97,6 +103,7 @@ optimus/
 devastator/
   README.md, REFERENCE.md
   references/            user-supplied reference images and video
+  hi3d/                  Hi3D v1.0 geometry experiment (images, video, scripts)
   v2/
     scripts/, assets/, deliverables/, qa/
     README.md, ASSEMBLY.md, QA.md, PROMPTS.md, MCP_SETUP.md
