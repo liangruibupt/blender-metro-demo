@@ -16,7 +16,7 @@
 
 ## 效果截图
 
-截图存放在 `docs/screenshots/`，是各任务 Blender 渲染图和视频联络表的缩小版；
+截图存放在 `docs/screenshots/`，包括各任务 Blender 渲染图、视频联络表的缩小版，以及 Three.js 交互页面截图；
 原始高分辨率文件在各任务的 `deliverables/` 目录中。
 
 ### 地铁 / Central 站 & M01 列车
@@ -29,6 +29,14 @@
 | **客室内景** | **司机室** | |
 | ![列车客室](docs/screenshots/metro-interior.jpg) | ![司机室](docs/screenshots/metro-cab.jpg) | |
 
+交互页面（[metro/index.html](metro/index.html)，Three.js）：
+
+| 站台视角 | 全景 360° |
+| --- | --- |
+| ![交互页面-站台视角](docs/screenshots/ui-metro-platform.jpg) | ![交互页面-全景](docs/screenshots/ui-metro-overview.jpg) |
+| **进入车厢** | **进入驾驶室** |
+| ![交互页面-车厢](docs/screenshots/ui-metro-cabin.jpg) | ![交互页面-驾驶室](docs/screenshots/ui-metro-cab.jpg) |
+
 视频：[80 秒分镜预览](metro/deliverables/metro-storyboard-preview.mp4)
 
 ### 擎天柱 / 金属质感 V3
@@ -39,11 +47,17 @@ G1 风格同人作品，机器人形态与平头卡车形态共用同一套可�
 | --- | --- |
 | ![擎天柱机器人形态](docs/screenshots/optimus-robot.jpg) | ![擎天柱卡车形态](docs/screenshots/optimus-truck.jpg) |
 
+交互页面（[optimus/index.html](optimus/index.html)，Three.js）：
+
+| 360° 展示 | 拆解爆炸图 | 卡车形态 |
+| --- | --- | --- |
+| ![交互页面-360 展示](docs/screenshots/ui-optimus.jpg) | ![交互页面-拆解爆炸图](docs/screenshots/ui-optimus-exploded.jpg) | ![交互页面-卡车形态](docs/screenshots/ui-optimus-truck.jpg) |
+
 视频：[80 秒变形展示](optimus/deliverables/optimus-showcase.mp4)
 
 ### 大力神 / 白模 V2
 
-合体形态白模雕塑，610,432 个三角面，Cycles 1600 × 1200 渲染。
+合体形态白模雕塑，610,432 个三角面，Cycles 1600 × 1200 渲染。该任务没有 Three.js 交互页面。
 
 | 主视角 | 正面 | 背面 |
 | --- | --- | --- |

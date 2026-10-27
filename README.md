@@ -1,8 +1,12 @@
 # Mechanical Atelier
 
-Two independent Blender and Three.js studies in one repository. Each task owns
-its pages, JavaScript, styles, source assets, Blender scripts, deliverables and
-documentation. Dependencies and deployment remain shared at the repository root.
+**English** | [简体中文](README.zh-CN.md)
+
+Three independent Blender studies in one repository: a metro station and train,
+an Optimus Prime fan study, and a Devastator clay sculpture. Metro and Optimus
+also have Three.js viewers. Each task owns its pages, JavaScript, styles, source
+assets, Blender scripts, deliverables and documentation. Dependencies and
+deployment remain shared at the repository root.
 
 ## Tasks
 
@@ -10,6 +14,70 @@ documentation. Dependencies and deployment remain shared at the repository root.
 | --- | --- | --- | --- |
 | Metro / Central & M01 | [metro/index.html](metro/index.html) | [metro/watch.html](metro/watch.html) | [Metro README](metro/README.md) |
 | Optimus Prime / Metal V3 | [optimus/index.html](optimus/index.html) | [optimus/watch.html](optimus/watch.html) | [Optimus README](optimus/README.md) |
+| Devastator / Clay V2 | — (Blender + GLB only) | [360° turntable](devastator/v2/deliverables/devastator-v2-360.mp4) · [18 s assembly](devastator/v2/deliverables/devastator-v2-assembly.mp4) | [Devastator README](devastator/README.md) |
+
+## Gallery
+
+Screenshots live in `docs/screenshots/`: downscaled copies of each task's
+Blender renders and video contact sheets, plus captures of the Three.js viewers.
+Full-resolution renders are in each task's `deliverables/` directory.
+
+### Metro / Central & M01
+
+An original island-platform station and single-car M01 metro (Cycles renders).
+
+| Station overview | Platform | Train exterior |
+| --- | --- | --- |
+| ![Metro station overview](docs/screenshots/metro-station-overview.jpg) | ![Metro station platform](docs/screenshots/metro-station-platform.jpg) | ![Metro train exterior](docs/screenshots/metro-exterior.jpg) |
+| **Passenger interior** | **Driver cab** | |
+| ![Metro train interior](docs/screenshots/metro-interior.jpg) | ![Metro driver cab](docs/screenshots/metro-cab.jpg) | |
+
+Interactive viewer ([metro/index.html](metro/index.html), Three.js):
+
+| Platform view | 360° overview |
+| --- | --- |
+| ![Metro viewer platform view](docs/screenshots/ui-metro-platform.jpg) | ![Metro viewer 360 overview](docs/screenshots/ui-metro-overview.jpg) |
+| **Passenger cabin** | **Driver cab** |
+| ![Metro viewer passenger cabin](docs/screenshots/ui-metro-cabin.jpg) | ![Metro viewer driver cab](docs/screenshots/ui-metro-cab.jpg) |
+
+Video: [80-second storyboard preview](metro/deliverables/metro-storyboard-preview.mp4)
+
+### Optimus Prime / Metal V3
+
+A G1-inspired fan study. The robot and the cab-over truck share one articulated
+mesh set.
+
+| Robot mode | Truck mode |
+| --- | --- |
+| ![Optimus robot mode](docs/screenshots/optimus-robot.jpg) | ![Optimus truck mode](docs/screenshots/optimus-truck.jpg) |
+
+Interactive viewer ([optimus/index.html](optimus/index.html), Three.js):
+
+| 360° showcase | Exploded view | Truck mode |
+| --- | --- | --- |
+| ![Optimus viewer 360 showcase](docs/screenshots/ui-optimus.jpg) | ![Optimus viewer exploded view](docs/screenshots/ui-optimus-exploded.jpg) | ![Optimus viewer truck mode](docs/screenshots/ui-optimus-truck.jpg) |
+
+Video: [80-second transformation showcase](optimus/deliverables/optimus-showcase.mp4)
+
+### Devastator / Clay V2
+
+A combined-form clay sculpture: 610,432 triangles, rendered in Cycles at 1600 × 1200.
+There is no Three.js viewer for this task.
+
+| Hero | Front | Rear |
+| --- | --- | --- |
+| ![Devastator hero view](docs/screenshots/devastator-hero.jpg) | ![Devastator front view](docs/screenshots/devastator-front.jpg) | ![Devastator rear view](docs/screenshots/devastator-rear.jpg) |
+
+![Devastator upper-body detail](docs/screenshots/devastator-detail.jpg)
+
+| 360° turntable (12 decoded frames) | 18 s assembly (decoded frames) |
+| --- | --- |
+| ![Devastator 360 turntable contact sheet](docs/screenshots/devastator-360-sheet.jpg) | ![Devastator assembly contact sheet](docs/screenshots/devastator-assembly-sheet.jpg) |
+
+Videos: [12-second 360° turntable](devastator/v2/deliverables/devastator-v2-360.mp4) ·
+[18-second modular assembly](devastator/v2/deliverables/devastator-v2-assembly.mp4)
+
+## Layout
 
 ```text
 metro/
@@ -26,6 +94,13 @@ optimus/
   scripts/
   deliverables/
   README.md, QA.md
+devastator/
+  README.md, REFERENCE.md
+  references/            user-supplied reference images and video
+  v2/
+    scripts/, assets/, deliverables/, qa/
+    README.md, ASSEMBLY.md, QA.md, PROMPTS.md, MCP_SETUP.md
+docs/screenshots/        README gallery images
 public/favicon.svg
 scripts/check_deployment.mjs
 tests/layout.test.js
