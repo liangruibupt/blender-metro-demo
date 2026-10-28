@@ -71,12 +71,23 @@ mvB 的炮管和背部更连贯，后续 1536 用 mvB。
 均启用 `--sequential-cpu-offload`。峰值显存按 30 秒采样，可能略低于真实峰值。全部网格都不是水密的。
 整个会话（装环境、下约 70 GB 权重、7 次运行、出图）约 1.5 小时，实例随后已终止。
 
-## 什么没有放进仓库
+## 生成的网格（GLB）
 
-**生成的网格（GLB）没有提交。** 输入来自 Rex Hsu 的参考作品（见 [`../REFERENCE.md`](../REFERENCE.md)），
-没有再分发授权；从这些图直接生成的 3D 模型属于衍生内容，放进公开仓库风险比渲染截图更高。
-截图和视频用于说明实验结果。完整网格（粗模、1024、1536 共 8 个，约 200 MB）保存在执行实验的
-Kiro Crew 主机上（`/home/ubuntu/workplace/devastator-hi3d-run/out/`，不在 Git 中），确认授权后可以再补交或改用自己的原创参考重跑。
+全部 8 个网格在 [`models/`](models/)（共约 197 MB，灰模、无贴图、非水密）：
+
+| 文件 | 说明 | 大小 |
+| --- | --- | --- |
+| [`sv_coarse.glb`](models/sv_coarse.glb) | 单视图粗模（Hunyuan3D-2 mini） | 15 MB |
+| [`sv_refined_1024.glb`](models/sv_refined_1024.glb) | 单视图 → Hi3D 1024 | 18 MB |
+| [`sv_refined_1536.glb`](models/sv_refined_1536.glb) | 单视图 → Hi3D 1536 | 36 MB |
+| [`mvA_coarse.glb`](models/mvA_coarse.glb) | 多视图粗模 mvA（Hunyuan3D-2mv） | 29 MB |
+| [`mvA_refined_1024.glb`](models/mvA_refined_1024.glb) | mvA → Hi3D 1024 | 18 MB |
+| [`mvB_coarse.glb`](models/mvB_coarse.glb) | 多视图粗模 mvB | 27 MB |
+| [`mvB_refined_1024.glb`](models/mvB_refined_1024.glb) | mvB → Hi3D 1024 | 18 MB |
+| [`mvB_refined_1536.glb`](models/mvB_refined_1536.glb) | **mvB → Hi3D 1536（推荐）** | 36 MB |
+
+输入来自 Rex Hsu 的参考作品（见 [`../REFERENCE.md`](../REFERENCE.md)），这些网格属于衍生内容，
+仅用于技术实验说明，再分发或商用前请自行确认授权。
 
 ## 复现
 

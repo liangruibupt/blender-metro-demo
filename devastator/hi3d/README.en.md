@@ -74,14 +74,24 @@ The reference turntable's rotation direction is not recorded, so both left/right
 All with `--sequential-cpu-offload`. Peak VRAM is sampled every 30 s and may undercount. No mesh is watertight.
 The whole session (setup, ~70 GB of weights, 7 runs, renders) took about 1.5 hours; the instance was then terminated.
 
-## Not committed
+## Generated meshes (GLB)
 
-**The generated GLB meshes are not in the repository.** The inputs are Rex Hsu's reference artwork
-(see [`../REFERENCE.md`](../REFERENCE.md)) with no redistribution permission; 3D models generated directly
-from it are derivative content and riskier to publish than these documentation renders. The full meshes
-(coarse, 1024, 1536; 8 files, ~200 MB) are kept on the Kiro Crew host that ran the study
-(`/home/ubuntu/workplace/devastator-hi3d-run/out/`, outside Git). They can be added once rights are confirmed,
-or the study can be rerun from original references.
+All 8 meshes are in [`models/`](models/) (~197 MB total; grey, untextured, not watertight):
+
+| File | What | Size |
+| --- | --- | --- |
+| [`sv_coarse.glb`](models/sv_coarse.glb) | Single-view coarse (Hunyuan3D-2 mini) | 15 MB |
+| [`sv_refined_1024.glb`](models/sv_refined_1024.glb) | Single view → Hi3D 1024 | 18 MB |
+| [`sv_refined_1536.glb`](models/sv_refined_1536.glb) | Single view → Hi3D 1536 | 36 MB |
+| [`mvA_coarse.glb`](models/mvA_coarse.glb) | Multi-view coarse mvA (Hunyuan3D-2mv) | 29 MB |
+| [`mvA_refined_1024.glb`](models/mvA_refined_1024.glb) | mvA → Hi3D 1024 | 18 MB |
+| [`mvB_coarse.glb`](models/mvB_coarse.glb) | Multi-view coarse mvB | 27 MB |
+| [`mvB_refined_1024.glb`](models/mvB_refined_1024.glb) | mvB → Hi3D 1024 | 18 MB |
+| [`mvB_refined_1536.glb`](models/mvB_refined_1536.glb) | **mvB → Hi3D 1536 (recommended)** | 36 MB |
+
+The inputs are Rex Hsu's reference artwork (see [`../REFERENCE.md`](../REFERENCE.md)); these meshes are
+derivative content published for technical documentation only. Confirm rights before redistributing or
+using them commercially.
 
 ## Reproduce
 
