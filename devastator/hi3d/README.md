@@ -151,8 +151,68 @@ g6e.xlarge 只有 30 GB 内存，Qwen-Image-Edit 的 20B 模型 CPU offload 需�
 需要 oss-image-models-lab 的 `hi3d_env.sh`、`hunyuan_env.sh`、`paint_env.sh`）→ `color_concept.py` → `run_paint.sh`
 （`paint_devastator.py`）→ `render_color.py`。
 
+## 上色 v2：四视角彩色图（实验，未取代 v1）
+
+2026-10-28 补做，目的是让侧面和背面也有真实的颜色参考，而不是让 Paint 去猜。
+
+1. **灰模四视角**：用 Hunyuan3D-2 Paint 自己的相机（正、左、后、右）渲染 mvB 15 万面网格的灰模图（`mv_prepare.py`）。
+2. **逐视角上色**：Qwen-Image-Edit-2511 把每张灰模图重涂成 G1 配色（`mv_edit.py`）。只输入灰模图一张，配色用文字描述。
+   若同时把正面概念图作为第二张参考图，模型会把正面姿势照搬到背面，已放弃（见
+   [`images/mv/color/color_180_twoimg_rejected.png`](images/mv/color/color_180_twoimg_rejected.png)）。
+3. **烘焙**：把四张彩色图反投影到 UV 贴图。
+   - **v2a**（`mv_bake.py`）：直接反投影。编辑模型会让轮廓偏移几个百分点，背景白色被烘到手臂和炮管边缘，出现白色条纹。
+     按包围盒拉伸对齐反而让轮廓重合度变差（正面 0.79→0.65，背面 0.89→0.73），已放弃。
+   - **v2b**（`mv_bake2.py`）：只烘焙灰模轮廓和彩色图都认为是前景的像素，并向内收缩约 1%；没有覆盖到的区域用 Paint
+     自己像素对齐的多视角图低权重补齐。
+
+四个视角的灰模输入与上色结果：
+
+![四视角输入](images/color-mv-inputs.jpg)
+
+v1（只有正面概念图）与 v2a、v2b 的对比：
+
+![v1 vs v2a](images/color-mv-v1-vs-v2a.jpg)
+
+![v1 vs v2b](images/color-mv-v1-vs-v2b.jpg)
+
+侧面放大对比（上：v1，下：v2b；左 90°，右 270°）：
+
+![侧面 v1 vs v2b](images/color-mv-sides-v1-vs-v2b.jpg)
+
+**观察**
+
+- **v2b 去掉了白色条纹**。
+- **90° 侧面变好**：紫色腰部和关节、深色车轮、灰色石头底座（v1 是紫色石头），色区跟着实际结构走。
+  轮毂上的两盏红灯是编辑模型自己加的，参考里没有。
+- **270° 侧面比 v1 更乱**：绿紫碎成小块，大腿上有一大块紫色圆斑。这个视角和轮廓重合最好（0.98），
+  所以原因更可能是它和相邻正面、背面视角在重叠区的颜色不一致、被平均在一起，而不是对齐问题。
+- **细件**：炮管仍有部分是 v1 的淡紫色，因为细件是彩色图被裁掉最多的地方，Paint 的补齐色会透出来。
+- **结论**：v2b 整体没有超过 v1，所以 v1（`mvB_1536_painted_150k.glb`）仍是主版本；v2 作为实验记录保留。
+  可行的改进是让每个视角只烘焙它正对的区域，避免重叠区被平均。
+
+**产物**
+
+| 文件 | 说明 |
+| --- | --- |
+| [`models/mvB_1536_painted_mv_v2a.glb`](models/mvB_1536_painted_mv_v2a.glb) | v2a 直接反投影（有白色条纹），10.9 MB |
+| [`models/mvB_1536_painted_mv_v2b.glb`](models/mvB_1536_painted_mv_v2b.glb) | v2b 掩膜烘焙，10.7 MB |
+| [`deliverables/devastator-hi3d-color-mv-v2a-360.mp4`](deliverables/devastator-hi3d-color-mv-v2a-360.mp4) | v2a 360° 视频 |
+| [`deliverables/devastator-hi3d-color-mv-v2b-360.mp4`](deliverables/devastator-hi3d-color-mv-v2b-360.mp4) | v2b 360° 视频 |
+| [`images/mv/`](images/mv/) | 中间素材：灰模图 `clay/`、彩色图 `color/`、Paint 多视角 `paint-multiview/`、两版烘焙输入 `bake-v2a/` `bake-v2b/`、两版 UV 贴图 `albedo_v2a.png` `albedo_v2b.png`、相机检查图 |
+
+**实测（单张 L40S）**
+
+| 步骤 | 耗时 | 峰值显存 |
+| --- | --- | --- |
+| Paint 多视角（相机与填充用） | — | 9.7 GB |
+| Qwen-Image-Edit-2511 单视角上色（1024²） | 562-729 s / 张 | 39.1-39.5 GB |
+
+**复现**：脚本在 [`scripts/paint-mv/`](scripts/paint-mv/)：`chain_mv.sh`（装环境 → `mv_prepare.py` → `mv_edit.py`
+→ `mv_bake.py` → `mv_render.py`），`chain_mv2.sh` 从上色步骤续跑；v2b 为 `mv_bake2.py` + `mv_render2.py`。
+运行日志在 [`scripts/paint-mv/logs/`](scripts/paint-mv/logs/)。
+
 ## 下一步（未做）
 
-- **多视角概念图**：给背面、侧面也各做一张彩色概念图（同样用参考视频帧），让 Paint 不再靠猜背面颜色。
+- **按视角分区烘焙**：每个彩色视角只烘焙它正对的区域，避免重叠区颜色被平均（v2b 的 270° 问题）。
 - **更多视角**：Hunyuan3D-2mv 最多接受前/左/后/右 4 张；可以尝试不同帧组合或多个 seed，挑最接近参考的粗模。
 - **重拓扑**：用 oss-image-models-lab 的 `blender_retopo_bake.py` 把 2M 面高模烘成低模 + 法线贴图，再上色，细节会比直接减面好。

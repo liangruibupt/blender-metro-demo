@@ -158,9 +158,74 @@ The session took about 45 minutes; the instance was then terminated.
 oss-image-models-lab's `hi3d_env.sh`, `hunyuan_env.sh`, `paint_env.sh`) → `color_concept.py` → `run_paint.sh`
 (`paint_devastator.py`) → `render_color.py`.
 
+## Color v2: four colored views (experiment, does not replace v1)
+
+Added 2026-10-28 so the sides and back get a real color reference instead of being guessed by Paint.
+
+1. **Clay views**: render the mvB 150k-face mesh as grey clay from Hunyuan3D-2 Paint's own cameras (front, left,
+   back, right) with `mv_prepare.py`.
+2. **Per-view recolor**: Qwen-Image-Edit-2511 repaints each clay view in the G1 scheme (`mv_edit.py`). Only the clay view
+   is passed as an image; the scheme is described in text. Passing the front concept as a second image made the model
+   copy the front pose onto the back view, so that was dropped (see
+   [`images/mv/color/color_180_twoimg_rejected.png`](images/mv/color/color_180_twoimg_rejected.png)).
+3. **Bake**: back-project the four colored views into the UV texture.
+   - **v2a** (`mv_bake.py`): plain back-projection. The edit model shifts each outline a few percent, so background white
+     was baked onto arm and barrel edges as white streaks. Stretching each view's bounding box to the silhouette made
+     overlap worse (front 0.79→0.65, back 0.89→0.73) and was dropped.
+   - **v2b** (`mv_bake2.py`): bakes only pixels that both the clay silhouette and the colored view treat as foreground,
+     eroded about 1% inward; uncovered regions are filled at low weight from Paint's own pixel-aligned multiview images.
+
+Clay inputs and colored views:
+
+![Four-view inputs](images/color-mv-inputs.jpg)
+
+v1 (front concept only) vs v2a and v2b:
+
+![v1 vs v2a](images/color-mv-v1-vs-v2a.jpg)
+
+![v1 vs v2b](images/color-mv-v1-vs-v2b.jpg)
+
+Side close-up (top: v1, bottom: v2b; left 90°, right 270°):
+
+![Sides v1 vs v2b](images/color-mv-sides-v1-vs-v2b.jpg)
+
+**Observations**
+
+- **v2b removes the white streaks.**
+- **The 90° side improves**: purple waist and joints, dark wheels, and a grey stone base (v1's rocks were purple); the
+  color regions follow the real structure. The two red lights on the wheel hubs were invented by the edit model.
+- **The 270° side is messier than v1**: green and purple break into small patches, with a large purple disc on the thigh.
+  This view has the best silhouette overlap (0.98), so the likely cause is that its colors disagree with the neighbouring
+  front and back views where they overlap and get averaged together, not misalignment.
+- **Thin parts**: the barrels are still partly v1's pale purple, because thin parts are where the colored views are trimmed
+  most and Paint's fill shows through.
+- **Verdict**: v2b does not beat v1 overall, so v1 (`mvB_1536_painted_150k.glb`) stays the main version; v2 is kept as an
+  experiment record. A likely fix is to bake each view only into the region it faces, so overlaps are not averaged.
+
+**Outputs**
+
+| File | Notes |
+| --- | --- |
+| [`models/mvB_1536_painted_mv_v2a.glb`](models/mvB_1536_painted_mv_v2a.glb) | v2a plain back-projection (white streaks), 10.9 MB |
+| [`models/mvB_1536_painted_mv_v2b.glb`](models/mvB_1536_painted_mv_v2b.glb) | v2b masked bake, 10.7 MB |
+| [`deliverables/devastator-hi3d-color-mv-v2a-360.mp4`](deliverables/devastator-hi3d-color-mv-v2a-360.mp4) | v2a 360° video |
+| [`deliverables/devastator-hi3d-color-mv-v2b-360.mp4`](deliverables/devastator-hi3d-color-mv-v2b-360.mp4) | v2b 360° video |
+| [`images/mv/`](images/mv/) | Intermediates: clay views `clay/`, colored views `color/`, Paint multiview `paint-multiview/`, bake inputs `bake-v2a/` `bake-v2b/`, UV textures `albedo_v2a.png` `albedo_v2b.png`, camera check images |
+
+**Measurements (one L40S)**
+
+| Step | Time | Peak VRAM |
+| --- | --- | --- |
+| Paint multiview (cameras + fill) | — | 9.7 GB |
+| Qwen-Image-Edit-2511 per-view recolor (1024²) | 562-729 s per view | 39.1-39.5 GB |
+
+**Reproduce**: scripts in [`scripts/paint-mv/`](scripts/paint-mv/): `chain_mv.sh` (envs → `mv_prepare.py` → `mv_edit.py`
+→ `mv_bake.py` → `mv_render.py`); `chain_mv2.sh` resumes from the recolor step; v2b is `mv_bake2.py` + `mv_render2.py`.
+Run logs are in [`scripts/paint-mv/logs/`](scripts/paint-mv/logs/).
+
 ## Next steps (not done)
 
-- **Multi-view concepts**: make colored concepts for the back and sides too (from turntable frames) so Paint stops guessing them.
+- **Per-view region bake**: bake each colored view only into the region it faces, so overlaps are not averaged (the v2b 270° problem).
 - **View selection**: Hunyuan3D-2mv takes at most front/left/back/right; try other frame sets and seeds.
 - **Retopology**: bake the 2M-face mesh to a low-poly + normal map with oss-image-models-lab's `blender_retopo_bake.py`
   before painting; detail will hold up better than plain decimation.
