@@ -1,9 +1,9 @@
-# 大力神 / Hi3D v1.0 几何复刻实验
+# 大力神 / Hi3D v1.0 几何复刻与上色实验
 
 **简体中文** | [English](README.en.md)
 
 用 **Hunyuan3D-2（粗模）+ Hi3D v1.0（几何细化）** 从参考图和参考视频生成大力神的 3D 几何。
-**只做几何、不上色**。实验时间 2026-10-27，单张 L40S 48 GB（AWS g6e.xlarge，东京）。
+几何实验于 2026-10-27，[上色](#上色qwen-image-edit--hunyuan3d-2-paint)于 2026-10-28 补做，单张 L40S 48 GB（AWS g6e.xlarge，东京）。
 评测方法与环境踩坑沿用 [oss-image-models-lab 的 Hi3D 评测](https://github.com/liangruibupt/oss-image-models-lab#-hi3d-v10图像--3d-几何细化)。
 
 ## 结论
@@ -73,7 +73,7 @@ mvB 的炮管和背部更连贯，后续 1536 用 mvB。
 
 ## 生成的网格（GLB）
 
-全部 8 个网格在 [`models/`](models/)（共约 197 MB，灰模、无贴图、非水密）：
+全部 8 个网格在 [`models/`](models/)（共约 207 MB，非水密；除最后一个外均为无贴图灰模）：
 
 | 文件 | 说明 | 大小 |
 | --- | --- | --- |
@@ -85,6 +85,7 @@ mvB 的炮管和背部更连贯，后续 1536 用 mvB。
 | [`mvB_coarse.glb`](models/mvB_coarse.glb) | 多视图粗模 mvB | 27 MB |
 | [`mvB_refined_1024.glb`](models/mvB_refined_1024.glb) | mvB → Hi3D 1024 | 18 MB |
 | [`mvB_refined_1536.glb`](models/mvB_refined_1536.glb) | **mvB → Hi3D 1536（推荐）** | 36 MB |
+| [`mvB_1536_painted_150k.glb`](models/mvB_1536_painted_150k.glb) | mvB 1536 减到 15 万面 + Paint 上色（带 2048² 贴图） | 10 MB |
 
 输入来自 Rex Hsu 的参考作品（见 [`../REFERENCE.md`](../REFERENCE.md)），这些网格属于衍生内容，
 仅用于技术实验说明，再分发或商用前请自行确认授权。
@@ -104,8 +105,54 @@ mvB 的炮管和背部更连贯，后续 1536 用 mvB。
 
 用完务必终止实例，并删除 `devastator-hi3d-key` 和 `devastator-hi3d-sg`。
 
+## 上色（Qwen-Image-Edit + Hunyuan3D-2 Paint）
+
+2026-10-28 补做。参考是灰模、没有颜色信息，所以分两步：
+
+1. **彩色概念图**：用 [Qwen-Image-Edit-2511](https://huggingface.co/Qwen/Qwen-Image-Edit-2511) 把参考视频第 00 帧
+   （也是 mvB 细化时用的正面图）重新上色为 G1 大力神涂装：亮绿装甲、紫色关节、银色炮管、红色眼睛，要求姿势和结构不变。
+2. **贴图**：把 mvB 1536 网格（200 万面）减到 15 万面，以概念图为条件用 Hunyuan3D-2 Paint
+   多视角生成并烘焙一张 2048 × 2048 的 UV 颜色贴图，导出带色 GLB。
+
+![灰色参考帧 vs 彩色概念图](images/color-concept.jpg)
+
+第 1 行：参考帧、概念图、烘焙出的 UV 贴图、上色模型特写。第 2 行：上色模型 0/90/180/270°。
+
+![上色结果](images/color-views.jpg)
+
+同一角度的 Hi3D 灰模（上）与上色模型（下）：
+
+![灰模 vs 上色](images/color-vs-clay.jpg)
+
+360° 带色环绕视频：[devastator-hi3d-color-360.mp4](deliverables/devastator-hi3d-color-360.mp4)（12 秒，1280 × 720，24 fps）。
+上色模型：[`models/mvB_1536_painted_150k.glb`](models/mvB_1536_painted_150k.glb)（10 MB，15 万面 + 2048² 贴图）。
+
+**观察**
+
+- **正面最好**：大块配色（绿色装甲、紫色胸腹和关节、银色炮管、红色灯）和概念图一致，能看出是 G1 大力神。
+- **侧面和背面是模型推断的**：概念图只有正面一张，背面和侧面的颜色由 Paint 的多视角扩散补全。整体延续了绿紫配色，
+  但分区不如正面准确，局部有颜色涂抹和接缝。
+- **细节偏软**：减面到 15 万面后，贴图只能表现大块色区，没有涂装分界线和磨损细节；细小零件颜色常常串到相邻部件。
+  贴图是 xatlas 自动展开的碎片 UV，不适合手工修改。
+- **定位**：达到"概念展示 / 配色预览"的水平，可用于静帧和环绕视频；不是成品级手办涂装。
+- 背景底座（岩石）被涂成了紫色，因为概念图里底座是紫的。
+
+**实测（单张 L40S）**
+
+| 步骤 | 耗时 | 峰值显存 |
+| --- | --- | --- |
+| Qwen-Image-Edit-2511 概念图（1024²，40 步，model CPU offload） | 807 s（含换页，首次加载另 555 s） | 39.1 GB |
+| 减面 2M → 150k + Paint 加载 | 189 s 加载 | — |
+| Hunyuan3D-2 Paint（多视角扩散 + 烘焙） | 210 s | 9.7 GB |
+
+g6e.xlarge 只有 30 GB 内存，Qwen-Image-Edit 的 20B 模型 CPU offload 需要在 NVMe 上加 96 GB swap。整个会话约 45 分钟，实例随后已终止。
+
+**复现**：脚本在 [`scripts/paint/`](scripts/paint/)：`chain_paint.sh`（调用 `prelude.sh` 加 swap、装环境；
+需要 oss-image-models-lab 的 `hi3d_env.sh`、`hunyuan_env.sh`、`paint_env.sh`）→ `color_concept.py` → `run_paint.sh`
+（`paint_devastator.py`）→ `render_color.py`。
+
 ## 下一步（未做）
 
-- **上色**：参考是灰模，没有颜色信息。需先做一张彩色概念图（例如 G1 绿紫涂装），再减面并用 Hunyuan3D-Paint 生成 UV 贴图。
+- **多视角概念图**：给背面、侧面也各做一张彩色概念图（同样用参考视频帧），让 Paint 不再靠猜背面颜色。
 - **更多视角**：Hunyuan3D-2mv 最多接受前/左/后/右 4 张；可以尝试不同帧组合或多个 seed，挑最接近参考的粗模。
-- **重拓扑**：用 oss-image-models-lab 的 `blender_retopo_bake.py` 把 2M 面高模烘成低模 + 法线贴图，便于在 Blender 里编辑和渲染。
+- **重拓扑**：用 oss-image-models-lab 的 `blender_retopo_bake.py` 把 2M 面高模烘成低模 + 法线贴图，再上色，细节会比直接减面好。
