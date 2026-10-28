@@ -83,6 +83,10 @@ thin parts are lost and the result is one unedited mesh. Details: [devastator/hi
 
 ![Reference frames vs Hi3D 1536](devastator/hi3d/images/ref-vs-hi3d.jpg)
 
+Colored with a Qwen-Image-Edit G1 concept + Hunyuan3D-2 Paint ([360° video](devastator/hi3d/deliverables/devastator-hi3d-color-360.mp4)):
+
+![Hi3D clay vs painted](devastator/hi3d/images/color-vs-clay.jpg)
+
 ## Layout
 
 ```text
@@ -103,7 +107,7 @@ optimus/
 devastator/
   README.md, REFERENCE.md
   references/            user-supplied reference images and video
-  hi3d/                  Hi3D v1.0 geometry experiment (images, video, scripts)
+  hi3d/                  Hi3D v1.0 geometry + color experiment (images, videos, GLBs, scripts)
   v2/
     scripts/, assets/, deliverables/, qa/
     README.md, ASSEMBLY.md, QA.md, PROMPTS.md, MCP_SETUP.md

@@ -13,7 +13,7 @@ The current retained model and all deliverables are in [`v2/`](v2/).
 - [Build and verification instructions](v2/README.md)
 - [Verification scope](v2/QA.md)
 
-An experimental AI-generated geometry study (Hunyuan3D-2 + Hi3D v1.0, geometry only) is in
+An experimental AI-generated geometry study (Hunyuan3D-2 + Hi3D v1.0 geometry, Qwen-Image-Edit + Hunyuan3D-2 Paint color) is in
 [`hi3d/`](hi3d/README.en.md) ([中文](hi3d/README.md)). It does not replace V2.
 
 Obsolete V1 model files, renders, scripts and checkpoint documents have been

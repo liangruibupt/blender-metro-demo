@@ -77,6 +77,10 @@ G1 风格同人作品，机器人形态与平头卡车形态共用同一套可�
 
 ![参考视频帧 vs Hi3D 1536](devastator/hi3d/images/ref-vs-hi3d.jpg)
 
+再用 Qwen-Image-Edit 做 G1 配色概念图，经 Hunyuan3D-2 Paint 上色（[360° 视频](devastator/hi3d/deliverables/devastator-hi3d-color-360.mp4)）：
+
+![Hi3D 灰模 vs 上色](devastator/hi3d/images/color-vs-clay.jpg)
+
 ## 目录结构
 
 ```text
@@ -97,7 +101,7 @@ optimus/
 devastator/
   README.md, REFERENCE.md
   references/            用户提供的参考图与参考视频
-  hi3d/                  Hi3D v1.0 几何实验（截图、视频、脚本）
+  hi3d/                  Hi3D v1.0 几何 + 上色实验（截图、视频、GLB、脚本）
   v2/
     scripts/, assets/, deliverables/, qa/
     README.md, ASSEMBLY.md, QA.md, PROMPTS.md, MCP_SETUP.md
