@@ -13,6 +13,7 @@
 | 地铁 / Central 站 & M01 列车 | [metro/index.html](metro/index.html) | [metro/watch.html](metro/watch.html) | [地铁 README](metro/README.md) |
 | 擎天柱 / 金属质感 V3 | [optimus/index.html](optimus/index.html) | [optimus/watch.html](optimus/watch.html) | [擎天柱 README](optimus/README.md) |
 | 大力神 / 白模 V2 | —（仅 Blender + GLB） | [360° 环绕](devastator/v2/deliverables/devastator-v2-360.mp4) · [18 秒合体动画](devastator/v2/deliverables/devastator-v2-assembly.mp4) | [大力神 README](devastator/README.md) |
+| 大力神 / Hi3D v1.0 实验（几何 + 上色） | —（仅 GLB，[模型](devastator/hi3d/models/)） | [360° 灰模](devastator/hi3d/deliverables/devastator-hi3d-360.mp4) · [360° 上色](devastator/hi3d/deliverables/devastator-hi3d-color-360.mp4) | [Hi3D README](devastator/hi3d/README.md) |
 
 ## 效果截图
 

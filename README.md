@@ -15,6 +15,7 @@ deployment remain shared at the repository root.
 | Metro / Central & M01 | [metro/index.html](metro/index.html) | [metro/watch.html](metro/watch.html) | [Metro README](metro/README.md) |
 | Optimus Prime / Metal V3 | [optimus/index.html](optimus/index.html) | [optimus/watch.html](optimus/watch.html) | [Optimus README](optimus/README.md) |
 | Devastator / Clay V2 | — (Blender + GLB only) | [360° turntable](devastator/v2/deliverables/devastator-v2-360.mp4) · [18 s assembly](devastator/v2/deliverables/devastator-v2-assembly.mp4) | [Devastator README](devastator/README.md) |
+| Devastator / Hi3D v1.0 experiment (geometry + color) | — (GLB only, [models](devastator/hi3d/models/)) | [360° clay](devastator/hi3d/deliverables/devastator-hi3d-360.mp4) · [360° color](devastator/hi3d/deliverables/devastator-hi3d-color-360.mp4) | [Hi3D README](devastator/hi3d/README.en.md) |
 
 ## Gallery
 
