@@ -73,8 +73,9 @@ G1 风格同人作品，机器人形态与平头卡车形态共用同一套可�
 视频：[12 秒 360° 环绕](devastator/v2/deliverables/devastator-v2-360.mp4) ·
 [18 秒模块合体](devastator/v2/deliverables/devastator-v2-assembly.mp4)
 
-**实验：用 Hi3D v1.0 从参考生成几何。** 用 4 帧参考视频经 Hunyuan3D-2mv 出粗模，再由 Hi3D 1536 细化（只有几何）。
-四个方向的轮廓都与参考一致，但细小零件会丢失，结果是一整块未经编辑的网格。详见 [devastator/hi3d](devastator/hi3d/README.md)。
+**实验：用 Hi3D v1.0 从参考生成几何并上色。** 用 4 帧参考视频经 Hunyuan3D-2mv 出粗模，再由 Hi3D 1536 细化。
+四个方向的轮廓都与参考一致，但细小零件会丢失，结果是一整块未经编辑的网格。之后减面到 15 万面，
+以 Qwen-Image-Edit 生成的 G1 配色概念图为条件，用 Hunyuan3D-2 Paint 上色（[360° 上色视频](devastator/hi3d/deliverables/devastator-hi3d-color-360.mp4)）。详见 [devastator/hi3d](devastator/hi3d/README.md)。
 
 ![参考视频帧 vs Hi3D 1536](devastator/hi3d/images/ref-vs-hi3d.jpg)
 
