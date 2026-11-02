@@ -78,9 +78,11 @@ There is no Three.js viewer for this task.
 Videos: [12-second 360° turntable](devastator/v2/deliverables/devastator-v2-360.mp4) ·
 [18-second modular assembly](devastator/v2/deliverables/devastator-v2-assembly.mp4)
 
-**Experiment: Hi3D v1.0 geometry from the references.** Hunyuan3D-2mv coarse mesh from four turntable
-frames, refined by Hi3D at 1536 (geometry only). It matches the reference silhouette from every side, but
-thin parts are lost and the result is one unedited mesh. Details: [devastator/hi3d](devastator/hi3d/README.en.md).
+**Experiment: Hi3D v1.0 geometry + color from the references.** Hunyuan3D-2mv coarse mesh from four turntable
+frames, refined by Hi3D at 1536. It matches the reference silhouette from every side, but thin parts are lost
+and the result is one unedited mesh. The mesh was then decimated to 150k faces and colored in the G1 scheme
+with Hunyuan3D-2 Paint, conditioned on a Qwen-Image-Edit concept image
+([360° color video](devastator/hi3d/deliverables/devastator-hi3d-color-360.mp4)). Details: [devastator/hi3d](devastator/hi3d/README.en.md).
 
 ![Reference frames vs Hi3D 1536](devastator/hi3d/images/ref-vs-hi3d.jpg)
 
